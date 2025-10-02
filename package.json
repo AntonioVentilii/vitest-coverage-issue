@@ -70,8 +70,6 @@
 		"zod": "^4.1.11"
 	},
 	"devDependencies": {
-		"@dfinity/ic-management": "^7.0.2",
-		"@dfinity/identity-secp256k1": "^3.2.6",
 		"@rollup/plugin-inject": "^5.0.5",
 		"@sveltejs/adapter-static": "^3.0.9",
 		"@sveltejs/kit": "^2.43.5",
