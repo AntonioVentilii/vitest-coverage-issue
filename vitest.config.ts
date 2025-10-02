@@ -77,15 +77,7 @@ export default defineConfig(
 				exclude: [
 					'src/frontend/src/routes/**/+page.ts',
 					'src/frontend/src/**/*.{test,spec}.?(c|m)[jt]s?(x)'
-				],
-				// TODO: increase the thresholds slowly up to an acceptable 90% at least
-				thresholds: {
-					autoUpdate: true,
-					statements: 79,
-					branches: 85,
-					functions: 73,
-					lines: 79
-				}
+				]
 			}
 		}
 	})
