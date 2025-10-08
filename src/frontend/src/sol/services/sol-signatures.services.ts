@@ -1,23 +1,11 @@
 import { WALLET_PAGINATION } from '$lib/constants/app.constants';
-import type { SolAddress } from '$lib/types/address';
 import { fetchSignatures } from '$sol/api/solana.api';
 import { fetchSolTransactionsForSignature } from '$sol/services/sol-transactions.services';
-import type { SolanaNetworkType } from '$sol/types/network';
 import type { GetSolTransactionsParams } from '$sol/types/sol-api';
 import type { SolSignature, SolTransactionUi } from '$sol/types/sol-transaction';
-import type { SplToken } from '$sol/types/spl';
 import { nonNullish } from '@dfinity/utils';
 import { findAssociatedTokenPda } from '@solana-program/token';
 import { address as solAddress, assertIsAddress, signature } from '@solana/kit';
-
-interface GetSolSignaturesParams {
-	address: SolAddress;
-	network: SolanaNetworkType;
-	tokensList?: Pick<SplToken, 'address' | 'owner'>[];
-	before?: string;
-	limit?: number;
-}
-
 
 
 /**

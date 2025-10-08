@@ -115,13 +115,3 @@ export const enabledErc20Tokens: Readable<Erc20TokenToggleable[]> = derived(
 		...$enabledErc20UserTokens
 	]
 );
-
-export const erc20UserTokensInitialized: Readable<boolean> = derived(
-	[erc20UserTokensStore],
-	([$erc20UserTokensStore]) => $erc20UserTokensStore !== undefined
-);
-
-export const erc20UserTokensNotInitialized: Readable<boolean> = derived(
-	[erc20UserTokensInitialized],
-	([$erc20TokensInitialized]) => !$erc20TokensInitialized
-);

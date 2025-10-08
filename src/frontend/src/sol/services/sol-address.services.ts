@@ -1,10 +1,5 @@
 import { FRONTEND_DERIVATION_ENABLED } from '$env/address.env';
-import {
-	SOLANA_DEVNET_NETWORK_ID,
-	SOLANA_KEY_ID,
-	SOLANA_LOCAL_NETWORK_ID,
-	SOLANA_MAINNET_NETWORK_ID
-} from '$env/networks/networks.sol.env';
+import { SOLANA_KEY_ID, SOLANA_MAINNET_NETWORK_ID } from '$env/networks/networks.sol.env';
 import {
 	getIdbSolAddressMainnet,
 	setIdbSolAddressDevnet,
@@ -14,19 +9,8 @@ import {
 } from '$lib/api/idb-addresses.api';
 import { getSchnorrPublicKey } from '$lib/api/signer.api';
 import { deriveSolAddress } from '$lib/ic-pub-key/src/cli';
-import {
-	certifyAddress,
-	loadIdbTokenAddress,
-	loadTokenAddress,
-	type LoadTokenAddressParams,
-	validateAddress
-} from '$lib/services/address.services';
-import {
-	type AddressStoreData,
-	solAddressDevnetStore,
-	solAddressLocalnetStore,
-	solAddressMainnetStore
-} from '$lib/stores/address.store';
+import { loadIdbTokenAddress, loadTokenAddress, type LoadTokenAddressParams } from '$lib/services/address.services';
+import { solAddressDevnetStore, solAddressLocalnetStore, solAddressMainnetStore } from '$lib/stores/address.store';
 import { i18n } from '$lib/stores/i18n.store';
 import type { SolAddress } from '$lib/types/address';
 import type { CanisterApiFunctionParams } from '$lib/types/canister';
@@ -127,17 +111,6 @@ export const loadSolAddressMainnet = (): Promise<ResultSuccess> =>
 		network: SolanaNetworks.mainnet
 	});
 
-export const loadSolAddressDevnet = (): Promise<ResultSuccess> =>
-	loadSolAddress({
-		networkId: SOLANA_DEVNET_NETWORK_ID,
-		network: SolanaNetworks.devnet
-	});
-
-export const loadSolAddressLocal = (): Promise<ResultSuccess> =>
-	loadSolAddress({
-		networkId: SOLANA_LOCAL_NETWORK_ID,
-		network: SolanaNetworks.local
-	});
 
 export const loadIdbSolAddressMainnet = (): Promise<ResultSuccess<LoadIdbAddressError>> =>
 	loadIdbTokenAddress<SolAddress>({
@@ -147,17 +120,3 @@ export const loadIdbSolAddressMainnet = (): Promise<ResultSuccess<LoadIdbAddress
 		addressStore: solAddressMainnetStore
 	});
 
-const certifySolAddressMainnet = (address: SolAddress): Promise<ResultSuccess<string>> =>
-	certifyAddress<SolAddress>({
-		networkId: SOLANA_MAINNET_NETWORK_ID,
-		address,
-		getAddress: (identity: OptionIdentity) => getSolAddressMainnet(identity),
-		updateIdbAddressLastUsage: updateIdbSolAddressMainnetLastUsage,
-		addressStore: solAddressMainnetStore
-	});
-
-export const validateSolAddressMainnet = async ($addressStore: AddressStoreData<SolAddress>) =>
-	await validateAddress<SolAddress>({
-		$addressStore,
-		certifyAddress: certifySolAddressMainnet
-	});

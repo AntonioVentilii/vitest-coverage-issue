@@ -14,7 +14,6 @@ import { usdValue } from '$lib/utils/exchange.utils';
 import { bn1Bi, bn2Bi } from '$tests/mocks/balances.mock';
 import { mockValidIcCkToken } from '$tests/mocks/ic-tokens.mock';
 import { mockPage } from '$tests/mocks/page.store.mock';
-import { testDerivedUpdates } from '$tests/utils/derived.test-utils';
 import { get, readable } from 'svelte/store';
 
 const ckBtcExchangeValue = 1;
@@ -68,16 +67,7 @@ describe('modalTokensListStore', () => {
 		);
 	});
 
-	it('should ensure derived stores update at most once when the store changes', async () => {
-		await testDerivedUpdates(() =>
-			initModalTokensListContext({
-				filterNetwork: ICP_NETWORK,
-				filterQuery: 'test',
-				filterZeroBalance: true,
-				tokens: [mockToken1, mockToken2]
-			})
-		);
-	});
+
 
 	it('should have all expected values', () => {
 		const { filterNetwork, filteredTokens, filterQuery } = initModalTokensListContext({

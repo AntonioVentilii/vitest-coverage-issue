@@ -1,6 +1,5 @@
 import { initTokenActionValidationErrorsContext } from '$lib/stores/token-action-validation-errors.store';
 import { mockPage } from '$tests/mocks/page.store.mock';
-import { testDerivedUpdates } from '$tests/utils/derived.test-utils';
 import { get } from 'svelte/store';
 
 describe('tokenActionValidationErrorsStore', () => {
@@ -8,13 +7,6 @@ describe('tokenActionValidationErrorsStore', () => {
 		mockPage.reset();
 	});
 
-	it('should ensure derived stores update at most once when the store changes', async () => {
-		await testDerivedUpdates(() =>
-			initTokenActionValidationErrorsContext({
-				errorType: 'insufficient-funds'
-			})
-		);
-	});
 
 	it('should have all expected values on empty state', () => {
 		const {

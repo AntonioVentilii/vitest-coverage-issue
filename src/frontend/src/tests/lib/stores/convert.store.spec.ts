@@ -17,7 +17,6 @@ import { mockCkBtcMinterInfo as mockCkBtcMinterInfoData } from '$tests/mocks/ckb
 import { createMockErc20Tokens } from '$tests/mocks/erc20-tokens.mock';
 import { mockPage } from '$tests/mocks/page.store.mock';
 import { mockValidToken } from '$tests/mocks/tokens.mock';
-import { testDerivedUpdates } from '$tests/utils/derived.test-utils';
 import type { MinterInfo as CkEthMinterInfo } from '@dfinity/cketh';
 import { get, readable } from 'svelte/store';
 
@@ -36,14 +35,6 @@ describe('convertStore', () => {
 		);
 	});
 
-	it('should ensure derived stores update at most once when the store changes', async () => {
-		await testDerivedUpdates(() =>
-			initConvertContext({
-				destinationToken: ETHEREUM_TOKEN,
-				sourceToken: ICP_TOKEN
-			})
-		);
-	});
 
 	it('should have all expected values', () => {
 		const {

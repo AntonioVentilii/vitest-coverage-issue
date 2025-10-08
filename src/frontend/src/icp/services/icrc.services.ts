@@ -1,14 +1,12 @@
 import type { CustomToken, IcrcToken } from '$declarations/backend/backend.did';
-import { ICRC_CK_TOKENS_LEDGER_CANISTER_IDS, ICRC_TOKENS } from '$env/networks/networks.icrc.env';
-import type { Erc20ContractAddress, Erc20Token } from '$eth/types/erc20';
-import { balance, metadata } from '$icp/api/icrc-ledger.api';
+import { ICRC_TOKENS } from '$env/networks/networks.icrc.env';
+import { metadata } from '$icp/api/icrc-ledger.api';
 import { buildIndexedDip20Tokens } from '$icp/services/dip20-tokens.services';
 import { buildIndexedIcpTokens } from '$icp/services/icp-tokens.services';
 import { buildIndexedIcrcCustomTokens } from '$icp/services/icrc-custom-tokens.services';
 import { icrcCustomTokensStore } from '$icp/stores/icrc-custom-tokens.store';
 import { icrcDefaultTokensStore } from '$icp/stores/icrc-default-tokens.store';
-import type { LedgerCanisterIdText } from '$icp/types/canister';
-import type { IcCkToken, IcInterface, IcToken } from '$icp/types/ic-token';
+import type { IcInterface } from '$icp/types/ic-token';
 import type { IcrcCustomToken } from '$icp/types/icrc-custom-token';
 import {
 	buildIcrcCustomTokenMetadataPseudoResponse,
@@ -20,16 +18,13 @@ import {
 import { TRACK_COUNT_IC_LOADING_ICRC_CANISTER_ERROR } from '$lib/constants/analytics.contants';
 import { trackEvent } from '$lib/services/analytics.services';
 import { loadNetworkCustomTokens } from '$lib/services/custom-tokens.services';
-import { exchangeRateERC20ToUsd, exchangeRateICRCToUsd } from '$lib/services/exchange.services';
-import { balancesStore } from '$lib/stores/balances.store';
-import { exchangeStore } from '$lib/stores/exchange.store';
 import { i18n } from '$lib/stores/i18n.store';
 import { toastsError, toastsShow } from '$lib/stores/toasts.store';
 import type { OptionIdentity } from '$lib/types/identity';
 import type { TokenCategory } from '$lib/types/token';
 import { mapIcErrorMetadata } from '$lib/utils/error.utils';
 import { replacePlaceholders } from '$lib/utils/i18n.utils';
-import { AnonymousIdentity, type Identity } from '@dfinity/agent';
+import { AnonymousIdentity } from '@dfinity/agent';
 import {
 	fromNullable,
 	isNullish,
@@ -261,66 +256,3 @@ const loadIcrcCustomData = ({
 	icrcCustomTokensStore.setAll(tokens.map((token) => ({ data: token, certified })));
 };
 
-export const loadDisabledIcrcTokensBalances = ({
-	identity,
-	disabledIcrcTokens
-}: {
-	identity: Identity;
-	disabledIcrcTokens: IcToken[];
-}): Promise<void[]> =>
-	Promise.all(
-		disabledIcrcTokens.map(async ({ ledgerCanisterId, id }) => {
-			const icrcTokenBalance = await balance({
-				identity,
-				owner: identity.getPrincipal(),
-				ledgerCanisterId
-			});
-
-			balancesStore.set({
-				id,
-				data: {
-					data: icrcTokenBalance,
-					certified: true
-				}
-			});
-		})
-	);
-
-export const loadDisabledIcrcTokensExchanges = async ({
-	disabledIcrcTokens
-}: {
-	disabledIcrcTokens: IcToken[];
-}): Promise<void> => {
-	const [currentErc20Prices, currentIcrcPrices] = await Promise.all([
-		exchangeRateERC20ToUsd({
-			coingeckoPlatformId: 'ethereum',
-			contractAddresses: disabledIcrcTokens.reduce<Erc20ContractAddress[]>((acc, token) => {
-				const twinTokenAddress = ((token as Partial<IcCkToken>).twinToken as Erc20Token | undefined)
-					?.address;
-
-				return nonNullish(twinTokenAddress)
-					? [
-							...acc,
-							{
-								address: twinTokenAddress
-							}
-						]
-					: acc;
-			}, [])
-		}),
-		exchangeRateICRCToUsd(
-			disabledIcrcTokens.reduce<LedgerCanisterIdText[]>(
-				(acc, { ledgerCanisterId }) =>
-					!ICRC_CK_TOKENS_LEDGER_CANISTER_IDS.includes(ledgerCanisterId)
-						? [...acc, ledgerCanisterId]
-						: acc,
-				[]
-			)
-		)
-	]);
-
-	exchangeStore.set([
-		...(nonNullish(currentErc20Prices) ? [currentErc20Prices] : []),
-		...(nonNullish(currentIcrcPrices) ? [currentIcrcPrices] : [])
-	]);
-};

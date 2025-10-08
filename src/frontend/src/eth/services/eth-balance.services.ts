@@ -115,26 +115,3 @@ const loadErc20Balance = async ({
 	return { success: true };
 };
 
-export const loadEthBalances = async (tokens: Token[]): Promise<ResultSuccess> => {
-	const results = await Promise.all([
-		...tokens.map(({ network: { id: networkId }, id: tokenId }) =>
-			loadEthBalance({ networkId, tokenId })
-		)
-	]);
-
-	return { success: results.every(({ success }) => success === true) };
-};
-
-export const loadErc20Balances = async ({
-	address,
-	erc20Tokens
-}: {
-	address: OptionEthAddress;
-	erc20Tokens: Erc20Token[];
-}): Promise<ResultSuccess> => {
-	const results = await Promise.all([
-		...erc20Tokens.map((token) => loadErc20Balance({ token, address }))
-	]);
-
-	return { success: results.every(({ success }) => success === true) };
-};

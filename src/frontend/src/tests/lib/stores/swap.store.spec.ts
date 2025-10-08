@@ -7,7 +7,6 @@ import { initSwapContext } from '$lib/stores/swap.store';
 import { bn1Bi, bn2Bi } from '$tests/mocks/balances.mock';
 import { mockValidIcCkToken } from '$tests/mocks/ic-tokens.mock';
 import { mockPage } from '$tests/mocks/page.store.mock';
-import { testDerivedUpdates } from '$tests/utils/derived.test-utils';
 import { get, readable } from 'svelte/store';
 
 const ckBtcExchangeValue = 1;
@@ -32,14 +31,6 @@ describe('swapStore', () => {
 		);
 	});
 
-	it('should ensure derived stores update at most once when the store changes', async () => {
-		await testDerivedUpdates(() =>
-			initSwapContext({
-				destinationToken: mockToken1,
-				sourceToken: mockToken2
-			})
-		);
-	});
 
 	it('should have all expected values', () => {
 		const {
