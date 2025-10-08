@@ -1,8 +1,4 @@
-import {
-	ETH_MAINNET_ENABLED,
-	ETHEREUM_NETWORK,
-	SEPOLIA_NETWORK
-} from '$env/networks/networks.eth.env';
+import { ETH_MAINNET_ENABLED, ETHEREUM_NETWORK, SEPOLIA_NETWORK } from '$env/networks/networks.eth.env';
 import type { EthereumNetwork } from '$eth/types/network';
 import { testnetsEnabled } from '$lib/derived/testnets.derived';
 import { userNetworks } from '$lib/derived/user-networks.derived';

@@ -1,9 +1,6 @@
 import { WALLET_TIMER_INTERVAL_MILLIS } from '$lib/constants/app.constants';
-import { SchedulerTimer, type Scheduler, type SchedulerJobData } from '$lib/schedulers/scheduler';
-import type {
-	PostMessageDataResponseError,
-	PostMessageDataResponseWallet
-} from '$lib/types/post-message';
+import { type Scheduler, type SchedulerJobData, SchedulerTimer } from '$lib/schedulers/scheduler';
+import type { PostMessageDataResponseError, PostMessageDataResponseWallet } from '$lib/types/post-message';
 
 export type IcWalletMsg = 'syncIcpWallet' | 'syncIcrcWallet' | 'syncDip20Wallet';
 

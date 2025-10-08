@@ -1,25 +1,13 @@
 import * as exchangeEnv from '$env/exchange.env';
-import {
-	IC_CKBTC_LEDGER_CANISTER_ID,
-	IC_CKETH_LEDGER_CANISTER_ID
-} from '$env/networks/networks.icrc.env';
+import { IC_CKBTC_LEDGER_CANISTER_ID, IC_CKETH_LEDGER_CANISTER_ID } from '$env/networks/networks.icrc.env';
 import { USDC_TOKEN } from '$env/tokens/tokens-erc20/tokens.usdc.env';
 import {
 	ARBITRUM_ETH_TOKEN_ID,
 	ARBITRUM_SEPOLIA_ETH_TOKEN_ID
 } from '$env/tokens/tokens-evm/tokens-arbitrum/tokens.eth.env';
-import {
-	BASE_ETH_TOKEN_ID,
-	BASE_SEPOLIA_ETH_TOKEN_ID
-} from '$env/tokens/tokens-evm/tokens-base/tokens.eth.env';
-import {
-	BNB_MAINNET_TOKEN_ID,
-	BNB_TESTNET_TOKEN_ID
-} from '$env/tokens/tokens-evm/tokens-bsc/tokens.bnb.env';
-import {
-	POL_AMOY_TOKEN_ID,
-	POL_MAINNET_TOKEN_ID
-} from '$env/tokens/tokens-evm/tokens-polygon/tokens.pol.env';
+import { BASE_ETH_TOKEN_ID, BASE_SEPOLIA_ETH_TOKEN_ID } from '$env/tokens/tokens-evm/tokens-base/tokens.eth.env';
+import { BNB_MAINNET_TOKEN_ID, BNB_TESTNET_TOKEN_ID } from '$env/tokens/tokens-evm/tokens-bsc/tokens.bnb.env';
+import { POL_AMOY_TOKEN_ID, POL_MAINNET_TOKEN_ID } from '$env/tokens/tokens-evm/tokens-polygon/tokens.pol.env';
 import {
 	BTC_MAINNET_TOKEN,
 	BTC_MAINNET_TOKEN_ID,
@@ -29,11 +17,7 @@ import {
 import { ETHEREUM_TOKEN, ETHEREUM_TOKEN_ID, SEPOLIA_TOKEN_ID } from '$env/tokens/tokens.eth.env';
 import { IC_BUILTIN_TOKENS } from '$env/tokens/tokens.ic.env';
 import { ICP_TOKEN_ID, TESTICP_TOKEN_ID } from '$env/tokens/tokens.icp.env';
-import {
-	SOLANA_DEVNET_TOKEN_ID,
-	SOLANA_LOCAL_TOKEN_ID,
-	SOLANA_TOKEN_ID
-} from '$env/tokens/tokens.sol.env';
+import { SOLANA_DEVNET_TOKEN_ID, SOLANA_LOCAL_TOKEN_ID, SOLANA_TOKEN_ID } from '$env/tokens/tokens.sol.env';
 import { erc20CustomTokensStore } from '$eth/stores/erc20-custom-tokens.store';
 import { erc20DefaultTokensStore } from '$eth/stores/erc20-default-tokens.store';
 import { erc20UserTokensStore } from '$eth/stores/erc20-user-tokens.store';
@@ -42,11 +26,7 @@ import type { Erc20UserToken } from '$eth/types/erc20-user-token';
 import { icrcCustomTokensStore } from '$icp/stores/icrc-custom-tokens.store';
 import { icrcDefaultTokensStore } from '$icp/stores/icrc-default-tokens.store';
 import type { IcCkToken } from '$icp/types/ic-token';
-import {
-	exchangeInitialized,
-	exchangeNotInitialized,
-	exchanges
-} from '$lib/derived/exchange.derived';
+import { exchangeInitialized, exchangeNotInitialized, exchanges } from '$lib/derived/exchange.derived';
 import { exchangeStore } from '$lib/stores/exchange.store';
 import { parseTokenId } from '$lib/validation/token.validation';
 import { splCustomTokensStore } from '$sol/stores/spl-custom-tokens.store';

@@ -7,12 +7,7 @@ import {
 	OISY_URL
 } from '$lib/constants/oisy.constants';
 import { Languages } from '$lib/enums/languages';
-import {
-	getDefaultLang,
-	mergeWithFallback,
-	replaceOisyPlaceholders,
-	replacePlaceholders
-} from '$lib/utils/i18n.utils';
+import { getDefaultLang, mergeWithFallback, replaceOisyPlaceholders, replacePlaceholders } from '$lib/utils/i18n.utils';
 
 describe('i18n-utils', () => {
 	describe('replacePlaceholders', () => {

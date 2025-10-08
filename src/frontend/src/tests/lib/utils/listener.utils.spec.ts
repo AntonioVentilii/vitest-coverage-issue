@@ -5,14 +5,8 @@ import {
 	CKETH_LEDGER_CANISTER_IDS
 } from '$env/networks/networks.icrc.env';
 import { USDC_TOKEN } from '$env/tokens/tokens-erc20/tokens.usdc.env';
-import {
-	BASE_ETH_TOKEN,
-	BASE_SEPOLIA_ETH_TOKEN
-} from '$env/tokens/tokens-evm/tokens-base/tokens.eth.env';
-import {
-	BNB_MAINNET_TOKEN,
-	BNB_TESTNET_TOKEN
-} from '$env/tokens/tokens-evm/tokens-bsc/tokens.bnb.env';
+import { BASE_ETH_TOKEN, BASE_SEPOLIA_ETH_TOKEN } from '$env/tokens/tokens-evm/tokens-base/tokens.eth.env';
+import { BNB_MAINNET_TOKEN, BNB_TESTNET_TOKEN } from '$env/tokens/tokens-evm/tokens-bsc/tokens.bnb.env';
 import { BTC_MAINNET_TOKEN } from '$env/tokens/tokens.btc.env';
 import { ETHEREUM_TOKEN, SEPOLIA_TOKEN } from '$env/tokens/tokens.eth.env';
 import { ICP_TOKEN } from '$env/tokens/tokens.icp.env';

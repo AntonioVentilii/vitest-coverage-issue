@@ -1,10 +1,6 @@
 import { BTC_REGTEST_TOKEN_ID } from '$env/tokens/tokens.btc.env';
 import { SEPOLIA_TOKEN_ID } from '$env/tokens/tokens.eth.env';
-import {
-	initCertifiedStore,
-	type CertifiedStore,
-	type WritableUpdateStore
-} from '$lib/stores/certified.store';
+import { type CertifiedStore, initCertifiedStore, type WritableUpdateStore } from '$lib/stores/certified.store';
 import { get } from 'svelte/store';
 
 describe('certified.store', () => {

@@ -1,8 +1,4 @@
-import {
-	QUICKNODE_API_KEY,
-	QUICKNODE_API_URL_DEVNET,
-	QUICKNODE_API_URL_MAINNET
-} from '$env/rest/quicknode.env';
+import { QUICKNODE_API_KEY, QUICKNODE_API_URL_DEVNET, QUICKNODE_API_URL_MAINNET } from '$env/rest/quicknode.env';
 import type { TokenMetadata } from '$lib/types/token';
 import type { UrlSchema } from '$lib/validation/url.validation';
 import type { SolanaNetworkType } from '$sol/types/network';

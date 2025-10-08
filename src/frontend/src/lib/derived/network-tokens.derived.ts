@@ -1,10 +1,6 @@
 import { exchanges } from '$lib/derived/exchange.derived';
 import { pseudoNetworkChainFusion, selectedNetwork } from '$lib/derived/network.derived';
-import {
-	enabledFungibleTokens,
-	enabledNonFungibleTokens,
-	tokensToPin
-} from '$lib/derived/tokens.derived';
+import { enabledFungibleTokens, enabledNonFungibleTokens, tokensToPin } from '$lib/derived/tokens.derived';
 import { balancesStore } from '$lib/stores/balances.store';
 import type { NonFungibleToken } from '$lib/types/nft';
 import type { Token, TokenUi } from '$lib/types/token';

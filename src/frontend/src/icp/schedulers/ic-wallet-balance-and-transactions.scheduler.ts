@@ -1,5 +1,5 @@
 import type { Event } from '$declarations/xtc_ledger/xtc_ledger.did';
-import { IcWalletScheduler, type IcWalletMsg } from '$icp/schedulers/ic-wallet.scheduler';
+import { type IcWalletMsg, IcWalletScheduler } from '$icp/schedulers/ic-wallet.scheduler';
 import type { Dip20TransactionWithId } from '$icp/types/api';
 import type { IcTransactionAddOnsInfo, IcTransactionUi } from '$icp/types/ic-transaction';
 import type { GetTransactions } from '$icp/types/ic.post-message';

@@ -1,8 +1,4 @@
-import {
-	ETH_MAINNET_ENABLED,
-	ETHEREUM_NETWORK,
-	SEPOLIA_NETWORK
-} from '$env/networks/networks.eth.env';
+import { ETH_MAINNET_ENABLED, ETHEREUM_NETWORK, SEPOLIA_NETWORK } from '$env/networks/networks.eth.env';
 import { ONEINCH_TOKEN } from '$env/tokens/tokens-erc20/tokens.1inch.env';
 import { ARB_TOKEN } from '$env/tokens/tokens-erc20/tokens.arb.env';
 import { DAI_TOKEN } from '$env/tokens/tokens-erc20/tokens.dai.env';
@@ -25,11 +21,7 @@ import { WEETH_TOKEN } from '$env/tokens/tokens-erc20/tokens.weeth.env';
 import { WETH_TOKEN } from '$env/tokens/tokens-erc20/tokens.weth.env';
 import { WSTETH_TOKEN } from '$env/tokens/tokens-erc20/tokens.wsteth.env';
 import { XAUT_TOKEN } from '$env/tokens/tokens-erc20/tokens.xaut.env';
-import type {
-	Erc20Contract,
-	RequiredAdditionalErc20Token,
-	RequiredErc20Token
-} from '$eth/types/erc20';
+import type { Erc20Contract, RequiredAdditionalErc20Token, RequiredErc20Token } from '$eth/types/erc20';
 import type { EthereumNetwork } from '$eth/types/network';
 import type { TokenId } from '$lib/types/token';
 import { defineSupportedTokens } from '$lib/utils/env.tokens.utils';

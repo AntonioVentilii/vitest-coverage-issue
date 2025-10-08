@@ -3,7 +3,7 @@ import { ETHEREUM_TOKEN } from '$env/tokens/tokens.eth.env';
 import type { EthereumNetwork } from '$eth/types/network';
 import type { IcCkToken, IcToken } from '$icp/types/ic-token';
 import type { Token, TokenId, TokenStandard } from '$lib/types/token';
-import { derived, writable, type Readable } from 'svelte/store';
+import { derived, type Readable, writable } from 'svelte/store';
 
 export type ReceiveTokenStoreData = IcToken;
 

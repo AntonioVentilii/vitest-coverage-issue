@@ -1,9 +1,5 @@
 import type { NetworkId } from '$lib/types/network';
-import {
-	isNetworkIdSOLDevnet,
-	isNetworkIdSOLLocal,
-	isNetworkIdSOLMainnet
-} from '$lib/utils/network.utils';
+import { isNetworkIdSOLDevnet, isNetworkIdSOLLocal, isNetworkIdSOLMainnet } from '$lib/utils/network.utils';
 import { SolanaNetworks, type SolanaNetworkType } from '$sol/types/network';
 
 export const mapNetworkIdToNetwork = (networkId: NetworkId): SolanaNetworkType | undefined => {

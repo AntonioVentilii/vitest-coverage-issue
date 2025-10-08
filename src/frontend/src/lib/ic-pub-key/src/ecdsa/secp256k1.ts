@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 /* v8 ignore start */
 
-import { ProjectivePoint, type AffinePoint } from '@noble/secp256k1';
+import { type AffinePoint, ProjectivePoint } from '@noble/secp256k1';
 // import createHmac from 'create-hmac';
 import { hmac } from '@noble/hashes/hmac';
 import { sha512 } from '@noble/hashes/sha2';

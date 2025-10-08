@@ -2,10 +2,7 @@ import { BSC_MAINNET_NETWORK } from '$env/networks/networks-evm/networks.evm.bsc
 import { ETHEREUM_NETWORK, ETHEREUM_NETWORK_SYMBOL } from '$env/networks/networks.eth.env';
 import { ICP_NETWORK, ICP_NETWORK_SYMBOL } from '$env/networks/networks.icp.env';
 import { SOLANA_MAINNET_NETWORK } from '$env/networks/networks.sol.env';
-import {
-	USDC_SYMBOL,
-	USDC_TOKEN as USDC_TOKEN_ERC20
-} from '$env/tokens/tokens-erc20/tokens.usdc.env';
+import { USDC_SYMBOL, USDC_TOKEN as USDC_TOKEN_ERC20 } from '$env/tokens/tokens-erc20/tokens.usdc.env';
 import { USDC_TOKEN as USDC_TOKEN_BEP20 } from '$env/tokens/tokens-evm/tokens-bsc/tokens-bep20/tokens.usdc.env';
 import { USDC_TOKEN as USDC_TOKEN_SPL } from '$env/tokens/tokens-spl/tokens.usdc.env';
 import { BTC_MAINNET_TOKEN } from '$env/tokens/tokens.btc.env';

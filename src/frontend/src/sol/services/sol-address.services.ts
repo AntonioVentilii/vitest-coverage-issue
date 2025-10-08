@@ -18,14 +18,14 @@ import {
 	certifyAddress,
 	loadIdbTokenAddress,
 	loadTokenAddress,
-	validateAddress,
-	type LoadTokenAddressParams
+	type LoadTokenAddressParams,
+	validateAddress
 } from '$lib/services/address.services';
 import {
+	type AddressStoreData,
 	solAddressDevnetStore,
 	solAddressLocalnetStore,
-	solAddressMainnetStore,
-	type AddressStoreData
+	solAddressMainnetStore
 } from '$lib/stores/address.store';
 import { i18n } from '$lib/stores/i18n.store';
 import type { SolAddress } from '$lib/types/address';

@@ -1,9 +1,4 @@
-import type {
-	AddressSchema,
-	BtcAddressSchema,
-	EthAddressSchema,
-	SolAddressSchema
-} from '$lib/schema/address.schema';
+import type { AddressSchema, BtcAddressSchema, EthAddressSchema, SolAddressSchema } from '$lib/schema/address.schema';
 import type { Option } from '$lib/types/utils';
 import type * as z from 'zod';
 

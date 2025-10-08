@@ -9,11 +9,7 @@ import type { TokenUiGroup, TokenUiOrGroupUi } from '$lib/types/token-group';
 import type { TokenToggleable } from '$lib/types/token-toggleable';
 import { showTokenFilteredBySelectedNetwork } from '$lib/utils/network.utils';
 import { isTokenUiGroup } from '$lib/utils/token-group.utils';
-import {
-	getDisabledOrModifiedTokens,
-	getFilteredTokenGroup,
-	getFilteredTokenList
-} from '$lib/utils/token-list.utils';
+import { getDisabledOrModifiedTokens, getFilteredTokenGroup, getFilteredTokenList } from '$lib/utils/token-list.utils';
 
 // Mock data for tokens
 const token1: TokenUi = BTC_MAINNET_TOKEN;

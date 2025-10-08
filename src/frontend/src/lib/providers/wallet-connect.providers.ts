@@ -15,10 +15,7 @@ import {
 } from '$eth/constants/wallet-connect.constants';
 import { WALLET_CONNECT_METADATA } from '$lib/constants/wallet-connect.constants';
 import type { OptionEthAddress, OptionSolAddress } from '$lib/types/address';
-import type {
-	WalletConnectApproveRequestMessage,
-	WalletConnectListener
-} from '$lib/types/wallet-connect';
+import type { WalletConnectApproveRequestMessage, WalletConnectListener } from '$lib/types/wallet-connect';
 import {
 	SESSION_REQUEST_SOL_SIGN_AND_SEND_TRANSACTION,
 	SESSION_REQUEST_SOL_SIGN_MESSAGE,
@@ -27,11 +24,7 @@ import {
 import { isNullish, nonNullish } from '@dfinity/utils';
 import { WalletKit, type WalletKitTypes } from '@reown/walletkit';
 import { Core } from '@walletconnect/core';
-import {
-	formatJsonRpcResult,
-	type ErrorResponse,
-	type JsonRpcResponse
-} from '@walletconnect/jsonrpc-utils';
+import { type ErrorResponse, formatJsonRpcResult, type JsonRpcResponse } from '@walletconnect/jsonrpc-utils';
 import type { SessionTypes } from '@walletconnect/types';
 import { buildApprovedNamespaces, getSdkError } from '@walletconnect/utils';
 

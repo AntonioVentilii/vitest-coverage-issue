@@ -1,7 +1,4 @@
-import {
-	JsonTransactionsTextSchema,
-	PostMessageDataResponseSchema
-} from '$lib/schema/post-message.schema';
+import { JsonTransactionsTextSchema, PostMessageDataResponseSchema } from '$lib/schema/post-message.schema';
 import type { CertifiedData } from '$lib/types/store';
 import type { SolBalance } from '$sol/types/sol-balance';
 import * as z from 'zod';

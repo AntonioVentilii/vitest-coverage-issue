@@ -1,7 +1,4 @@
-import {
-	POLYGON_AMOY_NETWORK,
-	POLYGON_MAINNET_NETWORK
-} from '$env/networks/networks-evm/networks.evm.polygon.env';
+import { POLYGON_AMOY_NETWORK, POLYGON_MAINNET_NETWORK } from '$env/networks/networks-evm/networks.evm.polygon.env';
 import { USDC_TOKEN_GROUP } from '$env/tokens/groups/groups.usdc.env';
 import usdc from '$eth/assets/usdc.svg';
 import type { RequiredEvmErc20Token } from '$evm/types/erc20';

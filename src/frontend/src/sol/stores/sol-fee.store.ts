@@ -1,5 +1,5 @@
 import type { TokenId } from '$lib/types/token';
-import { writable, type Readable, type Writable } from 'svelte/store';
+import { type Readable, writable, type Writable } from 'svelte/store';
 
 export type FeeStoreData = bigint | undefined;
 

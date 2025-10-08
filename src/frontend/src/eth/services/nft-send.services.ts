@@ -2,11 +2,7 @@ import type { EthSignTransactionRequest } from '$declarations/signer/signer.did'
 import { ERC1155_ABI } from '$eth/constants/erc1155.constants';
 import { ERC721_ABI } from '$eth/constants/erc721.constants';
 import { infuraProviders } from '$eth/providers/infura.providers';
-import type {
-	PreparedContractCall,
-	TransferErc1155Params,
-	TransferErc721Params
-} from '$eth/types/nft-send';
+import type { PreparedContractCall, TransferErc1155Params, TransferErc721Params } from '$eth/types/nft-send';
 import { signTransaction } from '$lib/api/signer.api';
 import { ZERO } from '$lib/constants/app.constants';
 import { ProgressStepsSend as ProgressStepsSendEnum } from '$lib/enums/progress-steps';

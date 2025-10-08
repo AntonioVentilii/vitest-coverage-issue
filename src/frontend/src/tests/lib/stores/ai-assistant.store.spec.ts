@@ -1,5 +1,5 @@
 import { aiAssistantStore } from '$lib/stores/ai-assistant.store';
-import { ToolResultType, type ChatMessage, type ToolResult } from '$lib/types/ai-assistant';
+import { type ChatMessage, type ToolResult, ToolResultType } from '$lib/types/ai-assistant';
 import { mockPage } from '$tests/mocks/page.store.mock';
 import { testDerivedUpdates } from '$tests/utils/derived.test-utils';
 import { get } from 'svelte/store';

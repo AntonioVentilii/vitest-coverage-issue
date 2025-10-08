@@ -12,10 +12,10 @@ import type { IcCkToken, IcInterface, IcToken } from '$icp/types/ic-token';
 import type { IcrcCustomToken } from '$icp/types/icrc-custom-token';
 import {
 	buildIcrcCustomTokenMetadataPseudoResponse,
+	type IcrcLoadData,
 	mapIcrcToken,
 	mapTokenOisyName,
-	mapTokenOisySymbol,
-	type IcrcLoadData
+	mapTokenOisySymbol
 } from '$icp/utils/icrc.utils';
 import { TRACK_COUNT_IC_LOADING_ICRC_CANISTER_ERROR } from '$lib/constants/analytics.contants';
 import { trackEvent } from '$lib/services/analytics.services';

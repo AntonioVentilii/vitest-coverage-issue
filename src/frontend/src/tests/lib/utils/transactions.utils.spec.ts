@@ -4,14 +4,8 @@ import type { BtcTransactionType } from '$btc/types/btc-transaction';
 import * as ethEnv from '$env/networks/networks.eth.env';
 import { ETHEREUM_NETWORK_ID, SEPOLIA_NETWORK_ID } from '$env/networks/networks.eth.env';
 import { PEPE_TOKEN, PEPE_TOKEN_ID } from '$env/tokens/tokens-erc20/tokens.pepe.env';
-import {
-	BASE_ETH_TOKEN,
-	BASE_ETH_TOKEN_ID
-} from '$env/tokens/tokens-evm/tokens-base/tokens.eth.env';
-import {
-	BNB_MAINNET_TOKEN,
-	BNB_MAINNET_TOKEN_ID
-} from '$env/tokens/tokens-evm/tokens-bsc/tokens.bnb.env';
+import { BASE_ETH_TOKEN, BASE_ETH_TOKEN_ID } from '$env/tokens/tokens-evm/tokens-base/tokens.eth.env';
+import { BNB_MAINNET_TOKEN, BNB_MAINNET_TOKEN_ID } from '$env/tokens/tokens-evm/tokens-bsc/tokens.bnb.env';
 import { BONK_TOKEN, BONK_TOKEN_ID } from '$env/tokens/tokens-spl/tokens.bonk.env';
 import {
 	BTC_MAINNET_TOKEN,
@@ -20,18 +14,10 @@ import {
 	BTC_TESTNET_TOKEN,
 	BTC_TESTNET_TOKEN_ID
 } from '$env/tokens/tokens.btc.env';
-import {
-	ETHEREUM_TOKEN,
-	ETHEREUM_TOKEN_ID,
-	SEPOLIA_TOKEN,
-	SEPOLIA_TOKEN_ID
-} from '$env/tokens/tokens.eth.env';
+import { ETHEREUM_TOKEN, ETHEREUM_TOKEN_ID, SEPOLIA_TOKEN, SEPOLIA_TOKEN_ID } from '$env/tokens/tokens.eth.env';
 import { ICP_TOKEN, ICP_TOKEN_ID } from '$env/tokens/tokens.icp.env';
 import { SOLANA_TOKEN, SOLANA_TOKEN_ID } from '$env/tokens/tokens.sol.env';
-import type {
-	EthCertifiedTransaction,
-	EthCertifiedTransactionsData
-} from '$eth/stores/eth-transactions.store';
+import type { EthCertifiedTransaction, EthCertifiedTransactionsData } from '$eth/stores/eth-transactions.store';
 import type { EthTransactionType } from '$eth/types/eth-transaction';
 import type { IcCertifiedTransactionsData } from '$icp/stores/ic-transactions.store';
 import type { IcTransactionType, IcTransactionUi } from '$icp/types/ic-transaction';

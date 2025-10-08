@@ -1,4 +1,4 @@
-import { saveTokens, type ManageTokensSaveParams } from '$lib/services/manage-tokens.services';
+import { type ManageTokensSaveParams, saveTokens } from '$lib/services/manage-tokens.services';
 import { saveCustomTokens } from '$sol/services/spl-custom-tokens.services';
 import type { SaveSplCustomToken } from '$sol/types/spl-custom-token';
 

@@ -7,10 +7,7 @@ import { extendedAddressContacts } from '$lib/derived/contacts.derived';
 import { enabledTokens } from '$lib/derived/tokens.derived';
 import { aiAssistantStore } from '$lib/stores/ai-assistant.store';
 import type { ChatMessage } from '$lib/types/ai-assistant';
-import {
-	parseToAiAssistantContacts,
-	parseToAiAssistantTokens
-} from '$lib/utils/ai-assistant.utils';
+import { parseToAiAssistantContacts, parseToAiAssistantTokens } from '$lib/utils/ai-assistant.utils';
 import { jsonReplacer, notEmptyString, toNullable } from '@dfinity/utils';
 import { derived, type Readable } from 'svelte/store';
 

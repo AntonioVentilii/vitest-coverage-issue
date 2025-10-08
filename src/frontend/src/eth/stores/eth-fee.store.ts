@@ -2,7 +2,7 @@ import { maxGasFee as maxGasFeeUtils, minGasFee as minGasFeeUtils } from '$eth/u
 import type { TokenId } from '$lib/types/token';
 import type { TransactionFeeData } from '$lib/types/transaction';
 import { nonNullish } from '@dfinity/utils';
-import { derived, writable, type Readable, type Writable } from 'svelte/store';
+import { derived, type Readable, writable, type Writable } from 'svelte/store';
 
 export type FeeStoreData = TransactionFeeData | undefined;
 

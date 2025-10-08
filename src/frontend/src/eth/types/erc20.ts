@@ -1,13 +1,7 @@
 import type { ContractAddress } from '$eth/types/address';
 import type { EthereumNetwork } from '$eth/types/network';
 import type { Exchange } from '$lib/types/exchange';
-import type {
-	RequiredToken,
-	Token,
-	TokenLinkedData,
-	TokenMetadata,
-	TokenStandard
-} from '$lib/types/token';
+import type { RequiredToken, Token, TokenLinkedData, TokenMetadata, TokenStandard } from '$lib/types/token';
 import type { Option } from '$lib/types/utils';
 
 type Erc20Standard = Extract<TokenStandard, 'erc20'>;

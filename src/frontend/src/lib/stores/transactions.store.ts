@@ -1,4 +1,4 @@
-import { initCertifiedStore, type CertifiedStore } from '$lib/stores/certified.store';
+import { type CertifiedStore, initCertifiedStore } from '$lib/stores/certified.store';
 import type { CertifiedData } from '$lib/types/store';
 import type { TokenId } from '$lib/types/token';
 import type { AnyTransaction, Transaction } from '$lib/types/transaction';

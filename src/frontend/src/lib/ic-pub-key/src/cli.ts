@@ -6,12 +6,9 @@ import { schnorr_ed25519_derive } from '$lib/ic-pub-key/src/schnorr/ed25519';
 import { mapDerivationPath } from '$lib/utils/signer.utils.js';
 import type { BitcoinNetwork } from '@dfinity/ckbtc';
 import { Principal } from '@dfinity/principal';
-import { networks, payments, type Network } from 'bitcoinjs-lib';
+import { type Network, networks, payments } from 'bitcoinjs-lib';
 import { computeAddress } from 'ethers/transaction';
-import {
-	DerivationPath,
-	PublicKeyWithChainCode as Secp256k1PublicKeyWithChainCode
-} from './ecdsa/secp256k1.js';
+import { DerivationPath, PublicKeyWithChainCode as Secp256k1PublicKeyWithChainCode } from './ecdsa/secp256k1.js';
 
 /* istanbul ignore next */
 export const deriveEthAddress = async (user: string): Promise<string> => {

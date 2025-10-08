@@ -2,10 +2,7 @@ import { BTC_MAINNET_NETWORK_ID, BTC_TESTNET_NETWORK_ID } from '$env/networks/ne
 import { SUPPORTED_NETWORKS } from '$env/networks/networks.env';
 import { ETHEREUM_NETWORK_ID, SEPOLIA_NETWORK_ID } from '$env/networks/networks.eth.env';
 import { ICP_NETWORK_ID, ICP_PSEUDO_TESTNET_NETWORK_ID } from '$env/networks/networks.icp.env';
-import {
-	SOLANA_DEVNET_NETWORK_ID,
-	SOLANA_MAINNET_NETWORK_ID
-} from '$env/networks/networks.sol.env';
+import { SOLANA_DEVNET_NETWORK_ID, SOLANA_MAINNET_NETWORK_ID } from '$env/networks/networks.sol.env';
 import type { UserNetworks } from '$lib/types/user-networks';
 
 export const mockUserNetworks: UserNetworks = {

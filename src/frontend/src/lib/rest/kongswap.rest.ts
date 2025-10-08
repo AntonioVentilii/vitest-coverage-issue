@@ -1,6 +1,6 @@
 import { KONGSWAP_API_URL } from '$env/rest/kongswap.env';
 import type { LedgerCanisterIdText } from '$icp/types/canister';
-import { KongSwapTokenSchema, type KongSwapToken } from '$lib/types/kongswap';
+import { type KongSwapToken, KongSwapTokenSchema } from '$lib/types/kongswap';
 
 const fetchKongSwap = async <T>(endpoint: string): Promise<T | null> => {
 	const response = await fetch(`${KONGSWAP_API_URL}/${endpoint}`, {

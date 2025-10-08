@@ -1,11 +1,7 @@
 import type { ContactUi } from '$lib/types/contact';
 import { getNetworkContactKey } from '$lib/utils/contact.utils';
 import { getNetworkContacts } from '$lib/utils/contacts.utils';
-import {
-	getMockContactsUi,
-	mockContactBtcAddressUi,
-	mockContactIcrcAddressUi
-} from '$tests/mocks/contacts.mock';
+import { getMockContactsUi, mockContactBtcAddressUi, mockContactIcrcAddressUi } from '$tests/mocks/contacts.mock';
 
 describe('contacts.utils', () => {
 	describe('getNetworkContacts', () => {

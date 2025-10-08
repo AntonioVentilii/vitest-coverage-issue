@@ -1,7 +1,4 @@
-import {
-	loadBtcAddressMainnet,
-	loadIdbBtcAddressMainnet
-} from '$btc/services/btc-address.services';
+import { loadBtcAddressMainnet, loadIdbBtcAddressMainnet } from '$btc/services/btc-address.services';
 import { BTC_MAINNET_NETWORK_ID } from '$env/networks/networks.btc.env';
 import { ETHEREUM_NETWORK_ID } from '$env/networks/networks.eth.env';
 import { SOLANA_MAINNET_NETWORK_ID } from '$env/networks/networks.sol.env';
@@ -10,10 +7,7 @@ import type { LoadIdbAddressError } from '$lib/types/errors';
 import type { NetworkId } from '$lib/types/network';
 import type { ResultSuccess, ResultSuccessReduced } from '$lib/types/utils';
 import { reduceResults } from '$lib/utils/results.utils';
-import {
-	loadIdbSolAddressMainnet,
-	loadSolAddressMainnet
-} from '$sol/services/sol-address.services';
+import { loadIdbSolAddressMainnet, loadSolAddressMainnet } from '$sol/services/sol-address.services';
 
 export const loadAddresses = async (networkIds: NetworkId[]): Promise<ResultSuccess> => {
 	const results = await Promise.all([

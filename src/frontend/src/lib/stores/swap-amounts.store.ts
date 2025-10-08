@@ -2,7 +2,7 @@ import type { OptionAmount } from '$lib/types/send';
 import type { SwapMappedResult } from '$lib/types/swap';
 import type { Option } from '$lib/types/utils';
 import { isNullish } from '@dfinity/utils';
-import { writable, type Readable } from 'svelte/store';
+import { type Readable, writable } from 'svelte/store';
 
 export interface SwapAmountsStoreData {
 	swaps: SwapMappedResult[];

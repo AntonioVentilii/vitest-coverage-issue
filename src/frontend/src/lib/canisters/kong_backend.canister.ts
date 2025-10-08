@@ -3,7 +3,9 @@ import type {
 	SwapAmountsReply,
 	TokenReply
 } from '$declarations/kong_backend/kong_backend.did';
-import { idlFactory as idlCertifiedFactoryKongBackend } from '$declarations/kong_backend/kong_backend.factory.certified.did';
+import {
+	idlFactory as idlCertifiedFactoryKongBackend
+} from '$declarations/kong_backend/kong_backend.factory.certified.did';
 import { idlFactory as idlFactoryKongBackend } from '$declarations/kong_backend/kong_backend.factory.did';
 import { getAgent } from '$lib/actors/agents.ic';
 import { mapKongBackendCanisterError } from '$lib/canisters/kong_backend.errors';

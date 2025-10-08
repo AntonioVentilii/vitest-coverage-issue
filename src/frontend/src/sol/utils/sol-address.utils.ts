@@ -17,7 +17,6 @@ export const isSolAddress = (address: Address | undefined): boolean => {
 	}
 };
 
-export const invalidSolAddress = (address: Address | undefined): boolean => !isSolAddress(address);
 
 export const isAtaAddress = async ({
 	address,

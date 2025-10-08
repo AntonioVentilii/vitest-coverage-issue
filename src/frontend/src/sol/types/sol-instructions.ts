@@ -2,10 +2,7 @@ import type { SolAddress } from '$lib/types/address';
 import type { SolRpcTransactionRaw } from '$sol/types/sol-transaction';
 import type { ParsedComputeBudgetInstruction } from '@solana-program/compute-budget';
 import type { ParsedSystemInstruction } from '@solana-program/system';
-import type {
-	ParsedAssociatedTokenInstruction,
-	ParsedTokenInstruction
-} from '@solana-program/token';
+import type { ParsedAssociatedTokenInstruction, ParsedTokenInstruction } from '@solana-program/token';
 import type { ParsedToken2022Instruction } from '@solana-program/token-2022';
 import type { Address, Instruction } from '@solana/kit';
 

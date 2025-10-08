@@ -8,7 +8,7 @@ import type { CurrencyExchangeData } from '$lib/types/currency';
 import { getCurrencyDecimalDigits } from '$lib/utils/currency.utils';
 import { isNullish, nonNullish } from '@dfinity/utils';
 import Decimal from 'decimal.js';
-import { formatUnits, type BigNumberish } from 'ethers/utils';
+import { type BigNumberish, formatUnits } from 'ethers/utils';
 
 const DEFAULT_DISPLAY_DECIMALS = 4;
 const MAX_DEFAULT_DISPLAY_DECIMALS = 8;

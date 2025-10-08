@@ -1,4 +1,6 @@
-import { initMinedTransactionsListener as initMinedTransactionsListenerProvider } from '$eth/providers/alchemy.providers';
+import {
+	initMinedTransactionsListener as initMinedTransactionsListenerProvider
+} from '$eth/providers/alchemy.providers';
 import type { WebSocketListener } from '$lib/types/listener';
 import type { NetworkId } from '$lib/types/network';
 

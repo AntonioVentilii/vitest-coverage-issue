@@ -10,10 +10,7 @@ import { isNetworkIdSOLDevnet, isNetworkIdSOLLocal } from '$lib/utils/network.ut
 import { findOldestTransaction } from '$lib/utils/transactions.utils';
 import { fetchTransactionDetailForSignature, getAccountOwner } from '$sol/api/solana.api';
 import { getSolTransactions } from '$sol/services/sol-signatures.services';
-import {
-	solTransactionsStore,
-	type SolCertifiedTransaction
-} from '$sol/stores/sol-transactions.store';
+import { type SolCertifiedTransaction, solTransactionsStore } from '$sol/stores/sol-transactions.store';
 import type { SolanaNetworkType } from '$sol/types/network';
 import type { LoadNextSolTransactionsParams, LoadSolTransactionsParams } from '$sol/types/sol-api';
 import type {
@@ -29,7 +26,7 @@ import { mapSolParsedInstruction } from '$sol/utils/sol-instructions.utils';
 import { isTokenSpl } from '$sol/utils/spl.utils';
 import { isNullish, nonNullish } from '@dfinity/utils';
 import { findAssociatedTokenPda } from '@solana-program/token';
-import { lamports, address as solAddress } from '@solana/kit';
+import { address as solAddress, lamports } from '@solana/kit';
 import type { Lamports } from '@solana/rpc-types';
 import { get } from 'svelte/store';
 

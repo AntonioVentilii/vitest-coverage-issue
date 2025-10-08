@@ -1,10 +1,6 @@
 import { btcPendingSentTransactionsStore } from '$btc/stores/btc-pending-sent-transactions.store';
 import { LOCAL } from '$lib/constants/app.constants';
-import {
-	btcAddressMainnet,
-	btcAddressRegtest,
-	btcAddressTestnet
-} from '$lib/derived/address.derived';
+import { btcAddressMainnet, btcAddressRegtest, btcAddressTestnet } from '$lib/derived/address.derived';
 import { testnetsEnabled } from '$lib/derived/testnets.derived';
 import { nonNullish } from '@dfinity/utils';
 import { derived, type Readable } from 'svelte/store';

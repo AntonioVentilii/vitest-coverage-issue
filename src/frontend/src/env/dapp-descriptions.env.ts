@@ -1,5 +1,5 @@
 import dAppDescriptionsJson from '$env/dapp-descriptions.json';
-import { OisyDappDescriptionSchema, type OisyDappDescription } from '$lib/types/dapp-description';
+import { type OisyDappDescription, OisyDappDescriptionSchema } from '$lib/types/dapp-description';
 import * as z from 'zod';
 
 const parseResult = z.array(OisyDappDescriptionSchema).safeParse(dAppDescriptionsJson);

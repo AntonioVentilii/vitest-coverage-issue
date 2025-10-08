@@ -17,15 +17,10 @@ import {
 	setReferrer as setReferrerApi
 } from '$lib/api/reward.api';
 import { ZERO } from '$lib/constants/app.constants';
-import { QrCodeType, asQrCodeType } from '$lib/enums/qr-code-types';
+import { asQrCodeType, QrCodeType } from '$lib/enums/qr-code-types';
 import { i18n } from '$lib/stores/i18n.store';
 import { toastsError } from '$lib/stores/toasts.store';
-import {
-	AlreadyClaimedError,
-	InvalidCampaignError,
-	InvalidCodeError,
-	UserNotVipError
-} from '$lib/types/errors';
+import { AlreadyClaimedError, InvalidCampaignError, InvalidCodeError, UserNotVipError } from '$lib/types/errors';
 import type {
 	CampaignEligibility,
 	RewardClaimApiResponse,

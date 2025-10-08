@@ -1,8 +1,4 @@
-import {
-	execute,
-	reject,
-	type WalletConnectExecuteParams
-} from '$lib/services/wallet-connect.services';
+import { execute, reject, type WalletConnectExecuteParams } from '$lib/services/wallet-connect.services';
 import { busy } from '$lib/stores/busy.store';
 import * as toastsStore from '$lib/stores/toasts.store';
 import type { WalletConnectListener } from '$lib/types/wallet-connect';

@@ -1,7 +1,7 @@
 import type { Address, BtcAddress, EthAddress, SolAddress } from '$lib/types/address';
 import type { CertifiedData } from '$lib/types/store';
 import type { Option } from '$lib/types/utils';
-import { writable, type Readable } from 'svelte/store';
+import { type Readable, writable } from 'svelte/store';
 
 type CertifiedAddressData<T extends Address> = CertifiedData<T>;
 

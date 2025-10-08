@@ -21,11 +21,7 @@ import type { Transaction } from '$lib/types/transaction';
 import { replacePlaceholders } from '$lib/utils/i18n.utils';
 import { parseNftId } from '$lib/validation/nft.validation';
 import { assertNonNullish } from '@dfinity/utils';
-import {
-	EtherscanProvider as EtherscanProviderLib,
-	Network,
-	type BlockTag
-} from 'ethers/providers';
+import { type BlockTag, EtherscanProvider as EtherscanProviderLib, Network } from 'ethers/providers';
 import { get } from 'svelte/store';
 
 interface TransactionsParams {

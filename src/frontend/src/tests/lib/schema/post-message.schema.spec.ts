@@ -7,6 +7,7 @@ import {
 import { USDC_TOKEN } from '$env/tokens/tokens-spl/tokens.usdc.env';
 import { Currency } from '$lib/enums/currency';
 import {
+	inferPostMessageSchema,
 	JsonTransactionsTextSchema,
 	POST_MESSAGE_REQUESTS,
 	PostMessageDataErrorSchema,
@@ -31,8 +32,7 @@ import {
 	PostMessageResponseSchema,
 	PostMessageResponseStatusSchema,
 	PostMessageSyncStateSchema,
-	PostMessageWalletDataSchema,
-	inferPostMessageSchema
+	PostMessageWalletDataSchema
 } from '$lib/schema/post-message.schema';
 import type { BtcAddress } from '$lib/types/address';
 import type { CoingeckoSimplePriceResponse } from '$lib/types/coingecko';

@@ -3,11 +3,7 @@ import { ETHEREUM_NETWORK_ID } from '$env/networks/networks.eth.env';
 import { ICP_NETWORK_ID } from '$env/networks/networks.icp.env';
 import { PEPE_TOKEN } from '$env/tokens/tokens-erc20/tokens.pepe.env';
 import { BONK_TOKEN } from '$env/tokens/tokens-spl/tokens.bonk.env';
-import {
-	BTC_MAINNET_SYMBOL,
-	BTC_MAINNET_TOKEN,
-	BTC_TESTNET_TOKEN
-} from '$env/tokens/tokens.btc.env';
+import { BTC_MAINNET_SYMBOL, BTC_MAINNET_TOKEN, BTC_TESTNET_TOKEN } from '$env/tokens/tokens.btc.env';
 import { ETHEREUM_TOKEN } from '$env/tokens/tokens.eth.env';
 import { ICP_TOKEN } from '$env/tokens/tokens.icp.env';
 import { SOLANA_DEVNET_TOKEN, SOLANA_LOCAL_TOKEN, SOLANA_TOKEN } from '$env/tokens/tokens.sol.env';

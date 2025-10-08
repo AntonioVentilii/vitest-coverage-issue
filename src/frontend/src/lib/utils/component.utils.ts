@@ -1,4 +1,4 @@
-import { mount, unmount, type Component, type ComponentProps } from 'svelte';
+import { type Component, type ComponentProps, mount, unmount } from 'svelte';
 
 export const componentToHtml = <T extends Component>({
 	Component,

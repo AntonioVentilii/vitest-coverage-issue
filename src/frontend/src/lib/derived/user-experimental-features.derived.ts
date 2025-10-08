@@ -1,9 +1,6 @@
 import type { ExperimentalFeatureSettingsFor } from '$declarations/backend/backend.did';
 import { userExperimentalFeaturesSettings } from '$lib/derived/user-profile.derived';
-import type {
-	ExperimentalFeatureId,
-	UserExperimentalFeatures
-} from '$lib/types/user-experimental-features';
+import type { ExperimentalFeatureId, UserExperimentalFeatures } from '$lib/types/user-experimental-features';
 import { isNullish } from '@dfinity/utils';
 import { derived, type Readable } from 'svelte/store';
 

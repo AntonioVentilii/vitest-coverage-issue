@@ -3,30 +3,13 @@ import {
 	ARBITRUM_ETH_TOKEN_ID,
 	ARBITRUM_SEPOLIA_ETH_TOKEN_ID
 } from '$env/tokens/tokens-evm/tokens-arbitrum/tokens.eth.env';
-import {
-	BASE_ETH_TOKEN_ID,
-	BASE_SEPOLIA_ETH_TOKEN_ID
-} from '$env/tokens/tokens-evm/tokens-base/tokens.eth.env';
-import {
-	BNB_MAINNET_TOKEN_ID,
-	BNB_TESTNET_TOKEN_ID
-} from '$env/tokens/tokens-evm/tokens-bsc/tokens.bnb.env';
-import {
-	POL_AMOY_TOKEN_ID,
-	POL_MAINNET_TOKEN_ID
-} from '$env/tokens/tokens-evm/tokens-polygon/tokens.pol.env';
-import {
-	BTC_MAINNET_TOKEN_ID,
-	BTC_REGTEST_TOKEN_ID,
-	BTC_TESTNET_TOKEN_ID
-} from '$env/tokens/tokens.btc.env';
+import { BASE_ETH_TOKEN_ID, BASE_SEPOLIA_ETH_TOKEN_ID } from '$env/tokens/tokens-evm/tokens-base/tokens.eth.env';
+import { BNB_MAINNET_TOKEN_ID, BNB_TESTNET_TOKEN_ID } from '$env/tokens/tokens-evm/tokens-bsc/tokens.bnb.env';
+import { POL_AMOY_TOKEN_ID, POL_MAINNET_TOKEN_ID } from '$env/tokens/tokens-evm/tokens-polygon/tokens.pol.env';
+import { BTC_MAINNET_TOKEN_ID, BTC_REGTEST_TOKEN_ID, BTC_TESTNET_TOKEN_ID } from '$env/tokens/tokens.btc.env';
 import { ETHEREUM_TOKEN_ID, SEPOLIA_TOKEN_ID } from '$env/tokens/tokens.eth.env';
 import { ICP_TOKEN_ID, TESTICP_TOKEN_ID } from '$env/tokens/tokens.icp.env';
-import {
-	SOLANA_DEVNET_TOKEN_ID,
-	SOLANA_LOCAL_TOKEN_ID,
-	SOLANA_TOKEN_ID
-} from '$env/tokens/tokens.sol.env';
+import { SOLANA_DEVNET_TOKEN_ID, SOLANA_LOCAL_TOKEN_ID, SOLANA_TOKEN_ID } from '$env/tokens/tokens.sol.env';
 import { enabledErc20Tokens } from '$eth/derived/erc20.derived';
 import type { Erc20Token } from '$eth/types/erc20';
 import type { IcCkToken } from '$icp/types/ic-token';

@@ -8,18 +8,8 @@ import {
 } from '$env/networks/networks.icrc.env';
 import { icrc1SupportedStandards } from '$icp/api/icrc-ledger.api';
 import type { LedgerCanisterIdText } from '$icp/types/canister';
-import {
-	IcTokenStandards,
-	type IcCkInterface,
-	type IcFee,
-	type IcInterface,
-	type IcToken
-} from '$icp/types/ic-token';
-import type {
-	IcTokenExtended,
-	IcTokenWithoutIdExtended,
-	IcrcCustomToken
-} from '$icp/types/icrc-custom-token';
+import { type IcCkInterface, type IcFee, type IcInterface, type IcToken, IcTokenStandards } from '$icp/types/ic-token';
+import type { IcrcCustomToken, IcTokenExtended, IcTokenWithoutIdExtended } from '$icp/types/icrc-custom-token';
 import { isTokenIcTestnet } from '$icp/utils/ic-ledger.utils';
 import type { CanisterIdText } from '$lib/types/canister';
 import type { OptionIdentity } from '$lib/types/identity';
@@ -28,9 +18,9 @@ import { parseTokenId } from '$lib/validation/token.validation';
 import { UrlSchema } from '$lib/validation/url.validation';
 import {
 	IcrcMetadataResponseEntries,
-	mapTokenMetadata,
 	type IcrcTokenMetadataResponse,
-	type IcrcValue
+	type IcrcValue,
+	mapTokenMetadata
 } from '@dfinity/ledger-icrc';
 import { isNullish, nonNullish, notEmptyString } from '@dfinity/utils';
 

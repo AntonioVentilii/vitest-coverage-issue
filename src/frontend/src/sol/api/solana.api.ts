@@ -3,11 +3,7 @@ import { ATA_SIZE } from '$sol/constants/ata.constants';
 import { solanaHttpRpc } from '$sol/providers/sol-rpc.providers';
 import type { SolanaNetworkType } from '$sol/types/network';
 import type { SolanaGetAccountInfoReturn } from '$sol/types/sol-rpc';
-import type {
-	SolRpcTransaction,
-	SolRpcTransactionRaw,
-	SolSignature
-} from '$sol/types/sol-transaction';
+import type { SolRpcTransaction, SolRpcTransactionRaw, SolSignature } from '$sol/types/sol-transaction';
 import type { SplTokenAddress } from '$sol/types/spl';
 import { isNullish, nonNullish } from '@dfinity/utils';
 import { address as solAddress, type Address, type Lamports, type Signature } from '@solana/kit';

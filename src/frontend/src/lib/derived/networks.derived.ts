@@ -3,11 +3,7 @@ import {
 	SUPPORTED_EVM_MAINNET_NETWORK_IDS,
 	SUPPORTED_EVM_TESTNET_NETWORK_IDS
 } from '$env/networks/networks-evm/networks.evm.env';
-import {
-	BTC_MAINNET_NETWORK_ID,
-	BTC_REGTEST_NETWORK_ID,
-	BTC_TESTNET_NETWORK_ID
-} from '$env/networks/networks.btc.env';
+import { BTC_MAINNET_NETWORK_ID, BTC_REGTEST_NETWORK_ID, BTC_TESTNET_NETWORK_ID } from '$env/networks/networks.btc.env';
 import { ETHEREUM_NETWORK_ID, SEPOLIA_NETWORK_ID } from '$env/networks/networks.eth.env';
 import { ICP_NETWORK, ICP_PSEUDO_TESTNET_NETWORK } from '$env/networks/networks.icp.env';
 import {

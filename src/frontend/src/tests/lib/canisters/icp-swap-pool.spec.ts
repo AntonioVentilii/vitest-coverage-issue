@@ -1,8 +1,8 @@
 import type {
+	_SERVICE as SwapPoolService,
 	DepositArgs,
 	Result,
 	SwapArgs,
-	_SERVICE as SwapPoolService,
 	WithdrawArgs
 } from '$declarations/icp_swap_pool/icp_swap_pool.did';
 import { CanisterInternalError } from '$lib/canisters/errors';

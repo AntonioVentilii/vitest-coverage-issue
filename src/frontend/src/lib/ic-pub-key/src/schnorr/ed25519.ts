@@ -7,6 +7,7 @@ import { hkdf as nobleHkdf } from '@noble/hashes/hkdf.js';
 import { sha512 } from '@noble/hashes/sha2';
 import { ChainCode } from '../chain_code.js';
 import { bigintFromBigEndianBytes, blobDecode, blobEncode } from '../encoding.js';
+
 export { ChainCode };
 
 /**

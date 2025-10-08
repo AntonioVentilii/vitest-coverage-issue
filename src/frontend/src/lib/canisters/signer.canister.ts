@@ -1,12 +1,12 @@
 import type {
+	_SERVICE as SignerService,
 	BitcoinNetwork,
 	EthAddressRequest,
 	EthPersonalSignRequest,
 	EthSignPrehashRequest,
 	EthSignTransactionRequest,
 	GetBalanceRequest,
-	SendBtcResponse,
-	_SERVICE as SignerService
+	SendBtcResponse
 } from '$declarations/signer/signer.did';
 import { idlFactory as idlCertifiedFactorySigner } from '$declarations/signer/signer.factory.certified.did';
 import { idlFactory as idlFactorySigner } from '$declarations/signer/signer.factory.did';
@@ -18,11 +18,7 @@ import {
 	mapSignerCanisterSendBtcError
 } from '$lib/canisters/signer.errors';
 import type { BtcAddress, EthAddress } from '$lib/types/address';
-import type {
-	GetSchnorrPublicKeyParams,
-	SendBtcParams,
-	SignWithSchnorrParams
-} from '$lib/types/api';
+import type { GetSchnorrPublicKeyParams, SendBtcParams, SignWithSchnorrParams } from '$lib/types/api';
 import type { CreateCanisterOptions } from '$lib/types/canister';
 import { mapDerivationPath } from '$lib/utils/signer.utils';
 import { Canister, createServices, fromDefinedNullable, toNullable } from '@dfinity/utils';

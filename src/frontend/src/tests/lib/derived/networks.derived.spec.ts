@@ -4,10 +4,7 @@ import { BSC_MAINNET_NETWORK_SYMBOL } from '$env/networks/networks-evm/networks.
 import { POLYGON_MAINNET_NETWORK_SYMBOL } from '$env/networks/networks-evm/networks.evm.polygon.env';
 import { BTC_MAINNET_NETWORK_SYMBOL } from '$env/networks/networks.btc.env';
 import { ETHEREUM_NETWORK_SYMBOL } from '$env/networks/networks.eth.env';
-import {
-	ICP_NETWORK_SYMBOL,
-	ICP_PSEUDO_TESTNET_NETWORK_SYMBOL
-} from '$env/networks/networks.icp.env';
+import { ICP_NETWORK_SYMBOL, ICP_PSEUDO_TESTNET_NETWORK_SYMBOL } from '$env/networks/networks.icp.env';
 import { SOLANA_MAINNET_NETWORK_SYMBOL } from '$env/networks/networks.sol.env';
 import { enabledNetworksSymbols } from '$lib/derived/networks.derived';
 import { get } from 'svelte/store';

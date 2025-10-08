@@ -4,11 +4,7 @@ import { SUPPORTED_ETHEREUM_NETWORKS } from '$env/networks/networks.eth.env';
 import { ICP_NETWORK } from '$env/networks/networks.icp.env';
 import { SUPPORTED_SOLANA_NETWORKS } from '$env/networks/networks.sol.env';
 import type { TokenAccountIdTypes } from '$lib/types/token-account-id';
-import {
-	areAddressesEqual,
-	areAddressesPartiallyEqual,
-	getCaseSensitiveness
-} from '$lib/utils/address.utils';
+import { areAddressesEqual, areAddressesPartiallyEqual, getCaseSensitiveness } from '$lib/utils/address.utils';
 import { parseNetworkId } from '$lib/validation/network.validation';
 
 describe('address.utils', () => {

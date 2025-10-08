@@ -2,10 +2,7 @@ import { POLYGON_AMOY_NETWORK } from '$env/networks/networks-evm/networks.evm.po
 import { ETHEREUM_NETWORK, SEPOLIA_NETWORK } from '$env/networks/networks.eth.env';
 import usdc from '$eth/assets/usdc.svg';
 import type { Erc721Token } from '$eth/types/erc721';
-import type { Erc721CustomToken } from '$eth/types/erc721-custom-token';
 import type { RequiredEvmErc721Token } from '$evm/types/erc721';
-import type { NetworkEnvironment } from '$lib/types/network';
-import type { CertifiedData } from '$lib/types/store';
 import type { TokenId } from '$lib/types/token';
 import { parseTokenId } from '$lib/validation/token.validation';
 import { mockEthAddress } from '$tests/mocks/eth.mock';

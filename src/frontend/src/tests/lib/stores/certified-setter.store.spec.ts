@@ -1,8 +1,5 @@
 import { SEPOLIA_TOKEN_ID } from '$env/tokens/tokens.eth.env';
-import {
-	initCertifiedSetterStore,
-	type CertifiedSetterStoreStore
-} from '$lib/stores/certified-setter.store';
+import { type CertifiedSetterStoreStore, initCertifiedSetterStore } from '$lib/stores/certified-setter.store';
 import type { WritableUpdateStore } from '$lib/stores/certified.store';
 import { get } from 'svelte/store';
 

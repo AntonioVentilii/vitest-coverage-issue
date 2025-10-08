@@ -1,9 +1,9 @@
 import type {
+	_SERVICE as RewardService,
 	ClaimedVipReward,
 	EligibilityReport,
 	NewVipRewardResponse,
 	ReferrerInfo,
-	_SERVICE as RewardService,
 	SetReferrerResponse,
 	UserData,
 	UserSnapshot,
@@ -15,13 +15,7 @@ import { getAgent } from '$lib/actors/agents.ic';
 import type { CreateCanisterOptions } from '$lib/types/canister';
 import { EligibilityError } from '$lib/types/errors';
 import type { RewardClaimApiResponse } from '$lib/types/reward';
-import {
-	Canister,
-	createServices,
-	fromNullable,
-	toNullable,
-	type QueryParams
-} from '@dfinity/utils';
+import { Canister, createServices, fromNullable, type QueryParams, toNullable } from '@dfinity/utils';
 
 export class RewardCanister extends Canister<RewardService> {
 	static async create({

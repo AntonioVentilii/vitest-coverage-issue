@@ -17,10 +17,7 @@ import {
 } from '$lib/api/idb-tokens.api';
 import * as authServices from '$lib/services/auth.services';
 import { toCustomToken } from '$lib/utils/custom-token.utils';
-import {
-	createMockErc20CustomTokens,
-	createMockErc20UserTokens
-} from '$tests/mocks/erc20-tokens.mock';
+import { createMockErc20CustomTokens, createMockErc20UserTokens } from '$tests/mocks/erc20-tokens.mock';
 import { mockIndexCanisterId, mockLedgerCanisterId } from '$tests/mocks/ic-tokens.mock';
 import { mockIdentity, mockPrincipal } from '$tests/mocks/identity.mock';
 import { Principal } from '@dfinity/principal';

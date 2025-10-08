@@ -1,8 +1,4 @@
-import {
-	authClientStorage,
-	createAuthClient,
-	safeCreateAuthClient
-} from '$lib/api/auth-client.api';
+import { authClientStorage, createAuthClient, safeCreateAuthClient } from '$lib/api/auth-client.api';
 import { AuthClientNotInitializedError } from '$lib/types/errors';
 import { assertNonNullish, isNullish, nonNullish } from '@dfinity/utils';
 
@@ -19,9 +15,9 @@ import type { Option } from '$lib/types/utils';
 import { getOptionalDerivationOrigin } from '$lib/utils/auth.utils';
 import { popupCenter } from '$lib/utils/window.utils';
 import type { Identity } from '@dfinity/agent';
-import { KEY_STORAGE_KEY, type AuthClient } from '@dfinity/auth-client';
+import { type AuthClient, KEY_STORAGE_KEY } from '@dfinity/auth-client';
 import type { ECDSAKeyIdentity } from '@dfinity/identity';
-import { writable, type Readable } from 'svelte/store';
+import { type Readable, writable } from 'svelte/store';
 
 export interface AuthStoreData {
 	identity: OptionIdentity;

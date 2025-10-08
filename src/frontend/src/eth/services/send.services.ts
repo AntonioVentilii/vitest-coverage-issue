@@ -6,10 +6,7 @@ import { infuraErc20IcpProviders } from '$eth/providers/infura-erc20-icp.provide
 import { infuraErc20Providers } from '$eth/providers/infura-erc20.providers';
 import { infuraProviders } from '$eth/providers/infura.providers';
 import { processTransactionSent } from '$eth/services/eth-transaction.services';
-import type {
-	CkEthPopulateTransaction,
-	Erc20PopulateTransaction
-} from '$eth/types/contracts-providers';
+import type { CkEthPopulateTransaction, Erc20PopulateTransaction } from '$eth/types/contracts-providers';
 import type { Erc20ContractAddress, Erc20Token } from '$eth/types/erc20';
 import type { EthereumNetwork, NetworkChainId } from '$eth/types/network';
 import type { ApproveParams, SendParams, SignAndApproveParams } from '$eth/types/send';
@@ -17,10 +14,7 @@ import { isSupportedEthTokenId } from '$eth/utils/eth.utils';
 import { isDestinationContractAddress, shouldSendWithApproval } from '$eth/utils/send.utils';
 import { isErc20Icp } from '$eth/utils/token.utils';
 import { isSupportedEvmNativeTokenId } from '$evm/utils/native-token.utils';
-import {
-	toCkErc20HelperContractAddress,
-	toCkEthHelperContractAddress
-} from '$icp-eth/utils/cketh.utils';
+import { toCkErc20HelperContractAddress, toCkEthHelperContractAddress } from '$icp-eth/utils/cketh.utils';
 import { signTransaction } from '$lib/api/signer.api';
 import { ZERO } from '$lib/constants/app.constants';
 import { ProgressStepsSend } from '$lib/enums/progress-steps';

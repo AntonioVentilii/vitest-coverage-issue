@@ -1,16 +1,10 @@
 import { send as executeSend } from '$eth/services/send.services';
 import type { FeeStoreData } from '$eth/stores/eth-fee.store';
 import type { SendParams } from '$eth/types/send';
-import {
-	getSignParamsMessageHex,
-	getSignParamsMessageTypedDataV4Hash
-} from '$eth/utils/wallet-connect.utils';
+import { getSignParamsMessageHex, getSignParamsMessageTypedDataV4Hash } from '$eth/utils/wallet-connect.utils';
 import { assertCkEthMinterInfoLoaded } from '$icp-eth/services/cketh.services';
 import { signMessage as signMessageApi, signPrehash } from '$lib/api/signer.api';
-import {
-	TRACK_COUNT_WC_ETH_SEND_ERROR,
-	TRACK_COUNT_WC_ETH_SEND_SUCCESS
-} from '$lib/constants/analytics.contants';
+import { TRACK_COUNT_WC_ETH_SEND_ERROR, TRACK_COUNT_WC_ETH_SEND_SUCCESS } from '$lib/constants/analytics.contants';
 import { UNEXPECTED_ERROR } from '$lib/constants/wallet-connect.constants';
 import { ProgressStepsSend, ProgressStepsSign } from '$lib/enums/progress-steps';
 import { trackEvent } from '$lib/services/analytics.services';

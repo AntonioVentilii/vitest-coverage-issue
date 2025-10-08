@@ -1,10 +1,7 @@
 import { SUPPORTED_EVM_NETWORKS } from '$env/networks/networks-evm/networks.evm.env';
 import { SUPPORTED_ETHEREUM_NETWORKS } from '$env/networks/networks.eth.env';
 import { ALCHEMY_API_KEY } from '$env/rest/alchemy.env';
-import type {
-	AlchemyProviderContract,
-	AlchemyProviderContracts
-} from '$eth/types/alchemy-contract';
+import type { AlchemyProviderContract, AlchemyProviderContracts } from '$eth/types/alchemy-contract';
 import type { AlchemyProviderOwnedNfts } from '$eth/types/alchemy-nfts';
 import type { Erc1155Metadata } from '$eth/types/erc1155';
 import type { Erc721Metadata } from '$eth/types/erc721';
@@ -22,11 +19,11 @@ import { parseNftId } from '$lib/validation/nft.validation';
 import { assertNonNullish, isNullish, nonNullish } from '@dfinity/utils';
 import {
 	Alchemy,
-	AlchemySubscription,
-	NftOrdering,
 	type AlchemyEventType,
 	type AlchemySettings,
-	type Network
+	AlchemySubscription,
+	type Network,
+	NftOrdering
 } from 'alchemy-sdk';
 import type { Listener } from 'ethers/utils';
 import { get } from 'svelte/store';

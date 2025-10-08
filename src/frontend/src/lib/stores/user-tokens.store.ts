@@ -6,7 +6,7 @@ import type { UserToken } from '$lib/types/user-token';
 import type { Option } from '$lib/types/utils';
 import type { SplTokenAddress } from '$sol/types/spl';
 import { isTokenSpl } from '$sol/utils/spl.utils';
-import { writable, type Readable } from 'svelte/store';
+import { type Readable, writable } from 'svelte/store';
 
 type CertifiedUserTokensData<T extends Token> = Option<CertifiedData<UserToken<T>>[]>;
 

@@ -8,13 +8,7 @@ import { setCustomToken } from '$lib/api/backend.api';
 import * as factoryApi from '$lib/api/icp-swap-factory.api';
 import { getPoolCanister } from '$lib/api/icp-swap-factory.api';
 import * as poolApi from '$lib/api/icp-swap-pool.api';
-import {
-	deposit,
-	depositFrom,
-	getUserUnusedBalance,
-	swap as swapIcp,
-	withdraw
-} from '$lib/api/icp-swap-pool.api';
+import { deposit, depositFrom, getUserUnusedBalance, swap as swapIcp, withdraw } from '$lib/api/icp-swap-pool.api';
 import { ZERO } from '$lib/constants/app.constants';
 import { ProgressStepsSwap } from '$lib/enums/progress-steps';
 import { icpSwapAmounts } from '$lib/services/icp-swap.services';
@@ -24,7 +18,7 @@ import * as swapUtils from '$lib/utils/swap.utils';
 import { isSwapError } from '$lib/utils/swap.utils';
 import { waitAndTriggerWallet } from '$lib/utils/wallet.utils';
 import en from '$tests/mocks/i18n.mock';
-import { mockValidIcToken, mockValidIcrcToken } from '$tests/mocks/ic-tokens.mock';
+import { mockValidIcrcToken, mockValidIcToken } from '$tests/mocks/ic-tokens.mock';
 import { mockIdentity } from '$tests/mocks/identity.mock';
 import { Principal } from '@dfinity/principal';
 

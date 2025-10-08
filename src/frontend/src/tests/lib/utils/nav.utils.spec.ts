@@ -2,13 +2,7 @@ import * as appEnvironment from '$app/environment';
 import * as appNavigation from '$app/navigation';
 import { ETHEREUM_NETWORK_ID } from '$env/networks/networks.eth.env';
 import { ICP_NETWORK_ID } from '$env/networks/networks.icp.env';
-import {
-	AppPath,
-	NETWORK_PARAM,
-	ROUTE_ID_GROUP_APP,
-	TOKEN_PARAM,
-	URI_PARAM
-} from '$lib/constants/routes.constants';
+import { AppPath, NETWORK_PARAM, ROUTE_ID_GROUP_APP, TOKEN_PARAM, URI_PARAM } from '$lib/constants/routes.constants';
 import {
 	back,
 	gotoReplaceRoot,

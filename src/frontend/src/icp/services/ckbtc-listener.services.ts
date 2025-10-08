@@ -6,10 +6,7 @@ import type { SyncCkMinterInfoError, SyncCkMinterInfoSuccess } from '$icp/types/
 import type { UtxoTxidText } from '$icp/types/ckbtc';
 import { i18n } from '$lib/stores/i18n.store';
 import { toastsError } from '$lib/stores/toasts.store';
-import type {
-	PostMessageDataResponseBTCAddress,
-	PostMessageJsonDataResponse
-} from '$lib/types/post-message';
+import type { PostMessageDataResponseBTCAddress, PostMessageJsonDataResponse } from '$lib/types/post-message';
 import type { CertifiedData } from '$lib/types/store';
 import type { SyncState } from '$lib/types/sync';
 import type { TokenId } from '$lib/types/token';

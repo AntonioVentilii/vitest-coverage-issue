@@ -1,10 +1,6 @@
 import IcTransactionsCkBtcListeners from '$icp/components/transactions/IcTransactionsCkBtcListeners.svelte';
 import IcTransactionsCkEthereumListeners from '$icp/components/transactions/IcTransactionsCkEthereumListeners.svelte';
-import {
-	isTokenCkBtcLedger,
-	isTokenCkErc20Ledger,
-	isTokenCkEthLedger
-} from '$icp/utils/ic-send.utils';
+import { isTokenCkBtcLedger, isTokenCkErc20Ledger, isTokenCkEthLedger } from '$icp/utils/ic-send.utils';
 import type { TokenToListener } from '$lib/types/listener';
 import type { OptionToken } from '$lib/types/token';
 import { isNetworkICP } from '$lib/utils/network.utils';

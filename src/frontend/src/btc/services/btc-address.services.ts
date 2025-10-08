@@ -1,9 +1,5 @@
 import { FRONTEND_DERIVATION_ENABLED } from '$env/address.env';
-import {
-	BTC_MAINNET_NETWORK_ID,
-	BTC_REGTEST_NETWORK_ID,
-	BTC_TESTNET_NETWORK_ID
-} from '$env/networks/networks.btc.env';
+import { BTC_MAINNET_NETWORK_ID } from '$env/networks/networks.btc.env';
 import {
 	getIdbBtcAddressMainnet,
 	setIdbBtcAddressMainnet,
@@ -12,19 +8,8 @@ import {
 } from '$lib/api/idb-addresses.api';
 import { getBtcAddress as getSignerBtcAddress } from '$lib/api/signer.api';
 import { deriveBtcAddress } from '$lib/ic-pub-key/src/cli';
-import {
-	certifyAddress,
-	loadIdbTokenAddress,
-	loadTokenAddress,
-	validateAddress,
-	type LoadTokenAddressParams
-} from '$lib/services/address.services';
-import {
-	btcAddressMainnetStore,
-	btcAddressRegtestStore,
-	btcAddressTestnetStore,
-	type AddressStoreData
-} from '$lib/stores/address.store';
+import { loadIdbTokenAddress, loadTokenAddress, type LoadTokenAddressParams } from '$lib/services/address.services';
+import { btcAddressMainnetStore, btcAddressRegtestStore, btcAddressTestnetStore } from '$lib/stores/address.store';
 import { i18n } from '$lib/stores/i18n.store';
 import type { BtcAddress } from '$lib/types/address';
 import type { LoadIdbAddressError } from '$lib/types/errors';
@@ -90,17 +75,6 @@ const loadBtcAddress = ({
 		...bitcoinMapper[network]
 	});
 
-export const loadBtcAddressTestnet = (): Promise<ResultSuccess> =>
-	loadBtcAddress({
-		networkId: BTC_TESTNET_NETWORK_ID,
-		network: 'testnet'
-	});
-
-export const loadBtcAddressRegtest = (): Promise<ResultSuccess> =>
-	loadBtcAddress({
-		networkId: BTC_REGTEST_NETWORK_ID,
-		network: 'regtest'
-	});
 
 export const loadBtcAddressMainnet = (): Promise<ResultSuccess> =>
 	loadBtcAddress({
@@ -116,17 +90,3 @@ export const loadIdbBtcAddressMainnet = (): Promise<ResultSuccess<LoadIdbAddress
 		addressStore: btcAddressMainnetStore
 	});
 
-const certifyBtcAddressMainnet = (address: BtcAddress): Promise<ResultSuccess<string>> =>
-	certifyAddress<BtcAddress>({
-		networkId: BTC_MAINNET_NETWORK_ID,
-		address,
-		getAddress: (identity: OptionIdentity) => getBtcAddress({ identity, network: 'mainnet' }),
-		updateIdbAddressLastUsage: updateIdbBtcAddressMainnetLastUsage,
-		addressStore: btcAddressMainnetStore
-	});
-
-export const validateBtcAddressMainnet = async ($addressStore: AddressStoreData<BtcAddress>) =>
-	await validateAddress<BtcAddress>({
-		$addressStore,
-		certifyAddress: certifyBtcAddressMainnet
-	});

@@ -1,9 +1,11 @@
 import type {
+	_SERVICE as SwapFactoryService,
 	GetPoolArgs,
-	PoolData,
-	_SERVICE as SwapFactoryService
+	PoolData
 } from '$declarations/icp_swap_factory/icp_swap_factory.did';
-import { idlFactory as certifiedFactoryIdlFactory } from '$declarations/icp_swap_factory/icp_swap_factory.factory.certified.did';
+import {
+	idlFactory as certifiedFactoryIdlFactory
+} from '$declarations/icp_swap_factory/icp_swap_factory.factory.certified.did';
 import { idlFactory as factoryIdlFactory } from '$declarations/icp_swap_factory/icp_swap_factory.factory.did';
 import { getAgent } from '$lib/actors/agents.ic';
 import { mapIcpSwapFactoryError } from '$lib/canisters/icp-swap.errors';

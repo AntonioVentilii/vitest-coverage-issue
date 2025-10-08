@@ -1,7 +1,7 @@
 import {
-	initCertifiedStore,
 	type CertifiedStore,
 	type CertifiedStoreData,
+	initCertifiedStore,
 	type WritableUpdateStore
 } from '$lib/stores/certified.store';
 import type { TokenId } from '$lib/types/token';

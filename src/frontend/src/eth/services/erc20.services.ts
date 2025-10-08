@@ -1,29 +1,18 @@
 import type { CustomToken, UserToken } from '$declarations/backend/backend.did';
-import {
-	SUPPORTED_EVM_NETWORKS,
-	SUPPORTED_EVM_NETWORKS_CHAIN_IDS
-} from '$env/networks/networks-evm/networks.evm.env';
-import {
-	SUPPORTED_ETHEREUM_NETWORKS,
-	SUPPORTED_ETHEREUM_NETWORKS_CHAIN_IDS
-} from '$env/networks/networks.eth.env';
+import { SUPPORTED_EVM_NETWORKS, SUPPORTED_EVM_NETWORKS_CHAIN_IDS } from '$env/networks/networks-evm/networks.evm.env';
+import { SUPPORTED_ETHEREUM_NETWORKS, SUPPORTED_ETHEREUM_NETWORKS_CHAIN_IDS } from '$env/networks/networks.eth.env';
 import { EVM_ERC20_TOKENS } from '$env/tokens/tokens-evm/tokens.erc20.env';
-import {
-	ADDITIONAL_ERC20_TOKENS,
-	ERC20_CONTRACTS,
-	ERC20_TWIN_TOKENS
-} from '$env/tokens/tokens.erc20.env';
+import { ADDITIONAL_ERC20_TOKENS, ERC20_TWIN_TOKENS } from '$env/tokens/tokens.erc20.env';
 import { ETHEREUM_DEFAULT_DECIMALS } from '$env/tokens/tokens.eth.env';
 import { infuraErc20Providers } from '$eth/providers/infura-erc20.providers';
 import { erc20CustomTokensStore } from '$eth/stores/erc20-custom-tokens.store';
-import { erc20DefaultTokensStore } from '$eth/stores/erc20-default-tokens.store';
 import { erc20UserTokensStore } from '$eth/stores/erc20-user-tokens.store';
 import type { Erc20ContractAddress } from '$eth/types/address';
 import type { Erc20Contract, Erc20Metadata, Erc20Token } from '$eth/types/erc20';
 import type { Erc20CustomToken } from '$eth/types/erc20-custom-token';
 import type { Erc20UserToken } from '$eth/types/erc20-user-token';
 import type { EthereumNetwork } from '$eth/types/network';
-import { mapErc20Icon, mapErc20Token, mapErc20UserToken } from '$eth/utils/erc20.utils';
+import { mapErc20Icon, mapErc20UserToken } from '$eth/utils/erc20.utils';
 import { listUserTokens } from '$lib/api/backend.api';
 import { getIdbEthTokensDeprecated, setIdbEthTokensDeprecated } from '$lib/api/idb-tokens.api';
 import { nullishSignOut } from '$lib/services/auth.services';
@@ -35,67 +24,16 @@ import type { OptionIdentity } from '$lib/types/identity';
 import type { NetworkId } from '$lib/types/network';
 import type { UserTokenState } from '$lib/types/token-toggleable';
 import type { LoadUserTokenParams } from '$lib/types/user-token';
-import type { ResultSuccess } from '$lib/types/utils';
 import { parseCustomTokenId } from '$lib/utils/custom-token.utils';
-import {
-	assertNonNullish,
-	fromNullable,
-	isNullish,
-	nonNullish,
-	queryAndUpdate
-} from '@dfinity/utils';
+import { assertNonNullish, fromNullable, isNullish, nonNullish, queryAndUpdate } from '@dfinity/utils';
 import { get } from 'svelte/store';
 
-export const loadErc20Tokens = async ({
-	identity
-}: {
-	identity: OptionIdentity;
-}): Promise<void> => {
-	await Promise.all([
-		loadDefaultErc20Tokens(),
-		loadErc20UserTokens({ identity, useCache: true }),
-		loadCustomTokens({ identity, useCache: true })
-	]);
-};
 
 const ALL_DEFAULT_ERC20_TOKENS = [
 	...ERC20_TWIN_TOKENS,
 	...EVM_ERC20_TOKENS,
 	...ADDITIONAL_ERC20_TOKENS
 ];
-
-// TODO(GIX-2740): use environment static metadata
-const loadDefaultErc20Tokens = async (): Promise<ResultSuccess> => {
-	try {
-		type ContractData = Erc20Contract &
-			Erc20Metadata & { network: EthereumNetwork } & Pick<Erc20Token, 'category'> &
-			Partial<Pick<Erc20Token, 'id'>>;
-
-		const loadKnownContracts = (): Promise<ContractData>[] =>
-			ERC20_CONTRACTS.map(
-				async ({ network, ...contract }): Promise<ContractData> => ({
-					...contract,
-					network,
-					category: 'default',
-					...(await infuraErc20Providers(network.id).metadata(contract))
-				})
-			);
-
-		const contracts = await Promise.all(loadKnownContracts());
-		erc20DefaultTokensStore.set([...ALL_DEFAULT_ERC20_TOKENS, ...contracts.map(mapErc20Token)]);
-	} catch (err: unknown) {
-		erc20DefaultTokensStore.reset();
-
-		toastsErrorNoTrace({
-			msg: { text: get(i18n).init.error.erc20_contracts },
-			err
-		});
-
-		return { success: false };
-	}
-
-	return { success: true };
-};
 
 export const loadCustomTokens = ({
 	identity,

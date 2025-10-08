@@ -1,9 +1,5 @@
 import type { IcToken } from '$icp/types/ic-token';
-import {
-	isTokenCkBtcLedger,
-	isTokenCkErc20Ledger,
-	isTokenCkEthLedger
-} from '$icp/utils/ic-send.utils';
+import { isTokenCkBtcLedger, isTokenCkErc20Ledger, isTokenCkEthLedger } from '$icp/utils/ic-send.utils';
 import { tokenWithFallback } from '$lib/derived/token.derived';
 import { token } from '$lib/stores/token.store';
 import { derived, type Readable } from 'svelte/store';

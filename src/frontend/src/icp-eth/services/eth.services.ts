@@ -1,7 +1,4 @@
-import {
-	CKERC20_HELPER_CONTRACT_SIGNATURE,
-	CKETH_HELPER_CONTRACT_SIGNATURE
-} from '$env/networks/networks.cketh.env';
+import { CKERC20_HELPER_CONTRACT_SIGNATURE, CKETH_HELPER_CONTRACT_SIGNATURE } from '$env/networks/networks.cketh.env';
 import { alchemyProviders } from '$eth/providers/alchemy.providers';
 import { infuraCkETHProviders } from '$eth/providers/infura-cketh.providers';
 import type { Erc20Token } from '$eth/types/erc20';
@@ -9,8 +6,8 @@ import { isSupportedEthTokenId } from '$eth/utils/eth.utils';
 import { tokenAddressToHex } from '$eth/utils/token.utils';
 import {
 	mapCkErc20PendingTransaction,
-	mapCkEthPendingTransaction,
-	type MapCkEthereumPendingTransactionParams
+	type MapCkEthereumPendingTransactionParams,
+	mapCkEthPendingTransaction
 } from '$icp-eth/utils/cketh-transactions.utils';
 import { icPendingTransactionsStore } from '$icp/stores/ic-pending-transactions.store';
 import type { IcCkLinkedAssets, IcToken } from '$icp/types/ic-token';

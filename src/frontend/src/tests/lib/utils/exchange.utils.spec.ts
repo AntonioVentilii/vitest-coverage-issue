@@ -1,8 +1,5 @@
 import type { CoingeckoSimpleTokenPriceResponse } from '$lib/types/coingecko';
-import {
-	findMissingLedgerCanisterIds,
-	formatKongSwapToCoingeckoPrices
-} from '$lib/utils/exchange.utils';
+import { findMissingLedgerCanisterIds, formatKongSwapToCoingeckoPrices } from '$lib/utils/exchange.utils';
 import { MOCK_CANISTER_ID_1, MOCK_CANISTER_ID_2 } from '$tests/mocks/exchanges.mock';
 import { createMockKongSwapToken } from '$tests/mocks/kongswap.mock';
 

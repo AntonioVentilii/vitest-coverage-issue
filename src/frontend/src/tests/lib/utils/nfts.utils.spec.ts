@@ -1,7 +1,4 @@
-import {
-	POLYGON_AMOY_NETWORK,
-	POLYGON_AMOY_NETWORK_ID
-} from '$env/networks/networks-evm/networks.evm.polygon.env';
+import { POLYGON_AMOY_NETWORK, POLYGON_AMOY_NETWORK_ID } from '$env/networks/networks-evm/networks.evm.polygon.env';
 import { ETHEREUM_NETWORK, ETHEREUM_NETWORK_ID } from '$env/networks/networks.eth.env';
 import { PEPE_TOKEN } from '$env/tokens/tokens-erc20/tokens.pepe.env';
 import type { Erc721CustomToken } from '$eth/types/erc721-custom-token';

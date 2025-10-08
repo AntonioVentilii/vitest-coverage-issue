@@ -10,13 +10,7 @@ import type { Amount, OptionAmount } from '$lib/types/send';
 import type { Token } from '$lib/types/token';
 import type { RequiredTransactionFeeData } from '$lib/types/transaction';
 import type { Identity } from '@dfinity/agent';
-import type {
-	BridgePrice,
-	DeltaPrice,
-	OptimalRate,
-	QuoteParams,
-	SimpleFetchSDK
-} from '@velora-dex/sdk';
+import type { BridgePrice, DeltaPrice, OptimalRate, QuoteParams, SimpleFetchSDK } from '@velora-dex/sdk';
 
 export type SwapSelectTokenType = 'source' | 'destination';
 

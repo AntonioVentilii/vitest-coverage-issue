@@ -1,9 +1,5 @@
 import type { BitcoinNetwork } from '$btc/types/network';
-import {
-	BTC_MAINNET_EXPLORER_URL,
-	BTC_REGTEST_EXPLORER_URL,
-	BTC_TESTNET_EXPLORER_URL
-} from '$env/explorers.env';
+import { BTC_MAINNET_EXPLORER_URL, BTC_REGTEST_EXPLORER_URL, BTC_TESTNET_EXPLORER_URL } from '$env/explorers.env';
 import bitcoinMainnetIcon from '$lib/assets/networks/bitcoin-mainnet.svg';
 import bitcoinRegtestIcon from '$lib/assets/networks/bitcoin-regtest.svg';
 import bitcoinTestnetIcon from '$lib/assets/networks/bitcoin-testnet.svg';

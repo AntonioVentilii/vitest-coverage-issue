@@ -7,11 +7,7 @@ import { isIndexCanisterAwake } from '$icp/services/index-canister.services';
 import type { IcTransactionUi } from '$icp/types/ic-transaction';
 import { mapCkBTCTransaction } from '$icp/utils/ckbtc-transactions.utils';
 import { mapCkEthereumTransaction } from '$icp/utils/cketh-transactions.utils';
-import {
-	isTokenCkBtcLedger,
-	isTokenCkErc20Ledger,
-	isTokenCkEthLedger
-} from '$icp/utils/ic-send.utils';
+import { isTokenCkBtcLedger, isTokenCkErc20Ledger, isTokenCkEthLedger } from '$icp/utils/ic-send.utils';
 import { mapIcrcTransaction, mapTransactionIcrcToSelf } from '$icp/utils/icrc-transactions.utils';
 import type { SchedulerJobData, SchedulerJobParams } from '$lib/schedulers/scheduler';
 import { PostMessageDataRequestIcrcStrictSchema } from '$lib/schema/post-message.schema';
@@ -20,11 +16,7 @@ import type {
 	PostMessageDataRequestIcrc,
 	PostMessageDataRequestIcrcStrict
 } from '$lib/types/post-message';
-import type {
-	IcrcIndexNgGetTransactions,
-	IcrcTransaction,
-	IcrcTransactionWithId
-} from '@dfinity/ledger-icrc';
+import type { IcrcIndexNgGetTransactions, IcrcTransaction, IcrcTransactionWithId } from '@dfinity/ledger-icrc';
 import { assertNonNullish, isNullish, nonNullish } from '@dfinity/utils';
 
 type GetTransactions = IcrcIndexNgGetTransactions;

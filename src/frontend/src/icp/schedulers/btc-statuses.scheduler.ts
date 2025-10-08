@@ -1,7 +1,7 @@
 import { withdrawalStatuses } from '$icp/api/ckbtc-minter.api';
 import { BTC_STATUSES_TIMER_INTERVAL_MILLIS } from '$icp/constants/ckbtc.constants';
 import type { BtcWithdrawalStatuses } from '$icp/types/btc';
-import { SchedulerTimer, type Scheduler, type SchedulerJobData } from '$lib/schedulers/scheduler';
+import { type Scheduler, type SchedulerJobData, SchedulerTimer } from '$lib/schedulers/scheduler';
 import type {
 	PostMessageDataRequestIcCk,
 	PostMessageDataResponseError,

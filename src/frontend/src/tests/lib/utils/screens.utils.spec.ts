@@ -1,11 +1,11 @@
 import {
 	AVAILABLE_SCREENS,
-	MAX_SCREEN,
-	MIN_SCREEN,
 	filterScreens,
 	getActiveScreen,
-	shouldDisplayForScreen,
-	type ScreensKeyType
+	MAX_SCREEN,
+	MIN_SCREEN,
+	type ScreensKeyType,
+	shouldDisplayForScreen
 } from '$lib/utils/screens.utils';
 
 // Helper to convert rem to px for test comparison

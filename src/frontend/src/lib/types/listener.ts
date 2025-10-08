@@ -1,5 +1,6 @@
 import type IcTransactionsCkBtcListeners from '$icp/components/transactions/IcTransactionsCkBtcListeners.svelte';
-import type IcTransactionsCkEthereumListeners from '$icp/components/transactions/IcTransactionsCkEthereumListeners.svelte';
+import type IcTransactionsCkEthereumListeners
+	from '$icp/components/transactions/IcTransactionsCkEthereumListeners.svelte';
 import type { Token } from '$lib/types/token';
 
 export interface WalletWorker {

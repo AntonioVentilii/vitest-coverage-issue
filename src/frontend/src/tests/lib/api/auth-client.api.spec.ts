@@ -1,9 +1,4 @@
-import {
-	authClientStorage,
-	createAuthClient,
-	loadIdentity,
-	safeCreateAuthClient
-} from '$lib/api/auth-client.api';
+import { authClientStorage, createAuthClient, loadIdentity, safeCreateAuthClient } from '$lib/api/auth-client.api';
 import { mockIdentity } from '$tests/mocks/identity.mock';
 import { AuthClient, KEY_STORAGE_DELEGATION, KEY_STORAGE_KEY } from '@dfinity/auth-client';
 import { mock } from 'vitest-mock-extended';

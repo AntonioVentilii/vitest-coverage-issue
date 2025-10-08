@@ -7,9 +7,9 @@ import {
 	formatNanosecondsToDate,
 	formatSecondsToDate,
 	formatSecondsToNormalizedDate,
-	formatToShortDateString,
 	formatToken,
-	formatTokenBigintToNumber
+	formatTokenBigintToNumber,
+	formatToShortDateString
 } from '$lib/utils/format.utils';
 
 describe('format.utils', () => {

@@ -1,12 +1,12 @@
 import {
 	hideZeroBalancesStore,
 	nftGroupByCollectionStore,
+	type NftSortOrder,
 	nftSortStore,
+	type NftSortType,
 	privacyModeStore,
 	showHiddenStore,
-	showSpamStore,
-	type NftSortOrder,
-	type NftSortType
+	showSpamStore
 } from '$lib/stores/settings.store';
 import { derived, type Readable } from 'svelte/store';
 

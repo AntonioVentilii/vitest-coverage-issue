@@ -4,10 +4,7 @@ import { IcWalletBalanceAndTransactionsScheduler } from '$icp/schedulers/ic-wall
 import type { IcWalletScheduler } from '$icp/schedulers/ic-wallet.scheduler';
 import type { Dip20TransactionWithId } from '$icp/types/api';
 import type { IcTransactionAddOnsInfo, IcTransactionUi } from '$icp/types/ic-transaction';
-import {
-	mapDip20Transaction,
-	mapTransactionDip20ToSelf
-} from '$icp/utils/dip20-transactions.utils';
+import { mapDip20Transaction, mapTransactionDip20ToSelf } from '$icp/utils/dip20-transactions.utils';
 import type { SchedulerJobData, SchedulerJobParams } from '$lib/schedulers/scheduler';
 import type { PostMessage, PostMessageDataRequestDip20 } from '$lib/types/post-message';
 import { isNullish } from '@dfinity/utils';

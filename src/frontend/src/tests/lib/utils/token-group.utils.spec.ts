@@ -2,11 +2,7 @@ import { ICP_NETWORK } from '$env/networks/networks.icp.env';
 import { BTC_TOKEN_GROUP } from '$env/tokens/groups/groups.btc.env';
 import { ETH_TOKEN_GROUP, ETH_TOKEN_GROUP_ID } from '$env/tokens/groups/groups.eth.env';
 import { BASE_ETH_TOKEN } from '$env/tokens/tokens-evm/tokens-base/tokens.eth.env';
-import {
-	BTC_MAINNET_TOKEN,
-	BTC_REGTEST_TOKEN,
-	BTC_TESTNET_TOKEN
-} from '$env/tokens/tokens.btc.env';
+import { BTC_MAINNET_TOKEN, BTC_REGTEST_TOKEN, BTC_TESTNET_TOKEN } from '$env/tokens/tokens.btc.env';
 import { ETHEREUM_TOKEN } from '$env/tokens/tokens.eth.env';
 import { ICP_TOKEN } from '$env/tokens/tokens.icp.env';
 import { SOLANA_TOKEN } from '$env/tokens/tokens.sol.env';

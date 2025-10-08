@@ -21,10 +21,7 @@ import type { NonFungibleToken } from '$lib/types/nft';
 import type { Token, TokenToPin } from '$lib/types/token';
 import type { TokensTotalUsdBalancePerNetwork } from '$lib/types/token-balance';
 import { isTokenFungible } from '$lib/utils/nft.utils';
-import {
-	filterEnabledTokens,
-	sumMainnetTokensUsdBalancesPerNetwork
-} from '$lib/utils/tokens.utils';
+import { filterEnabledTokens, sumMainnetTokensUsdBalancesPerNetwork } from '$lib/utils/tokens.utils';
 import { splTokens } from '$sol/derived/spl.derived';
 import { enabledSolanaTokens } from '$sol/derived/tokens.derived';
 import type { SplToken } from '$sol/types/spl';

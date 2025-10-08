@@ -5,19 +5,19 @@ import type { CanisterApiFunctionParams, CanisterIdText } from '$lib/types/canis
 import type { OptionIdentity } from '$lib/types/identity';
 import type { Identity } from '@dfinity/agent';
 import {
-	IcrcLedgerCanister,
 	type GetBlocksParams,
 	type IcrcAccount,
 	type IcrcAllowance,
 	type IcrcBlockIndex,
 	type IcrcGetBlocksResult,
+	IcrcLedgerCanister,
 	type IcrcStandardRecord,
 	type IcrcSubaccount,
 	type IcrcTokenMetadataResponse,
 	type IcrcTokens
 } from '@dfinity/ledger-icrc';
 import { Principal } from '@dfinity/principal';
-import { assertNonNullish, toNullable, type QueryParams } from '@dfinity/utils';
+import { assertNonNullish, type QueryParams, toNullable } from '@dfinity/utils';
 
 /**
  * Retrieves metadata for the ICRC token.

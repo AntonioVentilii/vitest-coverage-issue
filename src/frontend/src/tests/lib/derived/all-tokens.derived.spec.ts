@@ -1,26 +1,10 @@
 import * as btcEnv from '$env/networks/networks.btc.env';
 import * as ethEnv from '$env/networks/networks.eth.env';
-import {
-	ARBITRUM_ETH_TOKEN,
-	ARBITRUM_SEPOLIA_ETH_TOKEN
-} from '$env/tokens/tokens-evm/tokens-arbitrum/tokens.eth.env';
-import {
-	BASE_ETH_TOKEN,
-	BASE_SEPOLIA_ETH_TOKEN
-} from '$env/tokens/tokens-evm/tokens-base/tokens.eth.env';
-import {
-	BNB_MAINNET_TOKEN,
-	BNB_TESTNET_TOKEN
-} from '$env/tokens/tokens-evm/tokens-bsc/tokens.bnb.env';
-import {
-	POL_AMOY_TOKEN,
-	POL_MAINNET_TOKEN
-} from '$env/tokens/tokens-evm/tokens-polygon/tokens.pol.env';
-import {
-	BTC_MAINNET_TOKEN,
-	BTC_REGTEST_TOKEN,
-	BTC_TESTNET_TOKEN
-} from '$env/tokens/tokens.btc.env';
+import { ARBITRUM_ETH_TOKEN, ARBITRUM_SEPOLIA_ETH_TOKEN } from '$env/tokens/tokens-evm/tokens-arbitrum/tokens.eth.env';
+import { BASE_ETH_TOKEN, BASE_SEPOLIA_ETH_TOKEN } from '$env/tokens/tokens-evm/tokens-base/tokens.eth.env';
+import { BNB_MAINNET_TOKEN, BNB_TESTNET_TOKEN } from '$env/tokens/tokens-evm/tokens-bsc/tokens.bnb.env';
+import { POL_AMOY_TOKEN, POL_MAINNET_TOKEN } from '$env/tokens/tokens-evm/tokens-polygon/tokens.pol.env';
+import { BTC_MAINNET_TOKEN, BTC_REGTEST_TOKEN, BTC_TESTNET_TOKEN } from '$env/tokens/tokens.btc.env';
 import { ETHEREUM_TOKEN, SEPOLIA_TOKEN } from '$env/tokens/tokens.eth.env';
 import * as tokensIcEnv from '$env/tokens/tokens.ic.env';
 import { ICP_TOKEN, TESTICP_TOKEN } from '$env/tokens/tokens.icp.env';

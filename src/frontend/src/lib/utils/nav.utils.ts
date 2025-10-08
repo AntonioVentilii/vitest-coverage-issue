@@ -1,12 +1,6 @@
 import { browser } from '$app/environment';
 import { goto, pushState } from '$app/navigation';
-import {
-	AppPath,
-	NETWORK_PARAM,
-	ROUTE_ID_GROUP_APP,
-	TOKEN_PARAM,
-	URI_PARAM
-} from '$lib/constants/routes.constants';
+import { AppPath, NETWORK_PARAM, ROUTE_ID_GROUP_APP, TOKEN_PARAM, URI_PARAM } from '$lib/constants/routes.constants';
 import type { NetworkId } from '$lib/types/network';
 import type { OptionString } from '$lib/types/string';
 import type { Token } from '$lib/types/token';

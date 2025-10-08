@@ -1,11 +1,8 @@
 import { Currency } from '$lib/enums/currency';
 import { syncExchange } from '$lib/services/exchange.services';
-import { initExchangeWorker, type ExchangeWorker } from '$lib/services/worker.exchange.services';
+import { type ExchangeWorker, initExchangeWorker } from '$lib/services/worker.exchange.services';
 import { toastsError } from '$lib/stores/toasts.store';
-import type {
-	PostMessageDataRequestExchangeTimer,
-	PostMessageDataResponseExchange
-} from '$lib/types/post-message';
+import type { PostMessageDataRequestExchangeTimer, PostMessageDataResponseExchange } from '$lib/types/post-message';
 import { mockEthAddress } from '$tests/mocks/eth.mock';
 import { mockIcrcCustomToken } from '$tests/mocks/icrc-custom-tokens.mock';
 import { mockSplAddress } from '$tests/mocks/sol.mock';

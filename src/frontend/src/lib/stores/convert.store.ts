@@ -1,20 +1,16 @@
 import { nativeEthereumTokenWithFallback } from '$eth/derived/token.derived';
 import { isTokenErc20 } from '$eth/utils/erc20.utils';
 import { ckEthereumNativeToken } from '$icp-eth/derived/cketh.derived';
-import { ckEthMinterInfoStore, type CkEthMinterInfoData } from '$icp-eth/stores/cketh.store';
+import { type CkEthMinterInfoData, ckEthMinterInfoStore } from '$icp-eth/stores/cketh.store';
 import { ethereumFeeTokenCkEth } from '$icp/derived/ethereum-fee.derived';
-import { ckBtcMinterInfoStore, type CkBtcMinterInfoData } from '$icp/stores/ckbtc.store';
-import {
-	isTokenCkBtcLedger,
-	isTokenCkErc20Ledger,
-	isTokenCkEthLedger
-} from '$icp/utils/ic-send.utils';
+import { type CkBtcMinterInfoData, ckBtcMinterInfoStore } from '$icp/stores/ckbtc.store';
+import { isTokenCkBtcLedger, isTokenCkErc20Ledger, isTokenCkEthLedger } from '$icp/utils/ic-send.utils';
 import { exchanges } from '$lib/derived/exchange.derived';
 import { balancesStore } from '$lib/stores/balances.store';
 import type { Balance } from '$lib/types/balance';
 import type { Token } from '$lib/types/token';
 import type { Option } from '$lib/types/utils';
-import { derived, writable, type Readable } from 'svelte/store';
+import { derived, type Readable, writable } from 'svelte/store';
 
 export interface ConvertData {
 	sourceToken: Token;

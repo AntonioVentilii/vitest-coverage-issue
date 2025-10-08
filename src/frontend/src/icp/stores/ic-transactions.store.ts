@@ -1,8 +1,8 @@
 import type { IcTransactionUi } from '$icp/types/ic-transaction';
 import type { CertifiedStoreData } from '$lib/stores/certified.store';
 import {
-	initTransactionsStore,
 	type CertifiedTransaction,
+	initTransactionsStore,
 	type TransactionsData
 } from '$lib/stores/transactions.store';
 

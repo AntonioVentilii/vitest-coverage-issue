@@ -1,8 +1,5 @@
 import { ARBITRUM_MAINNET_ENABLED } from '$env/networks/networks-evm/networks.evm.arbitrum.env';
-import {
-	ARBITRUM_ETH_TOKEN,
-	ARBITRUM_SEPOLIA_ETH_TOKEN
-} from '$env/tokens/tokens-evm/tokens-arbitrum/tokens.eth.env';
+import { ARBITRUM_ETH_TOKEN, ARBITRUM_SEPOLIA_ETH_TOKEN } from '$env/tokens/tokens-evm/tokens-arbitrum/tokens.eth.env';
 import { testnetsEnabled } from '$lib/derived/testnets.derived';
 import { userNetworks } from '$lib/derived/user-networks.derived';
 import type { RequiredToken } from '$lib/types/token';

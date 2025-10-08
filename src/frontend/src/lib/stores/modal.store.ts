@@ -15,7 +15,7 @@ import type { Option } from '$lib/types/utils';
 import type { SolTransactionUi } from '$sol/types/sol-transaction';
 import type { WalletKitTypes } from '@reown/walletkit';
 import type { NavigationTarget } from '@sveltejs/kit';
-import { writable, type Readable } from 'svelte/store';
+import { type Readable, writable } from 'svelte/store';
 
 export interface Modal<T> {
 	type:

@@ -1,11 +1,11 @@
 import type {
+	_SERVICE as SolRpcService,
 	AccountInfo,
 	CommitmentLevel,
 	DataSlice,
 	GetAccountInfoEncoding,
 	RpcSources,
 	Slot,
-	_SERVICE as SolRpcService,
 	SolanaCluster
 } from '$declarations/sol_rpc/sol_rpc.did';
 import { idlFactory as idlCertifiedFactorySolRpc } from '$declarations/sol_rpc/sol_rpc.factory.certified.did';
@@ -14,7 +14,7 @@ import { getAgent } from '$lib/actors/agents.ic';
 import type { SolAddress } from '$lib/types/address';
 import type { CreateCanisterOptions } from '$lib/types/canister';
 import { JSON_PARSED, SOL_RPC_CONFIG } from '$sol/canisters/sol-rpc.constants';
-import { SolRpcCanisterError, assertConsistentResponse } from '$sol/canisters/sol-rpc.errors';
+import { assertConsistentResponse, SolRpcCanisterError } from '$sol/canisters/sol-rpc.errors';
 import type { SolanaNetworkType } from '$sol/types/network';
 import { Canister, createServices, fromNullable, toNullable } from '@dfinity/utils';
 

@@ -1,11 +1,5 @@
-import {
-	syncPowNextAllowance,
-	syncPowProgress
-} from '$icp/services/pow-protector-listener.services';
-import type {
-	PowProtectorWorker,
-	PowProtectorWorkerInitResult
-} from '$icp/types/pow-protector-listener';
+import { syncPowNextAllowance, syncPowProgress } from '$icp/services/pow-protector-listener.services';
+import type { PowProtectorWorker, PowProtectorWorkerInitResult } from '$icp/types/pow-protector-listener';
 import type {
 	PostMessage,
 	PostMessageDataRequest,

@@ -5,10 +5,7 @@ import type { SolanaNetworkType } from '$sol/types/network';
 import type { SolInstruction } from '$sol/types/sol-instructions';
 import type { SplTokenAddress } from '$sol/types/spl';
 import { isAtaAddress } from '$sol/utils/sol-address.utils';
-import {
-	findAssociatedTokenPda,
-	getCreateAssociatedTokenInstructionAsync
-} from '@solana-program/token';
+import { findAssociatedTokenPda, getCreateAssociatedTokenInstructionAsync } from '@solana-program/token';
 import { address as solAddress, type TransactionSigner } from '@solana/kit';
 
 export const calculateAssociatedTokenAddress = async ({

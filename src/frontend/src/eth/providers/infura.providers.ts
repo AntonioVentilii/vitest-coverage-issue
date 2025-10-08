@@ -10,8 +10,8 @@ import type { NetworkId } from '$lib/types/network';
 import { replacePlaceholders } from '$lib/utils/i18n.utils';
 import { assertNonNullish } from '@dfinity/utils';
 import {
-	InfuraProvider as InfuraProviderLib,
 	type FeeData,
+	InfuraProvider as InfuraProviderLib,
 	type Networkish,
 	type TransactionResponse
 } from 'ethers/providers';

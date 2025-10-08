@@ -1,5 +1,5 @@
 import { nativeEthereumTokenId } from '$eth/derived/token.derived';
-import { ethTransactionsStore, type EthTransactionsData } from '$eth/stores/eth-transactions.store';
+import { type EthTransactionsData, ethTransactionsStore } from '$eth/stores/eth-transactions.store';
 import { mapEthTransactionUi } from '$eth/utils/transactions.utils';
 import { ckEthMinterInfoStore } from '$icp-eth/stores/cketh.store';
 import { toCkMinterInfoAddresses } from '$icp-eth/utils/cketh.utils';

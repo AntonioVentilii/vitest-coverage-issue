@@ -2,11 +2,11 @@ import { btcTransactionsStore } from '$btc/stores/btc-transactions.store';
 import type {
 	AccountId_Any,
 	AccountSnapshot_Any,
+	AccountSnapshotFor as RcAccountSnapshotFor,
 	AnyNetwork,
 	AnyToken,
-	AccountSnapshotFor as RcAccountSnapshotFor,
-	TransactionType as RcTransactionType,
-	Transaction_Any
+	Transaction_Any,
+	TransactionType as RcTransactionType
 } from '$declarations/rewards/rewards.did';
 import { ETHEREUM_TOKEN_ID, SEPOLIA_TOKEN_ID } from '$env/tokens/tokens.eth.env';
 import { ethTransactionsStore } from '$eth/stores/eth-transactions.store';
@@ -17,11 +17,7 @@ import { icTransactionsStore } from '$icp/stores/ic-transactions.store';
 import { normalizeTimestampToSeconds } from '$icp/utils/date.utils';
 import { isTokenIcTestnet } from '$icp/utils/ic-ledger.utils';
 import { registerAirdropRecipient } from '$lib/api/reward.api';
-import {
-	NANO_SECONDS_IN_MILLISECOND,
-	NANO_SECONDS_IN_SECOND,
-	ZERO
-} from '$lib/constants/app.constants';
+import { NANO_SECONDS_IN_MILLISECOND, NANO_SECONDS_IN_SECOND, ZERO } from '$lib/constants/app.constants';
 import {
 	btcAddressMainnet,
 	btcAddressTestnet,
@@ -39,16 +35,16 @@ import type { Token } from '$lib/types/token';
 import type { AnyTransactionUi, TransactionType } from '$lib/types/transaction';
 import type { Option } from '$lib/types/utils';
 import {
+	isNetworkIdBitcoin,
 	isNetworkIdBTCMainnet,
 	isNetworkIdBTCTestnet,
-	isNetworkIdBitcoin,
 	isNetworkIdEthereum,
 	isNetworkIdEvm,
 	isNetworkIdICP,
-	isNetworkIdSOLDevnet,
-	isNetworkIdSOLMainnet,
 	isNetworkIdSepolia,
-	isNetworkIdSolana
+	isNetworkIdSolana,
+	isNetworkIdSOLDevnet,
+	isNetworkIdSOLMainnet
 } from '$lib/utils/network.utils';
 import { solTransactionsStore } from '$sol/stores/sol-transactions.store';
 import { assertNonNullish, isNullish, nonNullish, toNullable } from '@dfinity/utils';

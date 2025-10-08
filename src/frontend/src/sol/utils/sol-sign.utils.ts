@@ -5,9 +5,9 @@ import type { OptionIdentity } from '$lib/types/identity';
 import { SOLANA_DERIVATION_PATH_PREFIX } from '$sol/constants/sol.constants';
 import type { SolanaNetworkType } from '$sol/types/network';
 import {
+	address as solAddress,
 	assertIsTransactionPartialSigner,
 	assertIsTransactionSigner,
-	address as solAddress,
 	type SignatureDictionary,
 	type Transaction,
 	type TransactionPartialSigner,

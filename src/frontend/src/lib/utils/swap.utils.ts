@@ -1,7 +1,4 @@
-import type {
-	SwapAmountsReply,
-	SwapAmountsTxReply
-} from '$declarations/kong_backend/kong_backend.did';
+import type { SwapAmountsReply, SwapAmountsTxReply } from '$declarations/kong_backend/kong_backend.did';
 import { dAppDescriptions } from '$env/dapp-descriptions.env';
 import type { Erc20Token } from '$eth/types/erc20';
 import { isDefaultEthereumToken } from '$eth/utils/eth.utils';
@@ -17,16 +14,16 @@ import { SwapError } from '$lib/services/swap-errors.services';
 import type { AmountString } from '$lib/types/amount';
 import type { OisyDappDescription } from '$lib/types/dapp-description';
 import {
-	SwapProvider,
-	VeloraSwapTypes,
 	type FormatSlippageParams,
 	type GetWithdrawableTokenParams,
 	type ICPSwapResult,
 	type ProviderFee,
 	type Slippage,
 	type SwapMappedResult,
+	SwapProvider,
 	type SwapProvidersConfig,
-	type VeloraSwapDetails
+	type VeloraSwapDetails,
+	VeloraSwapTypes
 } from '$lib/types/swap';
 import type { Token } from '$lib/types/token';
 import { formatToken } from '$lib/utils/format.utils';

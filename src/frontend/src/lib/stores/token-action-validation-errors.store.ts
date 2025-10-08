@@ -1,6 +1,6 @@
 import type { TokenActionErrorType } from '$lib/types/token-action';
 import { nonNullish } from '@dfinity/utils';
-import { derived, writable, type Readable } from 'svelte/store';
+import { derived, type Readable, writable } from 'svelte/store';
 
 export interface TokenActionValidationErrorsData {
 	errorType?: TokenActionErrorType;

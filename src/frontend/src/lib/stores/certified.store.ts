@@ -1,6 +1,6 @@
 import type { TokenId } from '$lib/types/token';
 import { nonNullish } from '@dfinity/utils';
-import { writable, type Readable, type Writable } from 'svelte/store';
+import { type Readable, writable, type Writable } from 'svelte/store';
 
 export type WritableUpdateStore<T, Id extends symbol = TokenId> = Pick<
 	Writable<CertifiedStoreData<T, Id>>,

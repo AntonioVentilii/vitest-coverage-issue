@@ -10,10 +10,7 @@ import type {
 	CoingeckoSimpleTokenPriceResponse
 } from '$lib/types/coingecko';
 import type { PostMessageDataResponseExchange } from '$lib/types/post-message';
-import {
-	findMissingLedgerCanisterIds,
-	formatKongSwapToCoingeckoPrices
-} from '$lib/utils/exchange.utils';
+import { findMissingLedgerCanisterIds, formatKongSwapToCoingeckoPrices } from '$lib/utils/exchange.utils';
 import type { SplTokenAddress } from '$sol/types/spl';
 import { nonNullish } from '@dfinity/utils';
 

@@ -1,8 +1,4 @@
-import {
-	SOLANA_DEVNET_NETWORK,
-	SOLANA_LOCAL_NETWORK,
-	SOLANA_MAINNET_NETWORK
-} from '$env/networks/networks.sol.env';
+import { SOLANA_DEVNET_NETWORK, SOLANA_LOCAL_NETWORK, SOLANA_MAINNET_NETWORK } from '$env/networks/networks.sol.env';
 import * as appContants from '$lib/constants/app.constants';
 import type { Network } from '$lib/types/network';
 import { defineSupportedNetworks } from '$lib/utils/env.networks.utils';

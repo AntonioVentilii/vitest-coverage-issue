@@ -2,18 +2,9 @@ import {
 	ARBITRUM_MAINNET_NETWORK,
 	ARBITRUM_SEPOLIA_NETWORK
 } from '$env/networks/networks-evm/networks.evm.arbitrum.env';
-import {
-	BASE_NETWORK,
-	BASE_SEPOLIA_NETWORK
-} from '$env/networks/networks-evm/networks.evm.base.env';
-import {
-	BSC_MAINNET_NETWORK,
-	BSC_TESTNET_NETWORK
-} from '$env/networks/networks-evm/networks.evm.bsc.env';
-import {
-	POLYGON_AMOY_NETWORK,
-	POLYGON_MAINNET_NETWORK
-} from '$env/networks/networks-evm/networks.evm.polygon.env';
+import { BASE_NETWORK, BASE_SEPOLIA_NETWORK } from '$env/networks/networks-evm/networks.evm.base.env';
+import { BSC_MAINNET_NETWORK, BSC_TESTNET_NETWORK } from '$env/networks/networks-evm/networks.evm.bsc.env';
+import { POLYGON_AMOY_NETWORK, POLYGON_MAINNET_NETWORK } from '$env/networks/networks-evm/networks.evm.polygon.env';
 import * as btcEnv from '$env/networks/networks.btc.env';
 import { BTC_MAINNET_NETWORK } from '$env/networks/networks.btc.env';
 import * as ethEnv from '$env/networks/networks.eth.env';
@@ -23,22 +14,10 @@ import * as solEnv from '$env/networks/networks.sol.env';
 import { SOLANA_DEVNET_NETWORK, SOLANA_MAINNET_NETWORK } from '$env/networks/networks.sol.env';
 import { SEPOLIA_LINK_TOKEN } from '$env/tokens/tokens-erc20/tokens.link.env';
 import { PEPE_TOKEN } from '$env/tokens/tokens-erc20/tokens.pepe.env';
-import {
-	ARBITRUM_ETH_TOKEN,
-	ARBITRUM_SEPOLIA_ETH_TOKEN
-} from '$env/tokens/tokens-evm/tokens-arbitrum/tokens.eth.env';
-import {
-	BASE_ETH_TOKEN,
-	BASE_SEPOLIA_ETH_TOKEN
-} from '$env/tokens/tokens-evm/tokens-base/tokens.eth.env';
-import {
-	BNB_MAINNET_TOKEN,
-	BNB_TESTNET_TOKEN
-} from '$env/tokens/tokens-evm/tokens-bsc/tokens.bnb.env';
-import {
-	POL_AMOY_TOKEN,
-	POL_MAINNET_TOKEN
-} from '$env/tokens/tokens-evm/tokens-polygon/tokens.pol.env';
+import { ARBITRUM_ETH_TOKEN, ARBITRUM_SEPOLIA_ETH_TOKEN } from '$env/tokens/tokens-evm/tokens-arbitrum/tokens.eth.env';
+import { BASE_ETH_TOKEN, BASE_SEPOLIA_ETH_TOKEN } from '$env/tokens/tokens-evm/tokens-base/tokens.eth.env';
+import { BNB_MAINNET_TOKEN, BNB_TESTNET_TOKEN } from '$env/tokens/tokens-evm/tokens-bsc/tokens.bnb.env';
+import { POL_AMOY_TOKEN, POL_MAINNET_TOKEN } from '$env/tokens/tokens-evm/tokens-polygon/tokens.pol.env';
 import { BONK_TOKEN } from '$env/tokens/tokens-spl/tokens.bonk.env';
 import { DEVNET_EURC_TOKEN } from '$env/tokens/tokens-spl/tokens.eurc.env';
 import { BTC_MAINNET_TOKEN } from '$env/tokens/tokens.btc.env';
@@ -52,10 +31,7 @@ import type { Erc20UserToken } from '$eth/types/erc20-user-token';
 import type { Erc721CustomToken } from '$eth/types/erc721-custom-token';
 import { icrcCustomTokensStore } from '$icp/stores/icrc-custom-tokens.store';
 import { icrcDefaultTokensStore } from '$icp/stores/icrc-default-tokens.store';
-import {
-	enabledFungibleNetworkTokens,
-	enabledNonFungibleNetworkTokens
-} from '$lib/derived/network-tokens.derived';
+import { enabledFungibleNetworkTokens, enabledNonFungibleNetworkTokens } from '$lib/derived/network-tokens.derived';
 import type { Network } from '$lib/types/network';
 import type { Token } from '$lib/types/token';
 import { splCustomTokensStore } from '$sol/stores/spl-custom-tokens.store';
@@ -64,9 +40,9 @@ import type { SplCustomToken } from '$sol/types/spl-custom-token';
 import {
 	AZUKI_ELEMENTAL_BEANS_TOKEN,
 	DE_GODS_TOKEN,
+	mockValidErc721Token,
 	PUDGY_PENGUINS_TOKEN,
-	SEPOLIA_PUDGY_PENGUINS_TOKEN,
-	mockValidErc721Token
+	SEPOLIA_PUDGY_PENGUINS_TOKEN
 } from '$tests/mocks/erc721-tokens.mock';
 import { mockPage } from '$tests/mocks/page.store.mock';
 import { setupTestnetsStore } from '$tests/utils/testnets.test-utils';

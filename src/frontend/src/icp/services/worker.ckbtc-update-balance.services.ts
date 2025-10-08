@@ -1,8 +1,4 @@
-import {
-	syncBtcAddress,
-	syncBtcPendingUtxos,
-	syncCkBTCUpdateOk
-} from '$icp/services/ckbtc-listener.services';
+import { syncBtcAddress, syncBtcPendingUtxos, syncCkBTCUpdateOk } from '$icp/services/ckbtc-listener.services';
 import { btcAddressStore } from '$icp/stores/btc.store';
 import type { IcCkWorker, IcCkWorkerInitResult, IcCkWorkerParams } from '$icp/types/ck-listener';
 import type {

@@ -3,7 +3,7 @@ import { isTokenErc20 } from '$eth/utils/erc20.utils';
 import type { Token, TokenId } from '$lib/types/token';
 import type { SplTokenAddress } from '$sol/types/spl';
 import { isTokenSpl } from '$sol/utils/spl.utils';
-import { writable, type Readable } from 'svelte/store';
+import { type Readable, writable } from 'svelte/store';
 
 type DefaultTokensData<T extends Token> = T[] | undefined;
 

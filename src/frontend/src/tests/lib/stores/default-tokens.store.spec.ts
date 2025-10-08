@@ -6,7 +6,7 @@ import { BTC_MAINNET_TOKEN } from '$env/tokens/tokens.btc.env';
 import { ETHEREUM_TOKEN } from '$env/tokens/tokens.eth.env';
 import { ICP_TOKEN } from '$env/tokens/tokens.icp.env';
 import { SOLANA_TOKEN } from '$env/tokens/tokens.sol.env';
-import { initDefaultTokensStore, type DefaultTokensStore } from '$lib/stores/default-tokens.store';
+import { type DefaultTokensStore, initDefaultTokensStore } from '$lib/stores/default-tokens.store';
 import type { Token } from '$lib/types/token';
 import { parseTokenId } from '$lib/validation/token.validation';
 import { get } from 'svelte/store';

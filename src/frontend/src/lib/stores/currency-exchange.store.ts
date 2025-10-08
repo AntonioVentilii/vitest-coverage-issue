@@ -1,6 +1,6 @@
 import { Currency } from '$lib/enums/currency';
 import type { CurrencyExchangeData } from '$lib/types/currency';
-import { writable, type Readable } from 'svelte/store';
+import { type Readable, writable } from 'svelte/store';
 
 export interface CurrencyExchangeStore extends Readable<CurrencyExchangeData> {
 	setExchangeRateCurrency: (currency: CurrencyExchangeData['currency']) => void;

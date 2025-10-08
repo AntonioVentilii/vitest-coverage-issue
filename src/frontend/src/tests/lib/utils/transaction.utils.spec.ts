@@ -10,11 +10,7 @@ import { TransactionStatusSchema, TransactionTypeSchema } from '$lib/schema/tran
 import { i18n } from '$lib/stores/i18n.store';
 import type { ModalData } from '$lib/stores/modal.store';
 import type { AnyTransactionUiWithCmp } from '$lib/types/transaction';
-import {
-	groupTransactionsByDate,
-	mapTransactionIcon,
-	mapTransactionModalData
-} from '$lib/utils/transaction.utils';
+import { groupTransactionsByDate, mapTransactionIcon, mapTransactionModalData } from '$lib/utils/transaction.utils';
 import en from '$tests/mocks/i18n.mock';
 import { createMockIcTransactionsUi } from '$tests/mocks/ic-transactions.mock';
 import { createTransactionsUiWithCmp } from '$tests/mocks/transactions.mock';

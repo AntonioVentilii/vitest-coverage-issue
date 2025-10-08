@@ -1,6 +1,6 @@
-import { ToolResultType, type ChatMessage } from '$lib/types/ai-assistant';
+import { type ChatMessage, ToolResultType } from '$lib/types/ai-assistant';
 import { nonNullish } from '@dfinity/utils';
-import { writable, type Readable } from 'svelte/store';
+import { type Readable, writable } from 'svelte/store';
 
 export interface AiAssistant {
 	isOpen: boolean;

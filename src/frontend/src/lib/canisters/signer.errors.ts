@@ -1,7 +1,7 @@
 import type {
 	EthAddressError,
-	PaymentError,
 	GetAddressError as SignerCanisterBtcError,
+	PaymentError,
 	SendBtcError as SignerCanisterSendBtcError
 } from '$declarations/signer/signer.did';
 import { CanisterInternalError } from '$lib/canisters/errors';

@@ -1,10 +1,10 @@
 import {
-	DecodedUrnSchema,
-	URN_NUMERIC_PARAMS,
-	URN_STRING_PARAMS,
 	type DecodedUrn,
+	DecodedUrnSchema,
 	type QrResponse,
-	type QrStatus
+	type QrStatus,
+	URN_NUMERIC_PARAMS,
+	URN_STRING_PARAMS
 } from '$lib/types/qr-code';
 import type { OptionToken } from '$lib/types/token';
 import { decodePayment } from '@dfinity/ledger-icrc';

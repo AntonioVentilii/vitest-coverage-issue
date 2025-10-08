@@ -1,9 +1,5 @@
 import { BTC_BALANCE_MIN_CONFIRMATIONS } from '$btc/constants/btc.constants';
-import {
-	btcWalletBalanceEquals,
-	type BtcTransactionUi,
-	type BtcWalletBalance
-} from '$btc/types/btc';
+import { type BtcTransactionUi, type BtcWalletBalance, btcWalletBalanceEquals } from '$btc/types/btc';
 import type { BtcPostMessageDataResponseWallet } from '$btc/types/btc-post-message';
 import { mapBtcTransaction } from '$btc/utils/btc-transactions.utils';
 import type { PendingTransaction } from '$declarations/backend/backend.did';
@@ -16,19 +12,13 @@ import { getBtcBalance } from '$lib/api/signer.api';
 import { FAILURE_THRESHOLD, WALLET_TIMER_INTERVAL_MILLIS } from '$lib/constants/app.constants';
 import { btcAddressData } from '$lib/rest/blockchain.rest';
 import { btcLatestBlockHeight } from '$lib/rest/blockstream.rest';
-import { SchedulerTimer, type Scheduler, type SchedulerJobData } from '$lib/schedulers/scheduler';
+import { type Scheduler, type SchedulerJobData, SchedulerTimer } from '$lib/schedulers/scheduler';
 import type { BtcAddress } from '$lib/types/address';
 import type { BitcoinTransaction } from '$lib/types/blockchain';
 import type { OptionCanisterIdText } from '$lib/types/canister';
-import type {
-	PostMessageDataRequestBtc,
-	PostMessageDataResponseError
-} from '$lib/types/post-message';
+import type { PostMessageDataRequestBtc, PostMessageDataResponseError } from '$lib/types/post-message';
 import type { CertifiedData } from '$lib/types/store';
-import {
-	mapCkBtcBitcoinNetworkToBackendBitcoinNetwork,
-	mapToSignerBitcoinNetwork
-} from '$lib/utils/network.utils';
+import { mapCkBtcBitcoinNetworkToBackendBitcoinNetwork, mapToSignerBitcoinNetwork } from '$lib/utils/network.utils';
 import type { Identity } from '@dfinity/agent';
 import type { BitcoinNetwork } from '@dfinity/ckbtc';
 import {

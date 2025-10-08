@@ -1,8 +1,5 @@
 import type { BtcWalletBalance } from '$btc/types/btc';
-import {
-	JsonTransactionsTextSchema,
-	PostMessageDataResponseSchema
-} from '$lib/schema/post-message.schema';
+import { JsonTransactionsTextSchema, PostMessageDataResponseSchema } from '$lib/schema/post-message.schema';
 import type { CertifiedData } from '$lib/types/store';
 import * as z from 'zod';
 

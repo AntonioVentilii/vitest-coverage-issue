@@ -1,8 +1,8 @@
 import type { Network, NetworkAppMetadata } from '$lib/types/network';
 import {
+	type SolanaChainIdSchema,
 	SolanaNetworkSchema,
-	type SolRpcConnectionConfigSchema,
-	type SolanaChainIdSchema
+	type SolRpcConnectionConfigSchema
 } from '$sol/schema/network.schema';
 import type * as z from 'zod';
 

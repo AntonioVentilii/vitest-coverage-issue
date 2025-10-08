@@ -34,7 +34,7 @@ import {
 	TRACK_SIGN_OUT_WITH_WARNING
 } from '$lib/constants/analytics.contants';
 import { trackEvent } from '$lib/services/analytics.services';
-import { authStore, type AuthSignInParams } from '$lib/stores/auth.store';
+import { type AuthSignInParams, authStore } from '$lib/stores/auth.store';
 import { busy } from '$lib/stores/busy.store';
 import { i18n } from '$lib/stores/i18n.store';
 import { toastsClean, toastsError, toastsShow } from '$lib/stores/toasts.store';

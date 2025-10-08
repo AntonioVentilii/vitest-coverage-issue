@@ -1,5 +1,5 @@
 import { ETHEREUM_NETWORK } from '$env/networks/networks.eth.env';
-import { alchemyProviders, type AlchemyProvider } from '$eth/providers/alchemy.providers';
+import { type AlchemyProvider, alchemyProviders } from '$eth/providers/alchemy.providers';
 import * as nftSendServices from '$eth/services/nft-send.services';
 import * as authServices from '$lib/services/auth.services';
 import { loadNfts, sendNft } from '$lib/services/nft.services';

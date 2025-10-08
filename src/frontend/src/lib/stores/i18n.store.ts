@@ -15,7 +15,7 @@ import zhcn from '$lib/i18n/zh-CN.json';
 import { trackEvent } from '$lib/services/analytics.services';
 import { getDefaultLang, mergeWithFallback } from '$lib/utils/i18n.utils';
 import { get, set } from '$lib/utils/storage.utils';
-import { get as getStore, writable, type Readable } from 'svelte/store';
+import { get as getStore, type Readable, writable } from 'svelte/store';
 
 export const enI18n = (): I18n => ({
 	...en,

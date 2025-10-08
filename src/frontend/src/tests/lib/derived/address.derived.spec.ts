@@ -8,14 +8,14 @@ import {
 	solAddressMainnetNotLoaded
 } from '$lib/derived/address.derived';
 import {
+	type AddressStore,
 	btcAddressMainnetStore,
 	btcAddressRegtestStore,
 	btcAddressTestnetStore,
 	ethAddressStore,
 	solAddressDevnetStore,
 	solAddressLocalnetStore,
-	solAddressMainnetStore,
-	type AddressStore
+	solAddressMainnetStore
 } from '$lib/stores/address.store';
 import type { BtcAddress, EthAddress, SolAddress } from '$lib/types/address';
 import { get, type Readable } from 'svelte/store';

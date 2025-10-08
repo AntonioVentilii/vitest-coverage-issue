@@ -22,20 +22,11 @@ import {
 } from '$lib/services/swap.services';
 import { kongSwapTokensStore } from '$lib/stores/kong-swap-tokens.store';
 import type { ICPSwapAmountReply } from '$lib/types/api';
-import {
-	SwapErrorCodes,
-	SwapProvider,
-	type SwapMappedResult,
-	type VeloraSwapDetails
-} from '$lib/types/swap';
-import {
-	geSwapEthTokenAddress,
-	mapVeloraMarketSwapResult,
-	mapVeloraSwapResult
-} from '$lib/utils/swap.utils';
+import { SwapErrorCodes, type SwapMappedResult, SwapProvider, type VeloraSwapDetails } from '$lib/types/swap';
+import { geSwapEthTokenAddress, mapVeloraMarketSwapResult, mapVeloraSwapResult } from '$lib/utils/swap.utils';
 import { mockValidErc20Token } from '$tests/mocks/erc20-tokens.mock';
 import { mockEthAddress } from '$tests/mocks/eth.mock';
-import { mockValidIcToken, mockValidIcrcToken } from '$tests/mocks/ic-tokens.mock';
+import { mockValidIcrcToken, mockValidIcToken } from '$tests/mocks/ic-tokens.mock';
 import { mockIcrcCustomToken } from '$tests/mocks/icrc-custom-tokens.mock';
 import { mockIdentity } from '$tests/mocks/identity.mock';
 import { kongIcToken, mockKongBackendTokens } from '$tests/mocks/kong_backend.mock';

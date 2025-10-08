@@ -1,7 +1,4 @@
-import {
-	SUPPORTED_ETHEREUM_TOKEN_IDS,
-	type SUPPORTED_ETHEREUM_TOKENS
-} from '$env/tokens/tokens.eth.env';
+import { SUPPORTED_ETHEREUM_TOKEN_IDS, type SUPPORTED_ETHEREUM_TOKENS } from '$env/tokens/tokens.eth.env';
 import type { EthereumNetwork } from '$eth/types/network';
 import { DEFAULT_ETHEREUM_NETWORK } from '$lib/constants/networks.constants';
 import type { Network } from '$lib/types/network';

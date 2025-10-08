@@ -1,18 +1,8 @@
-import type {
-	IcTransactionType,
-	IcTransactionUi,
-	IcrcTransaction
-} from '$icp/types/ic-transaction';
+import type { IcrcTransaction, IcTransactionType, IcTransactionUi } from '$icp/types/ic-transaction';
 import { getIcrcAccount } from '$icp/utils/icrc-account.utils';
 import type { OptionIdentity } from '$lib/types/identity';
 import { encodeIcrcAccount, type IcrcTransactionWithId } from '@dfinity/ledger-icrc';
-import {
-	fromNullable,
-	fromNullishNullable,
-	isNullish,
-	jsonReplacer,
-	nonNullish
-} from '@dfinity/utils';
+import { fromNullable, fromNullishNullable, isNullish, jsonReplacer, nonNullish } from '@dfinity/utils';
 
 export const mapTransactionIcrcToSelf = (tx: IcrcTransactionWithId): IcrcTransaction[] => {
 	const { transaction, id } = tx;

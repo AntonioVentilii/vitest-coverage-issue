@@ -1,5 +1,5 @@
 import type { Option } from '$lib/types/utils';
-import { writable, type Readable } from 'svelte/store';
+import { type Readable, writable } from 'svelte/store';
 
 interface MetamaskData {
 	available: Option<boolean>;

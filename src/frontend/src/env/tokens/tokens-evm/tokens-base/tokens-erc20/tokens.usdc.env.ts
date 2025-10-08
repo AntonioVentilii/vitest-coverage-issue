@@ -1,7 +1,4 @@
-import {
-	BASE_NETWORK,
-	BASE_SEPOLIA_NETWORK
-} from '$env/networks/networks-evm/networks.evm.base.env';
+import { BASE_NETWORK, BASE_SEPOLIA_NETWORK } from '$env/networks/networks-evm/networks.evm.base.env';
 import { USDC_TOKEN_GROUP } from '$env/tokens/groups/groups.usdc.env';
 import usdc from '$eth/assets/usdc.svg';
 import type { RequiredEvmErc20Token } from '$evm/types/erc20';

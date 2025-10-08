@@ -1,7 +1,7 @@
 import type {
 	TokenAppearanceSchema,
-	TokenBuySchema,
 	TokenBuyableSchema,
+	TokenBuySchema,
 	TokenCategorySchema,
 	TokenIdSchema,
 	TokenMetadataSchema,

@@ -1,8 +1,5 @@
 import { POLYGON_MAINNET_ENABLED } from '$env/networks/networks-evm/networks.evm.polygon.env';
-import {
-	POL_AMOY_TOKEN,
-	POL_MAINNET_TOKEN
-} from '$env/tokens/tokens-evm/tokens-polygon/tokens.pol.env';
+import { POL_AMOY_TOKEN, POL_MAINNET_TOKEN } from '$env/tokens/tokens-evm/tokens-polygon/tokens.pol.env';
 import { testnetsEnabled } from '$lib/derived/testnets.derived';
 import { userNetworks } from '$lib/derived/user-networks.derived';
 import type { RequiredToken } from '$lib/types/token';

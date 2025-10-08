@@ -1,14 +1,7 @@
-import {
-	aiAssistantBetaEnabled,
-	userExperimentalFeatures
-} from '$lib/derived/user-experimental-features.derived';
+import { aiAssistantBetaEnabled, userExperimentalFeatures } from '$lib/derived/user-experimental-features.derived';
 import { userProfileStore } from '$lib/stores/user-profile.store';
 import { mockUserExperimentalFeatures } from '$tests/mocks/user-experimental-features.mock';
-import {
-	mockExperimentalFeaturesSettings,
-	mockUserProfile,
-	mockUserSettings
-} from '$tests/mocks/user-profile.mock';
+import { mockExperimentalFeaturesSettings, mockUserProfile, mockUserSettings } from '$tests/mocks/user-profile.mock';
 import { toNullable } from '@dfinity/utils';
 import { get } from 'svelte/store';
 

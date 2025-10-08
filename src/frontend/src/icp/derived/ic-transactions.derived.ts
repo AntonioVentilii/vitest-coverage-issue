@@ -5,7 +5,7 @@ import { btcStatusesStore } from '$icp/stores/btc.store';
 import { ckBtcPendingUtxosStore } from '$icp/stores/ckbtc-utxos.store';
 import { ckBtcMinterInfoStore } from '$icp/stores/ckbtc.store';
 import { icPendingTransactionsStore } from '$icp/stores/ic-pending-transactions.store';
-import { icTransactionsStore, type IcTransactionsData } from '$icp/stores/ic-transactions.store';
+import { type IcTransactionsData, icTransactionsStore } from '$icp/stores/ic-transactions.store';
 import { getAllIcTransactions, getIcExtendedTransactions } from '$icp/utils/ic-transactions.utils';
 import { isTokenIcp } from '$icp/utils/icrc.utils';
 import { tokenWithFallback } from '$lib/derived/token.derived';

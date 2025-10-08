@@ -4,19 +4,16 @@ import {
 	ETHEREUM_EXPLORER_URL,
 	SEPOLIA_EXPLORER_URL
 } from '$env/explorers.env';
-import {
-	ICRC_LEDGER_CANISTER_TESTNET_IDS,
-	STAGING_CKETH_LEDGER_CANISTER_ID
-} from '$env/networks/networks.icrc.env';
+import { ICRC_LEDGER_CANISTER_TESTNET_IDS, STAGING_CKETH_LEDGER_CANISTER_ID } from '$env/networks/networks.icrc.env';
 import { mapAddressStartsWith0x } from '$icp-eth/utils/eth.utils';
 import type { IcPendingTransactionsData } from '$icp/stores/ic-pending-transactions.store';
 import type { IcToken } from '$icp/types/ic-token';
-import type { IcTransactionUi, IcrcTransaction } from '$icp/types/ic-transaction';
+import type { IcrcTransaction, IcTransactionUi } from '$icp/types/ic-transaction';
 import {
-	MINT_MEMO_REIMBURSE_TRANSACTION,
-	MINT_MEMO_REIMBURSE_WITHDRAWAL,
 	decodeBurnMemo,
-	decodeMintMemo
+	decodeMintMemo,
+	MINT_MEMO_REIMBURSE_TRANSACTION,
+	MINT_MEMO_REIMBURSE_WITHDRAWAL
 } from '$icp/utils/cketh-memo.utils';
 import { isTokenCkErc20Ledger, isTokenCkEthLedger } from '$icp/utils/ic-send.utils';
 import { isTokenIcrcTestnet } from '$icp/utils/icrc-ledger.utils';
@@ -25,13 +22,7 @@ import type { CertifiedStoreData } from '$lib/stores/certified.store';
 import type { OptionIdentity } from '$lib/types/identity';
 import type { Network } from '$lib/types/network';
 import type { Token } from '$lib/types/token';
-import {
-	fromNullable,
-	isNullish,
-	nonNullish,
-	notEmptyString,
-	uint8ArrayToHexString
-} from '@dfinity/utils';
+import { fromNullable, isNullish, nonNullish, notEmptyString, uint8ArrayToHexString } from '@dfinity/utils';
 
 export const mapCkEthereumTransaction = ({
 	transaction,

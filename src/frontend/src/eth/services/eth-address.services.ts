@@ -1,19 +1,10 @@
 import { FRONTEND_DERIVATION_ENABLED } from '$env/address.env';
 import { ETHEREUM_NETWORK_ID } from '$env/networks/networks.eth.env';
-import {
-	getIdbEthAddress,
-	setIdbEthAddress,
-	updateIdbEthAddressLastUsage
-} from '$lib/api/idb-addresses.api';
+import { getIdbEthAddress, setIdbEthAddress, updateIdbEthAddressLastUsage } from '$lib/api/idb-addresses.api';
 import { getEthAddress as getSignerEthAddress } from '$lib/api/signer.api';
 import { deriveEthAddress } from '$lib/ic-pub-key/src/cli';
-import {
-	certifyAddress,
-	loadIdbTokenAddress,
-	loadTokenAddress,
-	validateAddress
-} from '$lib/services/address.services';
-import { ethAddressStore, type AddressStoreData } from '$lib/stores/address.store';
+import { certifyAddress, loadIdbTokenAddress, loadTokenAddress, validateAddress } from '$lib/services/address.services';
+import { type AddressStoreData, ethAddressStore } from '$lib/stores/address.store';
 import { i18n } from '$lib/stores/i18n.store';
 import type { EthAddress } from '$lib/types/address';
 import type { LoadIdbAddressError } from '$lib/types/errors';

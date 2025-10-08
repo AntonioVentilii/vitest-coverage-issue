@@ -1,8 +1,5 @@
 import type { UtxoTxidText } from '$icp/types/ckbtc';
-import {
-	initCertifiedSetterStore,
-	type CertifiedSetterStoreStore
-} from '$lib/stores/certified-setter.store';
+import { type CertifiedSetterStoreStore, initCertifiedSetterStore } from '$lib/stores/certified-setter.store';
 import type { CertifiedData } from '$lib/types/store';
 import type { TokenId } from '$lib/types/token';
 import type { PendingUtxo } from '@dfinity/ckbtc';

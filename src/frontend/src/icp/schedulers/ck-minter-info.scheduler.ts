@@ -1,5 +1,5 @@
 import type { MinterInfoParams } from '$icp/types/ck';
-import { SchedulerTimer, type Scheduler, type SchedulerJobData } from '$lib/schedulers/scheduler';
+import { type Scheduler, type SchedulerJobData, SchedulerTimer } from '$lib/schedulers/scheduler';
 import type {
 	PostMessageDataRequestIcCk,
 	PostMessageDataResponseError,

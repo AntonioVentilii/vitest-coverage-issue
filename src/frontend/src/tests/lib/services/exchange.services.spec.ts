@@ -4,15 +4,8 @@ import type { CoingeckoSimpleTokenPriceResponse } from '$lib/types/coingecko';
 import { Currency } from '$lib/enums/currency';
 import { simplePrice, simpleTokenPrice } from '$lib/rest/coingecko.rest';
 import { fetchBatchKongSwapPrices } from '$lib/rest/kongswap.rest';
-import {
-	findMissingLedgerCanisterIds,
-	formatKongSwapToCoingeckoPrices
-} from '$lib/utils/exchange.utils';
-import {
-	MOCK_CANISTER_ID_1,
-	MOCK_CANISTER_ID_2,
-	createMockCoingeckoTokenPrice
-} from '$tests/mocks/exchanges.mock';
+import { findMissingLedgerCanisterIds, formatKongSwapToCoingeckoPrices } from '$lib/utils/exchange.utils';
+import { createMockCoingeckoTokenPrice, MOCK_CANISTER_ID_1, MOCK_CANISTER_ID_2 } from '$tests/mocks/exchanges.mock';
 
 vi.mock('$lib/rest/coingecko.rest', () => ({
 	simplePrice: vi.fn(),

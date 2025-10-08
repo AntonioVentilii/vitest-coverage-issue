@@ -2,31 +2,16 @@ import type { BtcStatusesData } from '$icp/stores/btc.store';
 import type { CkBtcPendingUtxosData } from '$icp/stores/ckbtc-utxos.store';
 import type { CkBtcMinterInfoData } from '$icp/stores/ckbtc.store';
 import type { IcPendingTransactionsData } from '$icp/stores/ic-pending-transactions.store';
-import type {
-	IcCertifiedTransaction,
-	IcCertifiedTransactionsData
-} from '$icp/stores/ic-transactions.store';
+import type { IcCertifiedTransaction, IcCertifiedTransactionsData } from '$icp/stores/ic-transactions.store';
 import type { IcCkToken, IcToken } from '$icp/types/ic-token';
-import type {
-	IcTransaction,
-	IcTransactionUi,
-	IcpTransaction,
-	IcrcTransaction
-} from '$icp/types/ic-transaction';
+import type { IcpTransaction, IcrcTransaction, IcTransaction, IcTransactionUi } from '$icp/types/ic-transaction';
 import {
 	extendCkBTCTransaction,
 	getCkBtcPendingUtxoTransactions,
 	mapCkBTCTransaction
 } from '$icp/utils/ckbtc-transactions.utils';
-import {
-	getCkEthPendingTransactions,
-	mapCkEthereumTransaction
-} from '$icp/utils/cketh-transactions.utils';
-import {
-	isTokenCkBtcLedger,
-	isTokenCkErc20Ledger,
-	isTokenCkEthLedger
-} from '$icp/utils/ic-send.utils';
+import { getCkEthPendingTransactions, mapCkEthereumTransaction } from '$icp/utils/cketh-transactions.utils';
+import { isTokenCkBtcLedger, isTokenCkErc20Ledger, isTokenCkEthLedger } from '$icp/utils/ic-send.utils';
 import { mapIcpTransaction } from '$icp/utils/icp-transactions.utils';
 import { mapIcrcTransaction } from '$icp/utils/icrc-transactions.utils';
 import { isTokenIcp } from '$icp/utils/icrc.utils';

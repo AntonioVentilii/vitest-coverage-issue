@@ -1,26 +1,16 @@
 <script lang="ts">
-	import {
-		isNullish,
-		nonNullish,
-		isEmptyString,
-		fromNullishNullable,
-		debounce
-	} from '@dfinity/utils';
+	import { debounce, fromNullishNullable, isEmptyString, isNullish, nonNullish } from '@dfinity/utils';
 	import type { TransactionResponse } from 'ethers/providers';
 	import { onDestroy } from 'svelte';
-	import { initPendingTransactionsListener as initEthPendingTransactionsListenerProvider } from '$eth/providers/alchemy.providers';
+	import {
+		initPendingTransactionsListener as initEthPendingTransactionsListenerProvider
+	} from '$eth/providers/alchemy.providers';
 	import { icPendingTransactionsStore } from '$icp/stores/ic-pending-transactions.store';
 	import type { IcToken } from '$icp/types/ic-token';
 	import { isIcCkToken } from '$icp/validation/ic-token.validation';
-	import {
-		loadPendingCkEthereumTransaction,
-		loadCkEthereumPendingTransactions
-	} from '$icp-eth/services/eth.services';
+	import { loadCkEthereumPendingTransactions, loadPendingCkEthereumTransaction } from '$icp-eth/services/eth.services';
 	import { ckEthMinterInfoStore } from '$icp-eth/stores/cketh.store';
-	import {
-		toCkErc20HelperContractAddress,
-		toCkEthHelperContractAddress
-	} from '$icp-eth/utils/cketh.utils';
+	import { toCkErc20HelperContractAddress, toCkEthHelperContractAddress } from '$icp-eth/utils/cketh.utils';
 	import { ethAddress } from '$lib/derived/address.derived';
 	import { authIdentity } from '$lib/derived/auth.derived';
 	import { balance } from '$lib/derived/balances.derived';

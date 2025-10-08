@@ -1,11 +1,7 @@
 import { isTokenErc20 } from '$eth/utils/erc20.utils';
 import type { CkEthMinterInfoData } from '$icp-eth/stores/cketh.store';
 import type { CkBtcMinterInfoData } from '$icp/stores/ckbtc.store';
-import {
-	isTokenCkBtcLedger,
-	isTokenCkErc20Ledger,
-	isTokenCkEthLedger
-} from '$icp/utils/ic-send.utils';
+import { isTokenCkBtcLedger, isTokenCkErc20Ledger, isTokenCkEthLedger } from '$icp/utils/ic-send.utils';
 import { ZERO } from '$lib/constants/app.constants';
 import type { Balance } from '$lib/types/balance';
 import type { Token } from '$lib/types/token';

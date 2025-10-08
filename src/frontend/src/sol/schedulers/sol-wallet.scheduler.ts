@@ -1,12 +1,9 @@
 import { SOL_WALLET_TIMER_INTERVAL_MILLIS } from '$lib/constants/app.constants';
-import { SchedulerTimer, type Scheduler, type SchedulerJobData } from '$lib/schedulers/scheduler';
+import { type Scheduler, type SchedulerJobData, SchedulerTimer } from '$lib/schedulers/scheduler';
 import { retryWithDelay } from '$lib/services/rest.services';
 import type { SolAddress } from '$lib/types/address';
 import type { OptionIdentity } from '$lib/types/identity';
-import type {
-	PostMessageDataRequestSol,
-	PostMessageDataResponseError
-} from '$lib/types/post-message';
+import type { PostMessageDataRequestSol, PostMessageDataResponseError } from '$lib/types/post-message';
 import type { CertifiedData } from '$lib/types/store';
 import type { Option } from '$lib/types/utils';
 import { loadSolLamportsBalance } from '$sol/api/solana.api';

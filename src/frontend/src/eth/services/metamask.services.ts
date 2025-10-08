@@ -1,9 +1,5 @@
 import { METAMASK_DEFAULT_TRANSFER_AMOUNT } from '$eth/constants/metamask.constants';
-import {
-	metamaskAccounts,
-	sendMetamaskTransaction,
-	switchMetamaskChain
-} from '$eth/providers/metamask.providers';
+import { metamaskAccounts, sendMetamaskTransaction, switchMetamaskChain } from '$eth/providers/metamask.providers';
 import { metamaskStore } from '$eth/stores/metamask.store';
 import type { EthereumNetwork } from '$eth/types/network';
 import { i18n } from '$lib/stores/i18n.store';

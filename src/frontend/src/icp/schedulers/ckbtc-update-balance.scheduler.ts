@@ -5,7 +5,7 @@ import { CKBTC_UPDATE_BALANCE_TIMER_INTERVAL_MILLIS } from '$icp/constants/ckbtc
 import type { BtcAddressData } from '$icp/stores/btc.store';
 import type { UtxoTxidText } from '$icp/types/ckbtc';
 import { utxoTxIdToString } from '$icp/utils/btc.utils';
-import { SchedulerTimer, type Scheduler, type SchedulerJobData } from '$lib/schedulers/scheduler';
+import { type Scheduler, type SchedulerJobData, SchedulerTimer } from '$lib/schedulers/scheduler';
 import type { CanisterIdText } from '$lib/types/canister';
 import type { OptionIdentity } from '$lib/types/identity';
 import type {
@@ -14,12 +14,7 @@ import type {
 	PostMessageJsonDataResponse
 } from '$lib/types/post-message';
 import type { CertifiedData } from '$lib/types/store';
-import {
-	MinterNoNewUtxosError,
-	type BitcoinNetwork,
-	type PendingUtxo,
-	type UtxoStatus
-} from '@dfinity/ckbtc';
+import { type BitcoinNetwork, MinterNoNewUtxosError, type PendingUtxo, type UtxoStatus } from '@dfinity/ckbtc';
 import { assertNonNullish, isNullish, jsonReplacer, uint8ArrayToHexString } from '@dfinity/utils';
 
 export class CkBTCUpdateBalanceScheduler

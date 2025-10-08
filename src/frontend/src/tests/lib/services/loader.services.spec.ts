@@ -14,11 +14,7 @@ import { userProfileStore } from '$lib/stores/user-profile.store';
 import { LoadIdbAddressError } from '$lib/types/errors';
 import { mockAuthStore } from '$tests/mocks/auth.mock';
 import { mockIdentity } from '$tests/mocks/identity.mock';
-import {
-	mockNetworksSettings,
-	mockUserProfile,
-	mockUserSettings
-} from '$tests/mocks/user-profile.mock';
+import { mockNetworksSettings, mockUserProfile, mockUserSettings } from '$tests/mocks/user-profile.mock';
 import { setupUserNetworksStore } from '$tests/utils/user-networks.test-utils';
 import { toNullable } from '@dfinity/utils';
 import { get } from 'svelte/store';

@@ -1,6 +1,6 @@
 import type { Network, NetworkId } from '$lib/types/network';
 import { nonNullish } from '@dfinity/utils';
-import { derived, writable, type Readable } from 'svelte/store';
+import { derived, type Readable, writable } from 'svelte/store';
 
 export interface ModalNetworksListData {
 	networks: Network[];

@@ -8,20 +8,13 @@ import { BTC_MAINNET_TOKEN } from '$env/tokens/tokens.btc.env';
 import { ETHEREUM_TOKEN } from '$env/tokens/tokens.eth.env';
 import { ICP_TOKEN } from '$env/tokens/tokens.icp.env';
 import { SOLANA_TOKEN } from '$env/tokens/tokens.sol.env';
-import {
-	initCertifiedUserTokensStore,
-	type CertifiedUserTokensStore
-} from '$lib/stores/user-tokens.store';
+import { type CertifiedUserTokensStore, initCertifiedUserTokensStore } from '$lib/stores/user-tokens.store';
 import type { CertifiedData } from '$lib/types/store';
 import type { Token } from '$lib/types/token';
 import type { UserToken } from '$lib/types/user-token';
 import { parseTokenId } from '$lib/validation/token.validation';
 import { mockValidErc20Token } from '$tests/mocks/erc20-tokens.mock';
-import {
-	AZUKI_ELEMENTAL_BEANS_TOKEN,
-	DE_GODS_TOKEN,
-	mockValidErc721Token
-} from '$tests/mocks/erc721-tokens.mock';
+import { AZUKI_ELEMENTAL_BEANS_TOKEN, DE_GODS_TOKEN, mockValidErc721Token } from '$tests/mocks/erc721-tokens.mock';
 import { get } from 'svelte/store';
 
 describe('user-token.store', () => {

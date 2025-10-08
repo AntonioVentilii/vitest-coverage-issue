@@ -1,21 +1,11 @@
-import {
-	SUPPORTED_MAINNET_NETWORKS_IDS,
-	SUPPORTED_TESTNET_NETWORK_IDS
-} from '$env/networks/networks.env';
+import { SUPPORTED_MAINNET_NETWORKS_IDS, SUPPORTED_TESTNET_NETWORK_IDS } from '$env/networks/networks.env';
 import { ICP_NETWORK_ID, ICP_PSEUDO_TESTNET_NETWORK_ID } from '$env/networks/networks.icp.env';
 import { SOLANA_MAINNET_NETWORK_ID } from '$env/networks/networks.sol.env';
 import { userNetworks } from '$lib/derived/user-networks.derived';
 import { userProfileStore } from '$lib/stores/user-profile.store';
 import type { UserNetworks } from '$lib/types/user-networks';
-import {
-	mockUserNetworks,
-	mockUserNetworksOnlyMainnetsComplete
-} from '$tests/mocks/user-networks.mock';
-import {
-	mockNetworksSettings,
-	mockUserProfile,
-	mockUserSettings
-} from '$tests/mocks/user-profile.mock';
+import { mockUserNetworks, mockUserNetworksOnlyMainnetsComplete } from '$tests/mocks/user-networks.mock';
+import { mockNetworksSettings, mockUserProfile, mockUserSettings } from '$tests/mocks/user-profile.mock';
 import { toNullable } from '@dfinity/utils';
 import { get } from 'svelte/store';
 

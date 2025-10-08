@@ -1,7 +1,4 @@
-import {
-	icPendingTransactionsStore,
-	type IcPendingTransactionsData
-} from '$icp/stores/ic-pending-transactions.store';
+import { type IcPendingTransactionsData, icPendingTransactionsStore } from '$icp/stores/ic-pending-transactions.store';
 import { getCkEthPendingTransactions } from '$icp/utils/cketh-transactions.utils';
 import { tokenWithFallback } from '$lib/derived/token.derived';
 import { derived, type Readable } from 'svelte/store';

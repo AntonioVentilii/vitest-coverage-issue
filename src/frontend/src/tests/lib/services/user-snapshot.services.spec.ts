@@ -1,8 +1,4 @@
-import type {
-	AccountSnapshot_Any,
-	Transaction_Any,
-	UserSnapshot
-} from '$declarations/rewards/rewards.did';
+import type { AccountSnapshot_Any, Transaction_Any, UserSnapshot } from '$declarations/rewards/rewards.did';
 import { ETHEREUM_NETWORK_ID } from '$env/networks/networks.eth.env';
 import { ICP_NETWORK_ID } from '$env/networks/networks.icp.env';
 import { ICRC_LEDGER_CANISTER_TESTNET_IDS } from '$env/networks/networks.icrc.env';
@@ -16,18 +12,14 @@ import type { IcCkToken } from '$icp/types/ic-token';
 import type { IcTransactionUi } from '$icp/types/ic-transaction';
 import { normalizeTimestampToSeconds } from '$icp/utils/date.utils';
 import { registerAirdropRecipient } from '$lib/api/reward.api';
-import {
-	NANO_SECONDS_IN_MILLISECOND,
-	NANO_SECONDS_IN_SECOND,
-	ZERO
-} from '$lib/constants/app.constants';
+import { NANO_SECONDS_IN_MILLISECOND, NANO_SECONDS_IN_SECOND, ZERO } from '$lib/constants/app.constants';
 import * as addressStore from '$lib/derived/address.derived';
 import * as authStore from '$lib/derived/auth.derived';
 import * as exchangeDerived from '$lib/derived/exchange.derived';
 import * as tokensDerived from '$lib/derived/tokens.derived';
 import { registerUserSnapshot } from '$lib/services/user-snapshot.services';
 import * as balancesStores from '$lib/stores/balances.store';
-import { balancesStore, type BalancesData } from '$lib/stores/balances.store';
+import { type BalancesData, balancesStore } from '$lib/stores/balances.store';
 import type { CertifiedSetterStoreStore } from '$lib/stores/certified-setter.store';
 import type { WritableUpdateStore } from '$lib/stores/certified.store';
 import type { ExchangesData } from '$lib/types/exchange';

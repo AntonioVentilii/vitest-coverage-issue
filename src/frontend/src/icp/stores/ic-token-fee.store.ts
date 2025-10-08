@@ -1,6 +1,6 @@
 import type { Option } from '$lib/types/utils';
 import { nonNullish } from '@dfinity/utils';
-import { writable, type Readable } from 'svelte/store';
+import { type Readable, writable } from 'svelte/store';
 
 export type IcTokenFeeStoreData = Option<Record<string, bigint>>;
 

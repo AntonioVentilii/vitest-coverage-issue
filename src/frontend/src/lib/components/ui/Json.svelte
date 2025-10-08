@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { stopPropagation } from '@dfinity/gix-components';
 	import Self from '$lib/components/ui/Json.svelte';
-	import { isHash, stringifyJson, isPrincipal } from '$lib/utils/json.utils';
+	import { isHash, isPrincipal, stringifyJson } from '$lib/utils/json.utils';
 
 	interface Props {
 		json?: unknown;

@@ -4,7 +4,7 @@ import { kongSwapTokensStore } from '$lib/stores/kong-swap-tokens.store';
 import type { Balance } from '$lib/types/balance';
 import type { Token } from '$lib/types/token';
 import { nonNullish } from '@dfinity/utils';
-import { derived, writable, type Readable, type Writable } from 'svelte/store';
+import { derived, type Readable, writable, type Writable } from 'svelte/store';
 
 export interface SwapError {
 	variant: 'error' | 'warning' | 'info';

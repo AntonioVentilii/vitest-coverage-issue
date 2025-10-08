@@ -1,17 +1,11 @@
-import {
-	loadBtcAddressMainnet,
-	loadIdbBtcAddressMainnet
-} from '$btc/services/btc-address.services';
+import { loadBtcAddressMainnet, loadIdbBtcAddressMainnet } from '$btc/services/btc-address.services';
 import { BTC_MAINNET_NETWORK_ID } from '$env/networks/networks.btc.env';
 import { ETHEREUM_NETWORK_ID } from '$env/networks/networks.eth.env';
 import { SOLANA_MAINNET_NETWORK_ID } from '$env/networks/networks.sol.env';
 import { loadEthAddress, loadIdbEthAddress } from '$eth/services/eth-address.services';
 import { loadAddresses, loadIdbAddresses } from '$lib/services/addresses.services';
 import { LoadIdbAddressError } from '$lib/types/errors';
-import {
-	loadIdbSolAddressMainnet,
-	loadSolAddressMainnet
-} from '$sol/services/sol-address.services';
+import { loadIdbSolAddressMainnet, loadSolAddressMainnet } from '$sol/services/sol-address.services';
 
 vi.mock('$btc/services/btc-address.services');
 vi.mock('$eth/services/eth-address.services');

@@ -2,7 +2,7 @@ import { hasRequiredCycles, solvePowChallenge } from '$icp/services/pow-protecto
 import { allowSigning, createPowChallenge } from '$lib/api/backend.api';
 import { CreateChallengeEnum, PowCreateChallengeError } from '$lib/canisters/backend.errors';
 import { POW_CHALLENGE_INTERVAL_MILLIS } from '$lib/constants/pow.constants';
-import { SchedulerTimer, type Scheduler, type SchedulerJobData } from '$lib/schedulers/scheduler';
+import { type Scheduler, type SchedulerJobData, SchedulerTimer } from '$lib/schedulers/scheduler';
 import type {
 	PostMessageDataRequest,
 	PostMessageDataResponsePowProtectorNextAllowance,

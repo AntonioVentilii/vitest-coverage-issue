@@ -1,4 +1,5 @@
 import type {
+	inferPostMessageSchema,
 	PostMessageDataErrorSchema,
 	PostMessageDataRequestBtcSchema,
 	PostMessageDataRequestDip20Schema,
@@ -23,8 +24,7 @@ import type {
 	PostMessageJsonDataResponseSchema,
 	PostMessageResponseSchema,
 	PostMessageResponseStatusSchema,
-	PostMessageSyncStateSchema,
-	inferPostMessageSchema
+	PostMessageSyncStateSchema
 } from '$lib/schema/post-message.schema';
 import type * as z from 'zod';
 import type { ZodType } from 'zod';

@@ -1,8 +1,5 @@
 import { POLYGON_MAINNET_ENABLED } from '$env/networks/networks-evm/networks.evm.polygon.env';
-import {
-	AMOY_USDC_TOKEN,
-	USDC_TOKEN
-} from '$env/tokens/tokens-evm/tokens-polygon/tokens-erc20/tokens.usdc.env';
+import { AMOY_USDC_TOKEN, USDC_TOKEN } from '$env/tokens/tokens-evm/tokens-polygon/tokens-erc20/tokens.usdc.env';
 import { USDT_TOKEN } from '$env/tokens/tokens-evm/tokens-polygon/tokens-erc20/tokens.usdt.env';
 import type { RequiredEvmErc20Token } from '$evm/types/erc20';
 import { defineSupportedTokens } from '$lib/utils/env.tokens.utils';

@@ -1,8 +1,4 @@
-import {
-	IcCanistersStrictSchema,
-	IcCkTokenSchema,
-	IcTokenSchema
-} from '$icp/schema/ic-token.schema';
+import { IcCanistersStrictSchema, IcCkTokenSchema, IcTokenSchema } from '$icp/schema/ic-token.schema';
 import type { IcCanistersStrict, IcCkToken, IcToken } from '$icp/types/ic-token';
 import type { Token } from '$lib/types/token';
 import { nonNullish } from '@dfinity/utils';

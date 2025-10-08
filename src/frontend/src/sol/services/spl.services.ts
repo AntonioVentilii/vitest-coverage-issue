@@ -7,15 +7,12 @@ import { i18n } from '$lib/stores/i18n.store';
 import { toastsError } from '$lib/stores/toasts.store';
 import type { SolAddress } from '$lib/types/address';
 import type { LoadCustomTokenParams } from '$lib/types/custom-token';
-import type { OptionIdentity } from '$lib/types/identity';
 import type { TokenMetadata } from '$lib/types/token';
-import type { ResultSuccess } from '$lib/types/utils';
 import { parseCustomTokenId } from '$lib/utils/custom-token.utils';
 import { hardenMetadata } from '$lib/utils/metadata.utils';
 import { getTokenInfo } from '$sol/api/solana.api';
 import { splMetadata } from '$sol/rest/quicknode.rest';
 import { splCustomTokensStore } from '$sol/stores/spl-custom-tokens.store';
-import { splDefaultTokensStore } from '$sol/stores/spl-default-tokens.store';
 import type { SolanaNetworkType } from '$sol/types/network';
 import type { SplCustomToken } from '$sol/types/spl-custom-token';
 import { safeMapNetworkIdToNetwork } from '$sol/utils/safe-network.utils';
@@ -23,26 +20,6 @@ import { fromNullable, isNullish, nonNullish, queryAndUpdate } from '@dfinity/ut
 import { TOKEN_PROGRAM_ADDRESS } from '@solana-program/token';
 import { get } from 'svelte/store';
 
-export const loadSplTokens = async ({ identity }: { identity: OptionIdentity }): Promise<void> => {
-	await Promise.all([loadDefaultSplTokens(), loadCustomTokens({ identity, useCache: true })]);
-};
-
-const loadDefaultSplTokens = (): ResultSuccess => {
-	try {
-		splDefaultTokensStore.set(SPL_TOKENS);
-	} catch (err: unknown) {
-		splDefaultTokensStore.reset();
-
-		toastsError({
-			msg: { text: get(i18n).init.error.spl_tokens },
-			err
-		});
-
-		return { success: false };
-	}
-
-	return { success: true };
-};
 
 export const loadCustomTokens = ({
 	identity,

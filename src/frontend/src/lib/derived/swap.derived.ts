@@ -1,9 +1,6 @@
 import { ICP_TOKEN } from '$env/tokens/tokens.icp.env';
 import { ZERO } from '$lib/constants/app.constants';
-import {
-	allCrossChainSwapTokens,
-	allKongSwapCompatibleIcrcTokens
-} from '$lib/derived/all-tokens.derived';
+import { allCrossChainSwapTokens, allKongSwapCompatibleIcrcTokens } from '$lib/derived/all-tokens.derived';
 import { pageToken } from '$lib/derived/page-token.derived';
 import { balancesStore } from '$lib/stores/balances.store';
 import type { Balance } from '$lib/types/balance';

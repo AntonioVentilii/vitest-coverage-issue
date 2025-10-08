@@ -3,10 +3,10 @@ import type { Erc20Token } from '$eth/types/erc20';
 import type { IcrcCustomToken } from '$icp/types/icrc-custom-token';
 import {
 	autoLoadSingleToken,
-	autoLoadToken,
-	loadTokenAndRun,
 	type AutoLoadSingleTokenParams,
-	type AutoLoadTokenParams
+	autoLoadToken,
+	type AutoLoadTokenParams,
+	loadTokenAndRun
 } from '$lib/services/token.services';
 import { busy } from '$lib/stores/busy.store';
 import * as toastsStore from '$lib/stores/toasts.store';

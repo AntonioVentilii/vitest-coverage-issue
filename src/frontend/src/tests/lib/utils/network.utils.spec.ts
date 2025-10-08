@@ -1,12 +1,6 @@
 import { SUPPORTED_ARBITRUM_NETWORK_IDS } from '$env/networks/networks-evm/networks.evm.arbitrum.env';
-import {
-	BASE_NETWORK_ID,
-	SUPPORTED_BASE_NETWORK_IDS
-} from '$env/networks/networks-evm/networks.evm.base.env';
-import {
-	BSC_MAINNET_NETWORK_ID,
-	SUPPORTED_BSC_NETWORK_IDS
-} from '$env/networks/networks-evm/networks.evm.bsc.env';
+import { BASE_NETWORK_ID, SUPPORTED_BASE_NETWORK_IDS } from '$env/networks/networks-evm/networks.evm.base.env';
+import { BSC_MAINNET_NETWORK_ID, SUPPORTED_BSC_NETWORK_IDS } from '$env/networks/networks-evm/networks.evm.bsc.env';
 import { SUPPORTED_EVM_NETWORK_IDS } from '$env/networks/networks-evm/networks.evm.env';
 import { SUPPORTED_POLYGON_NETWORK_IDS } from '$env/networks/networks-evm/networks.evm.polygon.env';
 import * as btcNetworkEnv from '$env/networks/networks.btc.env';
@@ -23,11 +17,7 @@ import {
 	SEPOLIA_NETWORK_ID,
 	SUPPORTED_ETHEREUM_NETWORK_IDS
 } from '$env/networks/networks.eth.env';
-import {
-	ICP_NETWORK,
-	ICP_NETWORK_ID,
-	ICP_PSEUDO_TESTNET_NETWORK_ID
-} from '$env/networks/networks.icp.env';
+import { ICP_NETWORK, ICP_NETWORK_ID, ICP_PSEUDO_TESTNET_NETWORK_ID } from '$env/networks/networks.icp.env';
 import { CKBTC_LEDGER_CANISTER_TESTNET_IDS } from '$env/networks/networks.icrc.env';
 import {
 	SOLANA_DEVNET_NETWORK,
@@ -35,8 +25,8 @@ import {
 	SOLANA_LOCAL_NETWORK_ID,
 	SOLANA_MAINNET_NETWORK,
 	SOLANA_MAINNET_NETWORK_ID,
-	SUPPORTED_SOLANA_NETWORKS,
-	SUPPORTED_SOLANA_NETWORK_IDS
+	SUPPORTED_SOLANA_NETWORK_IDS,
+	SUPPORTED_SOLANA_NETWORKS
 } from '$env/networks/networks.sol.env';
 import { SEPOLIA_PEPE_TOKEN } from '$env/tokens/tokens-erc20/tokens.pepe.env';
 import { BTC_MAINNET_TOKEN, BTC_REGTEST_TOKEN } from '$env/tokens/tokens.btc.env';
@@ -49,21 +39,21 @@ import {
 	filterTokensForSelectedNetworks,
 	isNetworkICP,
 	isNetworkIdArbitrum,
-	isNetworkIdBTCMainnet,
-	isNetworkIdBTCRegtest,
-	isNetworkIdBTCTestnet,
 	isNetworkIdBase,
 	isNetworkIdBitcoin,
 	isNetworkIdBsc,
+	isNetworkIdBTCMainnet,
+	isNetworkIdBTCRegtest,
+	isNetworkIdBTCTestnet,
 	isNetworkIdEthereum,
 	isNetworkIdEvm,
 	isNetworkIdICP,
 	isNetworkIdPolygon,
+	isNetworkIdSepolia,
+	isNetworkIdSolana,
 	isNetworkIdSOLDevnet,
 	isNetworkIdSOLLocal,
 	isNetworkIdSOLMainnet,
-	isNetworkIdSepolia,
-	isNetworkIdSolana,
 	isNetworkSolana,
 	isPseudoNetworkIdIcpTestnet,
 	mapNetworkIdToBitcoinNetwork

@@ -1,4 +1,4 @@
-import { formatUnits, parseUnits, type BigNumberish } from 'ethers/utils';
+import { type BigNumberish, formatUnits, parseUnits } from 'ethers/utils';
 
 export const parseToken = ({
 	value,

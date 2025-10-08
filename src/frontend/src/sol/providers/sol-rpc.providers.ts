@@ -6,11 +6,7 @@ import {
 	SOLANA_RPC_WS_URL_LOCAL,
 	SOLANA_RPC_WS_URL_MAINNET
 } from '$env/networks/networks.sol.env';
-import {
-	SolanaNetworks,
-	type SolRpcConnectionConfig,
-	type SolanaNetworkType
-} from '$sol/types/network';
+import { SolanaNetworks, type SolanaNetworkType, type SolRpcConnectionConfig } from '$sol/types/network';
 import {
 	createSolanaRpc,
 	createSolanaRpcSubscriptions,

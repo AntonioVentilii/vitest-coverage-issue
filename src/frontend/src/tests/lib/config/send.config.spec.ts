@@ -1,8 +1,4 @@
-import {
-	allSendWizardSteps,
-	sendWizardSteps,
-	sendWizardStepsWithQrCodeScan
-} from '$lib/config/send.config';
+import { allSendWizardSteps, sendWizardSteps, sendWizardStepsWithQrCodeScan } from '$lib/config/send.config';
 import { WizardStepsSend } from '$lib/enums/wizard-steps';
 import en from '$tests/mocks/i18n.mock';
 import type { WizardSteps } from '@dfinity/gix-components';

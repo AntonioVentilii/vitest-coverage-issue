@@ -1,10 +1,7 @@
 import type { LedgerCanisterIdText } from '$icp/types/canister';
 import { ZERO } from '$lib/constants/app.constants';
 import type { OptionBalance } from '$lib/types/balance';
-import type {
-	CoingeckoSimpleTokenPrice,
-	CoingeckoSimpleTokenPriceResponse
-} from '$lib/types/coingecko';
+import type { CoingeckoSimpleTokenPrice, CoingeckoSimpleTokenPriceResponse } from '$lib/types/coingecko';
 import type { KongSwapToken, KongSwapTokenMetrics } from '$lib/types/kongswap';
 import { formatToken } from '$lib/utils/format.utils';
 import { isNullish, nonNullish } from '@dfinity/utils';

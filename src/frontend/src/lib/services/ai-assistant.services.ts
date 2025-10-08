@@ -1,9 +1,6 @@
 import type { chat_message_v1 } from '$declarations/llm/llm.did';
 import { llmChat } from '$lib/api/llm.api';
-import {
-	AI_ASSISTANT_LLM_MODEL,
-	getAiAssistantToolsDescription
-} from '$lib/constants/ai-assistant.constants';
+import { AI_ASSISTANT_LLM_MODEL, getAiAssistantToolsDescription } from '$lib/constants/ai-assistant.constants';
 import {
 	AI_ASSISTANT_TEXTUAL_RESPONSE_RECEIVED,
 	AI_ASSISTANT_TOOL_EXECUTION_TRIGGERED
@@ -13,12 +10,7 @@ import { combinedDerivedSortedFungibleNetworkTokensUi } from '$lib/derived/netwo
 import { networks } from '$lib/derived/networks.derived';
 import { enabledTokens, enabledUniqueTokensSymbols } from '$lib/derived/tokens.derived';
 import { trackEvent } from '$lib/services/analytics.services';
-import {
-	ToolResultType,
-	type ChatMessageContent,
-	type ToolCall,
-	type ToolResult
-} from '$lib/types/ai-assistant';
+import { type ChatMessageContent, type ToolCall, type ToolResult, ToolResultType } from '$lib/types/ai-assistant';
 import {
 	generateAiAssistantResponseEventMetadata,
 	parseReviewSendTokensToolArguments,

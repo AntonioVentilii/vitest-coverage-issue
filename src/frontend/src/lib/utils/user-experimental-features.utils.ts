@@ -1,11 +1,5 @@
-import type {
-	ExperimentalFeatureSettings,
-	ExperimentalFeatureSettingsFor
-} from '$declarations/backend/backend.did';
-import type {
-	ExperimentalFeatureId,
-	UserExperimentalFeatures
-} from '$lib/types/user-experimental-features';
+import type { ExperimentalFeatureSettings, ExperimentalFeatureSettingsFor } from '$declarations/backend/backend.did';
+import type { ExperimentalFeatureId, UserExperimentalFeatures } from '$lib/types/user-experimental-features';
 import { isNullish } from '@dfinity/utils';
 
 const featureIdToKey = (

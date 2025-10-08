@@ -3,17 +3,10 @@ import { exchanges } from '$lib/derived/exchange.derived';
 import { balancesStore } from '$lib/stores/balances.store';
 import type { Network, NetworkId } from '$lib/types/network';
 import type { Token, TokenUi } from '$lib/types/token';
-import {
-	filterTokensForSelectedNetwork,
-	filterTokensForSelectedNetworks
-} from '$lib/utils/network.utils';
-import {
-	filterTokens,
-	filterTokensByNft,
-	pinTokensWithBalanceAtTop
-} from '$lib/utils/tokens.utils';
+import { filterTokensForSelectedNetwork, filterTokensForSelectedNetworks } from '$lib/utils/network.utils';
+import { filterTokens, filterTokensByNft, pinTokensWithBalanceAtTop } from '$lib/utils/tokens.utils';
 import { isNullish, nonNullish } from '@dfinity/utils';
-import { derived, writable, type Readable } from 'svelte/store';
+import { derived, type Readable, writable } from 'svelte/store';
 
 export interface ModalTokensListData {
 	tokens: Token[];

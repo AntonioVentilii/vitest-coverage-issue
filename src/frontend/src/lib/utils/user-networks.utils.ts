@@ -3,23 +3,13 @@ import {
 	ARBITRUM_MAINNET_NETWORK_ID,
 	ARBITRUM_SEPOLIA_NETWORK_ID
 } from '$env/networks/networks-evm/networks.evm.arbitrum.env';
-import {
-	BASE_NETWORK_ID,
-	BASE_SEPOLIA_NETWORK_ID
-} from '$env/networks/networks-evm/networks.evm.base.env';
-import {
-	BSC_MAINNET_NETWORK_ID,
-	BSC_TESTNET_NETWORK_ID
-} from '$env/networks/networks-evm/networks.evm.bsc.env';
+import { BASE_NETWORK_ID, BASE_SEPOLIA_NETWORK_ID } from '$env/networks/networks-evm/networks.evm.base.env';
+import { BSC_MAINNET_NETWORK_ID, BSC_TESTNET_NETWORK_ID } from '$env/networks/networks-evm/networks.evm.bsc.env';
 import {
 	POLYGON_AMOY_NETWORK_ID,
 	POLYGON_MAINNET_NETWORK_ID
 } from '$env/networks/networks-evm/networks.evm.polygon.env';
-import {
-	BTC_MAINNET_NETWORK_ID,
-	BTC_REGTEST_NETWORK_ID,
-	BTC_TESTNET_NETWORK_ID
-} from '$env/networks/networks.btc.env';
+import { BTC_MAINNET_NETWORK_ID, BTC_REGTEST_NETWORK_ID, BTC_TESTNET_NETWORK_ID } from '$env/networks/networks.btc.env';
 import { ETHEREUM_NETWORK_ID, SEPOLIA_NETWORK_ID } from '$env/networks/networks.eth.env';
 import { ICP_NETWORK_ID, ICP_PSEUDO_TESTNET_NETWORK_ID } from '$env/networks/networks.icp.env';
 import {

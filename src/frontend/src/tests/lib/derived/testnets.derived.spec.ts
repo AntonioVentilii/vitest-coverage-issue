@@ -1,10 +1,6 @@
 import { testnetsEnabled } from '$lib/derived/testnets.derived';
 import { userProfileStore } from '$lib/stores/user-profile.store';
-import {
-	mockNetworksSettings,
-	mockUserProfile,
-	mockUserSettings
-} from '$tests/mocks/user-profile.mock';
+import { mockNetworksSettings, mockUserProfile, mockUserSettings } from '$tests/mocks/user-profile.mock';
 import { toNullable } from '@dfinity/utils';
 import { get } from 'svelte/store';
 

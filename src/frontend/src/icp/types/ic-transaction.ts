@@ -3,10 +3,7 @@ import type { Dip20TransactionWithId } from '$icp/types/api';
 import type { icpTransactionTypes } from '$lib/schema/transaction.schema';
 import type { TransactionId, TransactionType } from '$lib/types/transaction';
 import type { Transaction, TransactionWithId } from '@dfinity/ledger-icp';
-import type {
-	IcrcTransaction as IcrcTransactionCandid,
-	IcrcTransactionWithId
-} from '@dfinity/ledger-icrc';
+import type { IcrcTransaction as IcrcTransactionCandid, IcrcTransactionWithId } from '@dfinity/ledger-icrc';
 
 export interface IcTransactionAddOnsInfo {
 	transferToSelf?: 'send' | 'receive';

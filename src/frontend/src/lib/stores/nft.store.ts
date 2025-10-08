@@ -1,7 +1,7 @@
 import type { Nft } from '$lib/types/nft';
 import { areAddressesEqual } from '$lib/utils/address.utils';
 import { isNullish, nonNullish } from '@dfinity/utils';
-import { writable, type Readable } from 'svelte/store';
+import { type Readable, writable } from 'svelte/store';
 
 export type NftStoreData = Nft[] | undefined;
 

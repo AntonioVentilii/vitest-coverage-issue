@@ -1,8 +1,8 @@
 import type {
+	_SERVICE as SignerService,
 	EthAddressResponse,
 	EthSignTransactionRequest,
-	RejectionCode_1,
-	_SERVICE as SignerService
+	RejectionCode_1
 } from '$declarations/signer/signer.did';
 import { SOLANA_KEY_ID } from '$env/networks/networks.sol.env';
 import { CanisterInternalError } from '$lib/canisters/errors';

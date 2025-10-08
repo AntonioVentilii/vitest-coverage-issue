@@ -1,4 +1,4 @@
-import { writable, type Readable } from 'svelte/store';
+import { type Readable, writable } from 'svelte/store';
 
 export interface Busy {
 	spinner: boolean;

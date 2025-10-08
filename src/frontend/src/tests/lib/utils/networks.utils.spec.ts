@@ -2,24 +2,11 @@ import {
 	ARBITRUM_MAINNET_NETWORK,
 	ARBITRUM_SEPOLIA_NETWORK
 } from '$env/networks/networks-evm/networks.evm.arbitrum.env';
-import {
-	BASE_NETWORK,
-	BASE_SEPOLIA_NETWORK
-} from '$env/networks/networks-evm/networks.evm.base.env';
-import {
-	BSC_MAINNET_NETWORK,
-	BSC_TESTNET_NETWORK
-} from '$env/networks/networks-evm/networks.evm.bsc.env';
-import {
-	POLYGON_AMOY_NETWORK,
-	POLYGON_MAINNET_NETWORK
-} from '$env/networks/networks-evm/networks.evm.polygon.env';
+import { BASE_NETWORK, BASE_SEPOLIA_NETWORK } from '$env/networks/networks-evm/networks.evm.base.env';
+import { BSC_MAINNET_NETWORK, BSC_TESTNET_NETWORK } from '$env/networks/networks-evm/networks.evm.bsc.env';
+import { POLYGON_AMOY_NETWORK, POLYGON_MAINNET_NETWORK } from '$env/networks/networks-evm/networks.evm.polygon.env';
 import { ETHEREUM_NETWORK, SEPOLIA_NETWORK } from '$env/networks/networks.eth.env';
-import {
-	SOLANA_DEVNET_NETWORK,
-	SOLANA_LOCAL_NETWORK,
-	SOLANA_MAINNET_NETWORK
-} from '$env/networks/networks.sol.env';
+import { SOLANA_DEVNET_NETWORK, SOLANA_LOCAL_NETWORK, SOLANA_MAINNET_NETWORK } from '$env/networks/networks.sol.env';
 import type { EthereumNetwork } from '$eth/types/network';
 import * as appContants from '$lib/constants/app.constants';
 import type { Network } from '$lib/types/network';

@@ -1,6 +1,6 @@
 import type { ICTokenReply } from '$declarations/kong_backend/kong_backend.did';
 import type { Option } from '$lib/types/utils';
-import { writable, type Readable } from 'svelte/store';
+import { type Readable, writable } from 'svelte/store';
 
 export type KongSwapTokensStoreData = Option<Record<string, ICTokenReply>>;
 

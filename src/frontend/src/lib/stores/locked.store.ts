@@ -1,7 +1,4 @@
-import {
-	TRACK_LOCK_MODE_ACTIVATED,
-	TRACK_LOCK_MODE_DEACTIVATED
-} from '$lib/constants/analytics.contants';
+import { TRACK_LOCK_MODE_ACTIVATED, TRACK_LOCK_MODE_DEACTIVATED } from '$lib/constants/analytics.contants';
 import { trackEvent } from '$lib/services/analytics.services';
 import { initStorageStore } from '$lib/stores/storage.store';
 import { get } from 'svelte/store';

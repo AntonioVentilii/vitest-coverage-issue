@@ -1,8 +1,4 @@
-import type {
-	ConsensusStrategy,
-	GetAccountInfoEncoding,
-	RpcConfig
-} from '$declarations/sol_rpc/sol_rpc.did';
+import type { ConsensusStrategy, GetAccountInfoEncoding, RpcConfig } from '$declarations/sol_rpc/sol_rpc.did';
 import { toNullable } from '@dfinity/utils';
 
 const SOL_RPC_CONSENSUS_STRATEGY: ConsensusStrategy = {

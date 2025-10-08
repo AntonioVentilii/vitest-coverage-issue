@@ -1,9 +1,5 @@
 import { BTC_MAINNET_ENABLED } from '$env/networks/networks.btc.env';
-import {
-	BTC_MAINNET_TOKEN,
-	BTC_REGTEST_TOKEN,
-	BTC_TESTNET_TOKEN
-} from '$env/tokens/tokens.btc.env';
+import { BTC_MAINNET_TOKEN, BTC_REGTEST_TOKEN, BTC_TESTNET_TOKEN } from '$env/tokens/tokens.btc.env';
 import { testnetsEnabled } from '$lib/derived/testnets.derived';
 import { userNetworks } from '$lib/derived/user-networks.derived';
 import type { Token } from '$lib/types/token';

@@ -23,11 +23,7 @@ import {
 } from '$lib/api/icp-swap-pool.api';
 import { kongSwap, kongTokens } from '$lib/api/kong_backend.api';
 import { signPrehash } from '$lib/api/signer.api';
-import {
-	KONG_BACKEND_CANISTER_ID,
-	NANO_SECONDS_IN_MINUTE,
-	ZERO
-} from '$lib/constants/app.constants';
+import { KONG_BACKEND_CANISTER_ID, NANO_SECONDS_IN_MINUTE, ZERO } from '$lib/constants/app.constants';
 import { OISY_URL_HOSTNAME } from '$lib/constants/oisy.constants';
 import {
 	ICP_SWAP_POOL_FEE,
@@ -43,23 +39,20 @@ import { retryWithDelay } from '$lib/services/rest.services';
 import { throwSwapError } from '$lib/services/swap-errors.services';
 import { autoLoadSingleToken } from '$lib/services/token.services';
 import { i18n } from '$lib/stores/i18n.store';
-import {
-	kongSwapTokensStore,
-	type KongSwapTokensStoreData
-} from '$lib/stores/kong-swap-tokens.store';
+import { kongSwapTokensStore, type KongSwapTokensStoreData } from '$lib/stores/kong-swap-tokens.store';
 import type { EthAddress } from '$lib/types/address';
 import {
-	SwapErrorCodes,
-	SwapProvider,
 	type CheckDeltaOrderStatusParams,
 	type FetchSwapAmountsParams,
 	type GetQuoteParams,
-	type ICPSwapResult,
 	type IcpSwapManualWithdrawParams,
+	type ICPSwapResult,
 	type IcpSwapWithdrawParams,
 	type IcpSwapWithdrawResponse,
+	SwapErrorCodes,
 	type SwapMappedResult,
 	type SwapParams,
+	SwapProvider,
 	type SwapVeloraParams,
 	type VeloraQuoteParams
 } from '$lib/types/swap';
@@ -77,12 +70,7 @@ import { waitAndTriggerWallet } from '$lib/utils/wallet.utils';
 import type { Identity } from '@dfinity/agent';
 import { Principal } from '@dfinity/principal';
 import { isNullish, nonNullish } from '@dfinity/utils';
-import {
-	constructSimpleSDK,
-	type DeltaAuction,
-	type DeltaPrice,
-	type OptimalRate
-} from '@velora-dex/sdk';
+import { constructSimpleSDK, type DeltaAuction, type DeltaPrice, type OptimalRate } from '@velora-dex/sdk';
 import { get } from 'svelte/store';
 
 export const fetchKongSwap = async ({

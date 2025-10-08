@@ -2,7 +2,7 @@ import { TRACK_CHANGE_CURRENCY } from '$lib/constants/analytics.contants';
 import { Currency } from '$lib/enums/currency';
 import * as analytics from '$lib/services/analytics.services';
 import { currencyExchangeStore } from '$lib/stores/currency-exchange.store';
-import { initCurrencyStore, type CurrencyStore } from '$lib/stores/currency.store';
+import { type CurrencyStore, initCurrencyStore } from '$lib/stores/currency.store';
 import type { CurrencyData } from '$lib/types/currency';
 import { get as getStorage } from '$lib/utils/storage.utils';
 import { mockAuthSignedIn } from '$tests/mocks/auth.mock';

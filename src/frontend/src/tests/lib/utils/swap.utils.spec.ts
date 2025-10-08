@@ -1,7 +1,4 @@
-import type {
-	SwapAmountsReply,
-	SwapAmountsTxReply
-} from '$declarations/kong_backend/kong_backend.did';
+import type { SwapAmountsReply, SwapAmountsTxReply } from '$declarations/kong_backend/kong_backend.did';
 import { BTC_MAINNET_TOKEN } from '$env/tokens/tokens.btc.env';
 import { ETHEREUM_TOKEN } from '$env/tokens/tokens.eth.env';
 import { ICP_SYMBOL, ICP_TOKEN } from '$env/tokens/tokens.icp.env';
@@ -16,7 +13,7 @@ import {
 	VELORA_SWAP_PROVIDER
 } from '$lib/constants/swap.constants';
 import { SwapError } from '$lib/services/swap-errors.services';
-import { SwapErrorCodes, SwapProvider, VeloraSwapTypes, type ICPSwapResult } from '$lib/types/swap';
+import { type ICPSwapResult, SwapErrorCodes, SwapProvider, VeloraSwapTypes } from '$lib/types/swap';
 import { formatToken } from '$lib/utils/format.utils';
 import {
 	calculateSlippage,

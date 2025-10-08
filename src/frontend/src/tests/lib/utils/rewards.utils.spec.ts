@@ -9,8 +9,8 @@ import { RewardCriterionType } from '$lib/enums/reward-criterion-type';
 import { RewardType } from '$lib/enums/reward-type';
 import type { RewardResponseInfo } from '$lib/types/reward';
 import {
-	INITIAL_REWARD_RESULT,
 	getCampaignState,
+	INITIAL_REWARD_RESULT,
 	isEndedCampaign,
 	isOngoingCampaign,
 	isUpcomingCampaign,

@@ -1,8 +1,4 @@
-import {
-	estimateFee,
-	getBtcAddress,
-	updateBalance as updateBalanceApi
-} from '$icp/api/ckbtc-minter.api';
+import { estimateFee, getBtcAddress, updateBalance as updateBalanceApi } from '$icp/api/ckbtc-minter.api';
 import { btcAddressStore } from '$icp/stores/btc.store';
 import { ckBtcPendingUtxosStore } from '$icp/stores/ckbtc-utxos.store';
 import { ckBtcMinterInfoStore } from '$icp/stores/ckbtc.store';
@@ -20,11 +16,7 @@ import type { OptionIdentity } from '$lib/types/identity';
 import type { CertifiedData } from '$lib/types/store';
 import type { TokenId } from '$lib/types/token';
 import { waitAndTriggerWallet } from '$lib/utils/wallet.utils';
-import {
-	MinterNoNewUtxosError,
-	type EstimateWithdrawalFee,
-	type PendingUtxo
-} from '@dfinity/ckbtc';
+import { type EstimateWithdrawalFee, MinterNoNewUtxosError, type PendingUtxo } from '@dfinity/ckbtc';
 import {
 	assertNonNullish,
 	isNullish,
