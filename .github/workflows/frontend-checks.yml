@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-24.04
     strategy:
       matrix:
-        shardIndex: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-        shardTotal: [20]
+        shardIndex: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        shardTotal: [10]
 
     steps:
       - name: Checkout
@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
         with:
-          name: av-vitest-coverage-report-${{ matrix.shardIndex }}
+          name: av-vitest-coverage-${{ github.event_name }}-${{ github.run_id }}-${{ github.run_attempt }}-shard-${{ matrix.shardIndex }}
           path: .vitest-reports/*
           include-hidden-files: true
           retention-days: 1
@@ -53,7 +53,7 @@ jobs:
         uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
         with:
           path: .vitest-reports
-          pattern: av-vitest-coverage-report-*
+          pattern: av-vitest-coverage-${{ github.event_name }}-${{ github.run_id }}-${{ github.run_attempt }}-shard-*
           merge-multiple: true
 
       - name: Merge Coverage Reports
@@ -63,7 +63,7 @@ jobs:
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
         with:
-          name: av-vitest-coverage-report-with-merged-reports
+          name: av-vitest-coverage-merged-${{ github.event_name }}-${{ github.run_id }}-${{ github.run_attempt }}
           path: coverage/
           retention-days: 3
 
