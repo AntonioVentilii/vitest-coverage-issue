@@ -54,16 +54,6 @@ export const mockContactBtcAddressUi: ContactAddressUi = {
 	label: 'My Bitcoin Address'
 };
 
-export const mockContactEthAddressUi: ContactAddressUi = {
-	addressType: 'Eth',
-	address: mockEthAddress
-};
-
-export const mockContactUiSolAddressUi: ContactAddressUi = {
-	addressType: 'Sol',
-	address: mockSolAddress
-};
-
 export const getMockContactsUi = ({
 	n,
 	name,

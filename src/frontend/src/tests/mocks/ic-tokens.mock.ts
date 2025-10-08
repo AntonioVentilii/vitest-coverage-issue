@@ -26,11 +26,6 @@ export const mockValidIcrcToken: IcToken = {
 	standard: 'icrc'
 };
 
-export const mockValidDip20Token: IcToken = {
-	...mockValidIcToken,
-	id: parseTokenId('Dip20TokenId'),
-	standard: 'dip20'
-};
 
 export const mockValidIcCkToken: IcCkToken = {
 	...mockValidIcToken,

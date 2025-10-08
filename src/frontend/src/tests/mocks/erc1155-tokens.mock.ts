@@ -52,36 +52,3 @@ export const mockValidErc1155Token: Erc1155Token = {
 	address: mockEthAddress
 };
 
-export const createMockErc1155Tokens = ({
-	n,
-	networkEnv,
-	start = 0
-}: {
-	n: number;
-	networkEnv: NetworkEnvironment;
-	start?: number;
-}): Erc1155Token[] =>
-	Array.from({ length: n }, (_, i) => ({
-		id: parseTokenId(`Erc1155Token${start + i + 1}-${networkEnv}`),
-		symbol: `ERC1155-${start + i + 1}-${networkEnv}`,
-		name: `Erc1155Token${start + i + 1} ${networkEnv}`,
-		network: ETHEREUM_NETWORK,
-		standard: 'erc1155',
-		category: 'custom',
-		decimals: 0,
-		address: `0x${start + i + 1}-${networkEnv}`
-	}));
-
-export const createMockErc1155CustomTokens = ({
-	n,
-	networkEnv,
-	start = 0
-}: {
-	n: number;
-	networkEnv: NetworkEnvironment;
-	start?: number;
-}): CertifiedData<Erc1155CustomToken>[] =>
-	createMockErc1155Tokens({ n, networkEnv, start }).map((token) => ({
-		data: { ...token, enabled: true },
-		certified: false
-	}));

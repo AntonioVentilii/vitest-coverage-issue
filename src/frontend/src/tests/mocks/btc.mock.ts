@@ -13,8 +13,3 @@ export const mockUtxo: Utxo = {
 		vout: 1
 	}
 };
-
-export const mockUtxosFee: UtxosFee = {
-	feeSatoshis: 1000n,
-	utxos: [mockUtxo]
-};

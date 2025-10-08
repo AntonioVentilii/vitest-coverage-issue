@@ -8,10 +8,3 @@ export const mockIcrcCustomToken: IcrcCustomToken = {
 	alternativeName: 'test'
 };
 
-export const mockIcrcCustomTokens: IcrcCustomToken[] = [
-	mockIcrcCustomToken,
-	{
-		...mockIcrcCustomToken,
-		id: parseTokenId('Another ID')
-	}
-];

@@ -19,21 +19,3 @@ export const createTransactionsUiWithCmp = (n: number): AnyTransactionUiWithCmp[
 		},
 		component: 'ic'
 	}));
-
-export const knownDestinations = {
-	[mockBtcAddress]: {
-		amounts: [{ value: 10000000n, token: BTC_MAINNET_TOKEN }],
-		timestamp: 1671234567890,
-		address: mockBtcAddress
-	},
-	[mockEthAddress]: {
-		amounts: [{ value: 10000000n, token: ETHEREUM_TOKEN }],
-		timestamp: 1671234567890,
-		address: mockEthAddress
-	},
-	[mockSolAddress]: {
-		amounts: [{ value: 10000000n, token: SOLANA_TOKEN }],
-		timestamp: 1671234567890,
-		address: mockSolAddress
-	}
-};
