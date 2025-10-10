@@ -1,12 +1,7 @@
-import type { CertifiedStoreData } from '$lib/stores/certified.store';
-import {
-	type CertifiedTransaction,
-	initTransactionsStore,
-	type TransactionsData
-} from '$lib/stores/transactions.store';
-import type { SolTransactionUi } from '$sol/types/sol-transaction';
+import type {CertifiedStoreData} from '$lib/stores/certified.store';
+import {initTransactionsStore, type TransactionsData} from '$lib/stores/transactions.store';
+import type {SolTransactionUi} from '$sol/types/sol-transaction';
 
-export type SolCertifiedTransaction = CertifiedTransaction<SolTransactionUi>;
 
 export type SolTransactionsData = TransactionsData<SolTransactionUi>;
 

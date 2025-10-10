@@ -160,9 +160,6 @@ export const WALLET_TIMER_INTERVAL_MILLIS = (SECONDS_IN_MINUTE / 2) * 1000; // 3
 export const WALLET_PAGINATION = 10n;
 
 
-// Threshold
-export const FAILURE_THRESHOLD = 3;
-
 // Micro transaction
 export const MICRO_TRANSACTION_USD_THRESHOLD = 0.01;
 
@@ -170,4 +167,3 @@ export const MICRO_TRANSACTION_USD_THRESHOLD = 0.01;
 
 // Contact validation
 export const CONTACT_MAX_LABEL_LENGTH = 50;
-
