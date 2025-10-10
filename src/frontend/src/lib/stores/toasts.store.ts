@@ -29,6 +29,3 @@ export const toastsErrorNoTrace = ({ msg, err }: ToastsErrorParams) => {
 	});
 };
 
-export const toastsClean = () => toastsStore.reset(['success', 'warn', 'info']);
-
-export const toastsHide = (ids: symbol[]) => ids.forEach((id) => toastsStore.hide(id));

@@ -62,4 +62,3 @@ export interface TokenActionValidationErrorsContext {
 	setErrorType: (type: TokenActionErrorType) => void;
 }
 
-export const TOKEN_ACTION_VALIDATION_ERRORS_CONTEXT_KEY = Symbol('token-action-validation-errors');

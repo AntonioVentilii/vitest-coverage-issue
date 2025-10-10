@@ -96,4 +96,3 @@ export interface SwapContext {
 	switchTokens: () => void;
 }
 
-export const SWAP_CONTEXT_KEY = Symbol('swap');

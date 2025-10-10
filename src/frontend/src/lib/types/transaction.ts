@@ -89,8 +89,6 @@ export type AllTransactionUiWithCmp = AnyTransactionUiWithCmp & {
 	token: Token;
 };
 
-export type AllTransactionUiWithCmpNonEmptyList = NonEmptyArray<AllTransactionUiWithCmp>;
-
 export type TransactionsUiDateGroup<T extends AnyTransactionUiWithCmp> = Record<
 	string,
 	NonEmptyArray<T>

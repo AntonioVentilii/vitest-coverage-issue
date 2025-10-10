@@ -12,10 +12,6 @@ import type { RequiredTransactionFeeData } from '$lib/types/transaction';
 import type { Identity } from '@dfinity/agent';
 import type { BridgePrice, DeltaPrice, OptimalRate, QuoteParams, SimpleFetchSDK } from '@velora-dex/sdk';
 
-export type SwapSelectTokenType = 'source' | 'destination';
-
-export type DisplayUnit = 'token' | 'usd';
-
 export enum SwapProvider {
 	ICP_SWAP = 'icpSwap',
 	KONG_SWAP = 'kongSwap',
@@ -85,15 +81,7 @@ export type SwapMappedResult =
 			type: string;
 	  };
 
-export interface KongQuoteResult {
-	swap: SwapAmountsReply;
-	tokens: IcToken[];
-}
 
-export interface IcpQuoteResult {
-	swap: ICPSwapResult;
-	slippage: Slippage;
-}
 
 interface KongQuoteParams {
 	swap: SwapAmountsReply;
@@ -122,7 +110,7 @@ type KongSwapProvider = BaseSwapProvider<SwapProvider.KONG_SWAP, SwapAmountsRepl
 
 type IcpSwapProvider = BaseSwapProvider<SwapProvider.ICP_SWAP, ICPSwapResult, IcpQuoteParams>;
 
-export type SwapErrorKey = keyof I18n['swap']['error'];
+
 
 export type SwapProviderConfig = KongSwapProvider | IcpSwapProvider;
 

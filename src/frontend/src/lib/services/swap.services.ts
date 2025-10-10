@@ -465,14 +465,6 @@ export const fetchIcpSwap = async ({
 	await waitAndTriggerWallet();
 };
 
-export const swapService = {
-	[SwapProvider.ICP_SWAP]: fetchIcpSwap,
-	[SwapProvider.KONG_SWAP]: fetchKongSwap,
-	//TODO: Will be fixed and updated in the next PRs
-	[SwapProvider.VELORA]: () => {
-		throw new Error(get(i18n).swap.error.unexpected);
-	}
-};
 
 export const withdrawICPSwapAfterFailedSwap = async ({
 	identity,
