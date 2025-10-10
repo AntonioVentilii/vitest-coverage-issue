@@ -82,7 +82,7 @@ export interface HttpResponse {
     status_code: number;
 }
 
-export type InitArgs = {};
+
 export type Key = string;
 
 export interface ListPermitted {
@@ -111,11 +111,6 @@ export interface SetAssetPropertiesArguments {
     max_age: [] | [[] | [bigint]];
 }
 
-export interface SetPermissions {
-    prepare: Array<Principal>;
-    commit: Array<Principal>;
-    manage_permissions: Array<Principal>;
-}
 
 export interface StreamingCallbackHttpResponse {
     token: [] | [StreamingCallbackToken];
@@ -142,9 +137,6 @@ export interface UnsetAssetContentArguments {
     content_encoding: string;
 }
 
-export interface UpgradeArgs {
-    set_permissions: [] | [SetPermissions];
-}
 
 export type ValidationResult = { Ok: string } | { Err: string };
 

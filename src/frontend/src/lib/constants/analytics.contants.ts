@@ -13,8 +13,6 @@ export const TRACK_COUNT_ETH_LOADING_TRANSACTIONS_ERROR = 'eth_loading_transacti
 export const TRACK_COUNT_ETH_PENDING_TRANSACTIONS_ERROR = 'eth_pending_transactions_error';
 export const TRACK_ETH_ESTIMATE_GAS_ERROR = 'eth_estimate_gas_error';
 
-// Internet Computer
-export const TRACK_COUNT_IC_LOADING_TRANSACTIONS_ERROR = 'ic_loading_transactions_error';
 
 export const TRACK_COUNT_IC_LOADING_ICRC_CANISTER_ERROR = 'ic_loading_icrc_canister_error';
 
