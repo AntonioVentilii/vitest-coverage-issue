@@ -1,50 +1,26 @@
-import { FRONTEND_DERIVATION_ENABLED } from '$env/address.env';
-import { BTC_MAINNET_NETWORK_ID } from '$env/networks/networks.btc.env';
-import { ETHEREUM_NETWORK_ID } from '$env/networks/networks.eth.env';
-import { SOLANA_MAINNET_NETWORK_ID } from '$env/networks/networks.sol.env';
-import { hasRequiredCycles } from '$icp/services/pow-protector.services';
-import { allowSigning } from '$lib/api/backend.api';
+import {FRONTEND_DERIVATION_ENABLED} from '$env/address.env';
+import {BTC_MAINNET_NETWORK_ID} from '$env/networks/networks.btc.env';
+import {ETHEREUM_NETWORK_ID} from '$env/networks/networks.eth.env';
+import {SOLANA_MAINNET_NETWORK_ID} from '$env/networks/networks.sol.env';
+import {allowSigning} from '$lib/api/backend.api';
 import {
-	networkBitcoinMainnetEnabled,
-	networkEthereumEnabled,
-	networkEvmMainnetEnabled,
-	networkSolanaMainnetEnabled
+    networkBitcoinMainnetEnabled,
+    networkEthereumEnabled,
+    networkEvmMainnetEnabled,
+    networkSolanaMainnetEnabled
 } from '$lib/derived/networks.derived';
-import { loadAddresses, loadIdbAddresses } from '$lib/services/addresses.services';
-import { errorSignOut, nullishSignOut, signOut } from '$lib/services/auth.services';
-import { loadUserProfile } from '$lib/services/load-user-profile.services';
-import { authStore } from '$lib/stores/auth.store';
-import { i18n } from '$lib/stores/i18n.store';
-import { initialLoading } from '$lib/stores/loader.store';
-import type { OptionIdentity } from '$lib/types/identity';
-import type { NetworkId } from '$lib/types/network';
-import type { ResultSuccess } from '$lib/types/utils';
-import { assertNonNullish, isNullish } from '@dfinity/utils';
-import { get } from 'svelte/store';
+import {loadAddresses, loadIdbAddresses} from '$lib/services/addresses.services';
+import {errorSignOut, nullishSignOut, signOut} from '$lib/services/auth.services';
+import {loadUserProfile} from '$lib/services/load-user-profile.services';
+import {authStore} from '$lib/stores/auth.store';
+import {i18n} from '$lib/stores/i18n.store';
+import {initialLoading} from '$lib/stores/loader.store';
+import type {OptionIdentity} from '$lib/types/identity';
+import type {NetworkId} from '$lib/types/network';
+import type {ResultSuccess} from '$lib/types/utils';
+import {isNullish} from '@dfinity/utils';
+import {get} from 'svelte/store';
 
-/**
- * Retrieves and checks if the required number of cycles are available for the user.
- *
- * This asynchronous function verifies whether the user has sufficient cycles to proceed with further operations.
- * It retrieves the user's identity and calculates the number of allowed cycles. If the number of allowed cycles
- * meets or exceeds the defined threshold (`POW_MIN_CYCLES_THRESHOLD`), the function returns `true`. Otherwise,
- * it performs necessary error handling and signs the user out in the event of insufficient cycles or any other
- * encountered error.
- *
- * @returns {Promise<boolean>} A promise resolving to `true` if the required cycles are met or exceeded,
- * otherwise `false` if insufficient cycles are detected or an error occurs during processing.
- */
-export const handleInsufficientCycles = async (): Promise<boolean> => {
-	try {
-		const { identity } = get(authStore);
-		assertNonNullish(identity, 'Cannot continue without an identity.');
-		return await hasRequiredCycles({ identity });
-	} catch (_err: unknown) {
-		// In the event of any error, we sign the user out, since do not know whether the user has enough cycles to continue.
-		await errorSignOut(get(i18n).init.error.waiting_for_allowed_cycles_aborted);
-	}
-	return false;
-};
 
 /**
  * Initializes the signer allowance by calling `allow_signing`.
@@ -63,17 +39,17 @@ export const handleInsufficientCycles = async (): Promise<boolean> => {
  * @throws Will trigger a sign-out if `allow_signing` fails.
  */
 export const initSignerAllowance = async (): Promise<ResultSuccess> => {
-	try {
-		const { identity } = get(authStore);
+    try {
+        const {identity} = get(authStore);
 
-		await allowSigning({ identity });
-	} catch (_err: unknown) {
-		// In the event of any error, we sign the user out, as we assume that the Oisy Wallet cannot function without ETH or Bitcoin addresses.
-		await errorSignOut(get(i18n).init.error.allow_signing);
+        await allowSigning({identity});
+    } catch (_err: unknown) {
+        // In the event of any error, we sign the user out, as we assume that the Oisy Wallet cannot function without ETH or Bitcoin addresses.
+        await errorSignOut(get(i18n).init.error.allow_signing);
 
-		return { success: false };
-	}
-	return { success: true };
+        return {success: false};
+    }
+    return {success: true};
 };
 
 /**
@@ -97,77 +73,77 @@ export const initSignerAllowance = async (): Promise<ResultSuccess> => {
  * @returns {Promise<void>} Returns a promise that resolves when the loader is correctly initialized (user profile settings and addresses are loaded).
  */
 export const initLoader = async ({
-	identity,
-	validateAddresses,
-	progressAndLoad,
-	setProgressModal
-}: {
-	identity: OptionIdentity;
-	validateAddresses: () => void;
-	progressAndLoad: () => void;
-	setProgressModal: (value: boolean) => void;
+                                     identity,
+                                     validateAddresses,
+                                     progressAndLoad,
+                                     setProgressModal
+                                 }: {
+    identity: OptionIdentity;
+    validateAddresses: () => void;
+    progressAndLoad: () => void;
+    setProgressModal: (value: boolean) => void;
 }): Promise<void> => {
-	if (isNullish(identity)) {
-		await nullishSignOut();
-		return;
-	}
+    if (isNullish(identity)) {
+        await nullishSignOut();
+        return;
+    }
 
-	// The user profile settings will define the enabled/disabled networks.
-	// So we need to load it first to enable/disable the rest of the services.
-	const { success: userProfileSuccess } = await loadUserProfile({ identity });
+    // The user profile settings will define the enabled/disabled networks.
+    // So we need to load it first to enable/disable the rest of the services.
+    const {success: userProfileSuccess} = await loadUserProfile({identity});
 
-	if (!userProfileSuccess) {
-		await signOut({});
-		return;
-	}
+    if (!userProfileSuccess) {
+        await signOut({});
+        return;
+    }
 
-	// We can fetch these values imperatively because these stores were just updated at the beginning of this same function, when loading the user profile.
-	const enabledNetworkIds: NetworkId[] = [
-		...(get(networkBitcoinMainnetEnabled) ? [BTC_MAINNET_NETWORK_ID] : []),
-		...(get(networkEthereumEnabled) || get(networkEvmMainnetEnabled) ? [ETHEREUM_NETWORK_ID] : []),
-		...(get(networkSolanaMainnetEnabled) ? [SOLANA_MAINNET_NETWORK_ID] : [])
-	];
+    // We can fetch these values imperatively because these stores were just updated at the beginning of this same function, when loading the user profile.
+    const enabledNetworkIds: NetworkId[] = [
+        ...(get(networkBitcoinMainnetEnabled) ? [BTC_MAINNET_NETWORK_ID] : []),
+        ...(get(networkEthereumEnabled) || get(networkEvmMainnetEnabled) ? [ETHEREUM_NETWORK_ID] : []),
+        ...(get(networkSolanaMainnetEnabled) ? [SOLANA_MAINNET_NETWORK_ID] : [])
+    ];
 
-	const { success: addressIdbSuccess, err } = await loadIdbAddresses(enabledNetworkIds);
+    const {success: addressIdbSuccess, err} = await loadIdbAddresses(enabledNetworkIds);
 
-	if (addressIdbSuccess) {
-		initialLoading.set(false);
+    if (addressIdbSuccess) {
+        initialLoading.set(false);
 
-		progressAndLoad();
+        progressAndLoad();
 
-		validateAddresses();
+        validateAddresses();
 
-		return;
-	}
+        return;
+    }
 
-	// We are loading the addresses from the backend. Consequently, we aim to animate this operation and offer the user an explanation of what is happening. To achieve this, we will present this information within a modal.
-	setProgressModal(true);
+    // We are loading the addresses from the backend. Consequently, we aim to animate this operation and offer the user an explanation of what is happening. To achieve this, we will present this information within a modal.
+    setProgressModal(true);
 
-	if (FRONTEND_DERIVATION_ENABLED) {
-		// We do not need to await this call, as it is required for signing transactions only and not for the generic initialization.
-		initSignerAllowance();
-	} else {
-		const { success: initSignerAllowanceSuccess } = await initSignerAllowance();
+    if (FRONTEND_DERIVATION_ENABLED) {
+        // We do not need to await this call, as it is required for signing transactions only and not for the generic initialization.
+        initSignerAllowance();
+    } else {
+        const {success: initSignerAllowanceSuccess} = await initSignerAllowance();
 
-		if (!initSignerAllowanceSuccess) {
-			// Sign-out is handled within the service.
-			return;
-		}
-	}
+        if (!initSignerAllowanceSuccess) {
+            // Sign-out is handled within the service.
+            return;
+        }
+    }
 
-	const errorNetworkIds: NetworkId[] = err?.map(({ networkId }) => networkId) ?? [];
+    const errorNetworkIds: NetworkId[] = err?.map(({networkId}) => networkId) ?? [];
 
-	// We don't need to load the addresses of the disabled networks.
-	const networkIds: NetworkId[] = errorNetworkIds.filter((networkId) =>
-		enabledNetworkIds.includes(networkId)
-	);
+    // We don't need to load the addresses of the disabled networks.
+    const networkIds: NetworkId[] = errorNetworkIds.filter((networkId) =>
+        enabledNetworkIds.includes(networkId)
+    );
 
-	const { success: addressSuccess } = await loadAddresses(networkIds);
+    const {success: addressSuccess} = await loadAddresses(networkIds);
 
-	if (!addressSuccess) {
-		await signOut({});
-		return;
-	}
+    if (!addressSuccess) {
+        await signOut({});
+        return;
+    }
 
-	await progressAndLoad();
+    await progressAndLoad();
 };

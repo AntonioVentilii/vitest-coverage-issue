@@ -2,26 +2,9 @@ import type {SolAddress} from '$lib/types/address';
 import {solanaHttpRpc} from '$sol/providers/sol-rpc.providers';
 import type {SolanaNetworkType} from '$sol/types/network';
 import type {SolanaGetAccountInfoReturn} from '$sol/types/sol-rpc';
-import type {SolSignature} from '$sol/types/sol-transaction';
 import type {SplTokenAddress} from '$sol/types/spl';
 import {isNullish, nonNullish} from '@dfinity/utils';
 import {address as solAddress} from '@solana/kit';
-
-
-export const getRpcTransaction = async ({
-                                            signature: {signature},
-                                            network
-                                        }: {
-    signature: SolSignature;
-    network: SolanaNetworkType;
-}) => {
-    const {getTransaction} = solanaHttpRpc(network);
-
-    return await getTransaction(signature, {
-        maxSupportedTransactionVersion: 0,
-        encoding: 'jsonParsed'
-    }).send();
-};
 
 
 const addressToAccountInfo = new Map<
