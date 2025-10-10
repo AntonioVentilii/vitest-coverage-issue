@@ -147,11 +147,6 @@ export interface HttpResponse {
     status_code: number;
 }
 
-export interface InitArg {
-    ecdsa_key_name: string;
-    ic_root_key_der: [] | [Uint8Array | number[]];
-    cycles_ledger: [] | [Principal];
-}
 
 export interface Outpoint {
     txid: Uint8Array | number[];

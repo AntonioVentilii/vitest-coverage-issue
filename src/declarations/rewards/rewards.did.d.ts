@@ -180,11 +180,6 @@ export interface LastActivityHistogramResponse {
     response: LastActivityHistogram;
 }
 
-export interface LedgerConfig {
-    ledger_index: Principal;
-    ledger: Principal;
-    ledger_account: Account;
-}
 
 export type NewVipRewardResponse =
     | { Anonymous: null }
@@ -240,18 +235,6 @@ export type SetReferrerError =
     | { AnonymousCaller: null };
 export type SetReferrerResponse = { Ok: null } | { Err: SetReferrerError };
 
-
-export interface SprinkleEvent {
-    n_sprinkled_users: bigint;
-    timestamp_scheduled: bigint;
-    n_eligible_users: bigint;
-    n_selected_users: bigint;
-}
-
-export interface SprinkleStatus {
-    next_timestamp: [] | [bigint];
-    past_events: Array<SprinkleEvent>;
-}
 
 export type StatsKeyType = { TokenGroup: null } | { Network: null } | { TokenSymbol: null };
 

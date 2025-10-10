@@ -203,12 +203,6 @@ export interface LPTokenReply {
     symbol: string;
 }
 
-export interface MessagesReply {
-    ts: bigint;
-    title: string;
-    message: string;
-    message_id: bigint;
-}
 
 export interface PoolExpectedBalance {
     balance: bigint;
@@ -426,11 +420,7 @@ export interface TransferIdReply {
 export type TransferReply = { IC: ICTransferReply };
 
 export type TxId = { TransactionId: string } | { BlockIndex: bigint };
-export type TxsReply =
-    | { AddLiquidity: AddLiquidityReply }
-    | { Swap: SwapReply }
-    | { AddPool: AddPoolReply }
-    | { RemoveLiquidity: RemoveLiquidityReply };
+
 
 export interface UpdateTokenArgs {
     token: string;

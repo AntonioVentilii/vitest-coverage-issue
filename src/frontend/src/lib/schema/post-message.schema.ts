@@ -75,10 +75,6 @@ export const PostMessageDataRequestIcrcStrictSchema = z.object({
     ...NetworkSchema.pick({env: true}).shape
 });
 
-export const PostMessageDataRequestDip20Schema = z.object({
-    canisterId: CanisterIdTextSchema
-});
-
 
 export const PostMessageDataRequestIcCkSchema = IcCkMetadataSchema.pick({
     minterCanisterId: true

@@ -1,8 +1,8 @@
 export enum QrCodeType {
-	VIP = 'vip',
-	GOLD = 'gold',
-	CLICKBEE = 'clickbee'
+    VIP = 'vip',
+    GOLD = 'gold',
+
 }
 
 export const asQrCodeType = (key: string) =>
-	Object.values(QrCodeType).find((value) => value === key);
+    Object.values(QrCodeType).find((value) => value === key);
