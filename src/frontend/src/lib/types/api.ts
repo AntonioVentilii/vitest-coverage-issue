@@ -4,22 +4,14 @@ import type {
     Contact,
     CredentialSpec,
     GetUserProfileError,
-    UserProfile,
-    Utxo
+    UserProfile
 } from '$declarations/backend/backend.did';
 import type {TxId} from '$declarations/kong_backend/kong_backend.did';
-import type {
-    BitcoinNetwork as SignerBitcoinNetwork,
-    BtcTxOutput,
-    SchnorrKeyId,
-    Utxo as SignerUtxo
-} from '$declarations/signer/signer.did';
+import type {SchnorrKeyId} from '$declarations/signer/signer.did';
 import type {IcToken} from '$icp/types/ic-token';
 import type {Address, BtcAddress} from '$lib/types/address';
 import type {Token} from '$lib/types/token';
 import type {UserAgreements} from '$lib/types/user-agreements';
-import type {UserExperimentalFeatures} from '$lib/types/user-experimental-features';
-import type {UserNetworks} from '$lib/types/user-networks';
 import type {Identity} from '@dfinity/agent';
 import type {Principal} from '@dfinity/principal';
 
@@ -36,28 +28,12 @@ export interface AllowSigningParams {
     request?: AllowSigningRequest;
 }
 
-export interface BtcSelectUserUtxosFeeParams {
-    network: BitcoinNetwork;
-    amountSatoshis: bigint;
-    minConfirmations: [number];
-}
 
 export interface BtcGetPendingTransactionParams {
     network: BitcoinNetwork;
     address: BtcAddress;
 }
 
-export interface BtcAddPendingTransactionParams extends BtcGetPendingTransactionParams {
-    txId: Uint8Array | number[];
-    utxos: Utxo[];
-}
-
-export interface SendBtcParams {
-    feeSatoshis: [] | [bigint];
-    network: SignerBitcoinNetwork;
-    utxosToSpend: SignerUtxo[];
-    outputs: BtcTxOutput[];
-}
 
 export interface GetSchnorrPublicKeyParams {
     derivationPath: string[];
@@ -68,25 +44,12 @@ export interface SignWithSchnorrParams extends GetSchnorrPublicKeyParams {
     message: number[];
 }
 
-export interface AddUserHiddenDappIdParams {
-    dappId: string;
-    currentUserVersion?: bigint;
-}
-
-export interface SaveUserNetworksSettings {
-    networks: UserNetworks;
-    currentUserVersion?: bigint;
-}
 
 export interface SaveUserAgreements {
     agreements: Partial<UserAgreements>;
     currentUserVersion?: bigint;
 }
 
-export interface SetUserShowTestnetsParams {
-    showTestnets: boolean;
-    currentUserVersion?: bigint;
-}
 
 export interface KongSwapAmountsParams {
     sourceToken: Token;
@@ -145,10 +108,6 @@ export interface ICPSwapAmountReply {
     receiveAmount: bigint;
 }
 
-export interface BtcGetFeePercentilesParams {
-    network: BitcoinNetwork;
-}
-
 
 export interface CreateContactParams {
     identity: Identity;
@@ -163,10 +122,4 @@ export interface CreateContactParams {
 export interface UpdateContactParams {
     identity: Identity;
     contact: Contact;
-}
-
-
-export interface UpdateUserExperimentalFeatureSettings {
-    experimentalFeatures: UserExperimentalFeatures;
-    currentUserVersion?: bigint;
 }

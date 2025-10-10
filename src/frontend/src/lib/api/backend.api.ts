@@ -3,23 +3,18 @@ import type {
     AllowSigningResponse,
     Contact,
     CustomToken,
-    PendingTransaction,
     UserProfile,
-    UserToken,
-    UserTokenId
+    UserToken
 } from '$declarations/backend/backend.did';
 import {BackendCanister} from '$lib/canisters/backend.canister';
 import {BACKEND_CANISTER_ID} from '$lib/constants/app.constants';
 import type {
     AddUserCredentialParams,
     AllowSigningParams,
-    BtcAddPendingTransactionParams,
-    BtcGetPendingTransactionParams,
     CreateContactParams,
     GetUserProfileResponse,
     SaveUserAgreements,
-    UpdateContactParams,
-    UpdateUserExperimentalFeatureSettings
+    UpdateContactParams
 } from '$lib/types/api';
 import type {CanisterApiFunctionParams} from '$lib/types/canister';
 import {Principal} from '@dfinity/principal';
@@ -67,23 +62,6 @@ export const setCustomToken = async ({
     return setCustomToken({token});
 };
 
-export const removeUserToken = async ({
-                                          identity,
-                                          ...restParams
-                                      }: CanisterApiFunctionParams<UserTokenId>): Promise<void> => {
-    const {removeUserToken} = await backendCanister({identity});
-
-    return removeUserToken(restParams);
-};
-
-export const removeCustomToken = async ({
-                                            identity,
-                                            ...restParams
-                                        }: CanisterApiFunctionParams<{ token: CustomToken }>): Promise<void> => {
-    const {removeCustomToken} = await backendCanister({identity});
-
-    return removeCustomToken(restParams);
-};
 
 export const setManyUserTokens = async ({
                                             identity,
@@ -94,16 +72,6 @@ export const setManyUserTokens = async ({
     return setManyUserTokens({tokens});
 };
 
-export const setUserToken = async ({
-                                       token,
-                                       identity
-                                   }: CanisterApiFunctionParams<{
-    token: UserToken;
-}>): Promise<void> => {
-    const {setUserToken} = await backendCanister({identity});
-
-    return setUserToken({token});
-};
 
 export const createUserProfile = async ({
                                             identity
@@ -129,24 +97,6 @@ export const addUserCredential = async ({
     const {addUserCredential} = await backendCanister({identity});
 
     return addUserCredential(params);
-};
-
-export const addPendingBtcTransaction = async ({
-                                                   identity,
-                                                   ...params
-                                               }: CanisterApiFunctionParams<BtcAddPendingTransactionParams>): Promise<boolean> => {
-    const {btcAddPendingTransaction} = await backendCanister({identity});
-
-    return btcAddPendingTransaction(params);
-};
-
-export const getPendingBtcTransactions = async ({
-                                                    identity,
-                                                    ...params
-                                                }: CanisterApiFunctionParams<BtcGetPendingTransactionParams>): Promise<PendingTransaction[]> => {
-    const {btcGetPendingTransaction} = await backendCanister({identity});
-
-    return btcGetPendingTransaction(params);
 };
 
 
@@ -192,15 +142,6 @@ export const updateContact = async ({
     return updateContact(contact);
 };
 
-
-export const updateUserExperimentalFeatureSettings = async ({
-                                                                identity,
-                                                                ...params
-                                                            }: CanisterApiFunctionParams<UpdateUserExperimentalFeatureSettings>): Promise<void> => {
-    const {updateUserExperimentalFeatureSettings} = await backendCanister({identity});
-
-    return updateUserExperimentalFeatureSettings(params);
-};
 
 const backendCanister = async ({
                                    identity,
