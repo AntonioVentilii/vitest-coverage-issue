@@ -27,9 +27,3 @@ export type IcTokenWithoutId = z.infer<typeof IcTokenWithoutIdSchema>;
 export type IcCkToken = z.infer<typeof IcCkTokenSchema>;
 
 export type IcCkInterface = z.infer<typeof IcCkInterfaceSchema>;
-
-
-export enum IcTokenStandards {
-    icrc1 = 'ICRC-1',
-    icrc2 = 'ICRC-2'
-}

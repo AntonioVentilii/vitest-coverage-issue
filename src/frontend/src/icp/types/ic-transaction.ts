@@ -1,19 +1,9 @@
 import type {icpTransactionTypes} from '$lib/schema/transaction.schema';
 import type {TransactionId, TransactionType} from '$lib/types/transaction';
-import type {Transaction, TransactionWithId} from '@dfinity/ledger-icp';
-import type {IcrcTransaction as IcrcTransactionCandid, IcrcTransactionWithId} from '@dfinity/ledger-icrc';
 
 export interface IcTransactionAddOnsInfo {
     transferToSelf?: 'send' | 'receive';
 }
-
-export type IcpTransaction = { transaction: Transaction & IcTransactionAddOnsInfo } & Pick<
-    TransactionWithId,
-    'id'
->;
-export type IcrcTransaction = {
-    transaction: IcrcTransactionCandid & IcTransactionAddOnsInfo;
-} & Pick<IcrcTransactionWithId, 'id'>;
 
 
 export type IcTransactionType = Extract<

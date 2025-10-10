@@ -1,41 +1,39 @@
-import { ICP_NETWORK, ICP_PSEUDO_TESTNET_NETWORK } from '$env/networks/networks.icp.env';
+import {ICP_NETWORK, ICP_PSEUDO_TESTNET_NETWORK} from '$env/networks/networks.icp.env';
 import {
-	BITCAT_LEDGER_CANISTER_ID,
-	FORSETISCN_LEDGER_CANISTER_ID,
-	GHOSTNODE_LEDGER_CANISTER_ID,
-	ICONFUCIUS_LEDGER_CANISTER_ID,
-	ODINDOG_LEDGER_CANISTER_ID
+    BITCAT_LEDGER_CANISTER_ID,
+    FORSETISCN_LEDGER_CANISTER_ID,
+    GHOSTNODE_LEDGER_CANISTER_ID,
+    ICONFUCIUS_LEDGER_CANISTER_ID,
+    ODINDOG_LEDGER_CANISTER_ID
 } from '$env/networks/networks.icrc.env';
-import { icrc1SupportedStandards } from '$icp/api/icrc-ledger.api';
-import type { LedgerCanisterIdText } from '$icp/types/canister';
-import { type IcCkInterface, type IcFee, type IcInterface, type IcToken, IcTokenStandards } from '$icp/types/ic-token';
-import type { IcrcCustomToken, IcTokenExtended, IcTokenWithoutIdExtended } from '$icp/types/icrc-custom-token';
-import { isTokenIcTestnet } from '$icp/utils/ic-ledger.utils';
-import type { CanisterIdText } from '$lib/types/canister';
-import type { OptionIdentity } from '$lib/types/identity';
-import type { TokenCategory, TokenMetadata } from '$lib/types/token';
-import { parseTokenId } from '$lib/validation/token.validation';
-import { UrlSchema } from '$lib/validation/url.validation';
+import type {LedgerCanisterIdText} from '$icp/types/canister';
+import {type IcCkInterface, type IcFee, type IcInterface, type IcToken} from '$icp/types/ic-token';
+import type {IcrcCustomToken, IcTokenExtended, IcTokenWithoutIdExtended} from '$icp/types/icrc-custom-token';
+import {isTokenIcTestnet} from '$icp/utils/ic-ledger.utils';
+import type {CanisterIdText} from '$lib/types/canister';
+import type {TokenCategory, TokenMetadata} from '$lib/types/token';
+import {parseTokenId} from '$lib/validation/token.validation';
+import {UrlSchema} from '$lib/validation/url.validation';
 import {
-	IcrcMetadataResponseEntries,
-	type IcrcTokenMetadataResponse,
-	type IcrcValue,
-	mapTokenMetadata
+    IcrcMetadataResponseEntries,
+    type IcrcTokenMetadataResponse,
+    type IcrcValue,
+    mapTokenMetadata
 } from '@dfinity/ledger-icrc';
-import { isNullish, nonNullish, notEmptyString } from '@dfinity/utils';
+import {isNullish, nonNullish, notEmptyString} from '@dfinity/utils';
 
 export type IcrcLoadData = Omit<IcInterface, 'explorerUrl'> & {
-	metadata: IcrcTokenMetadataResponse;
-	category: TokenCategory;
-	icrcCustomTokens?: Record<LedgerCanisterIdText, IcTokenWithoutIdExtended>;
+    metadata: IcrcTokenMetadataResponse;
+    category: TokenCategory;
+    icrcCustomTokens?: Record<LedgerCanisterIdText, IcTokenWithoutIdExtended>;
 };
 
 const CUSTOM_SYMBOLS_BY_LEDGER_CANISTER_ID: Record<LedgerCanisterIdText, string> = {
-	[BITCAT_LEDGER_CANISTER_ID]: 'BITCAT',
-	[FORSETISCN_LEDGER_CANISTER_ID]: 'FORSETISCN',
-	[GHOSTNODE_LEDGER_CANISTER_ID]: 'GHOSTNODE',
-	[ICONFUCIUS_LEDGER_CANISTER_ID]: 'ICONFUCIUS',
-	[ODINDOG_LEDGER_CANISTER_ID]: 'ODINDOG'
+    [BITCAT_LEDGER_CANISTER_ID]: 'BITCAT',
+    [FORSETISCN_LEDGER_CANISTER_ID]: 'FORSETISCN',
+    [GHOSTNODE_LEDGER_CANISTER_ID]: 'GHOSTNODE',
+    [ICONFUCIUS_LEDGER_CANISTER_ID]: 'ICONFUCIUS',
+    [ODINDOG_LEDGER_CANISTER_ID]: 'ODINDOG'
 };
 
 /**
@@ -62,93 +60,93 @@ const CUSTOM_SYMBOLS_BY_LEDGER_CANISTER_ID: Record<LedgerCanisterIdText, string>
  *          - `ICP_PSEUDO_TESTNET_NETWORK` for known "testnet" tokens
  */
 const mapIcNetwork = (ledgerCanisterId: LedgerCanisterIdText) =>
-	isTokenIcTestnet({ ledgerCanisterId }) ? ICP_PSEUDO_TESTNET_NETWORK : ICP_NETWORK;
+    isTokenIcTestnet({ledgerCanisterId}) ? ICP_PSEUDO_TESTNET_NETWORK : ICP_NETWORK;
 
 export const mapIcrcToken = ({
-	metadata,
-	icrcCustomTokens,
-	ledgerCanisterId,
-	...rest
-}: IcrcLoadData): IcTokenExtended | undefined => {
-	const token = mapOptionalToken(metadata);
+                                 metadata,
+                                 icrcCustomTokens,
+                                 ledgerCanisterId,
+                                 ...rest
+                             }: IcrcLoadData): IcTokenExtended | undefined => {
+    const token = mapOptionalToken(metadata);
 
-	if (isNullish(token)) {
-		return undefined;
-	}
+    if (isNullish(token)) {
+        return undefined;
+    }
 
-	const { symbol, icon: tokenIcon, ...metadataToken } = token;
+    const {symbol, icon: tokenIcon, ...metadataToken} = token;
 
-	const staticIcon = `/icons/icrc/${ledgerCanisterId}.png`;
+    const staticIcon = `/icons/icrc/${ledgerCanisterId}.png`;
 
-	const dynamicIcon = icrcCustomTokens?.[ledgerCanisterId]?.icon ?? tokenIcon;
+    const dynamicIcon = icrcCustomTokens?.[ledgerCanisterId]?.icon ?? tokenIcon;
 
-	const { success: dynamicIconIsUrl } = UrlSchema.safeParse(dynamicIcon);
+    const {success: dynamicIconIsUrl} = UrlSchema.safeParse(dynamicIcon);
 
-	// We do not allow external URLs anyway, so it is safe to use the static icon, even if it does not exist
-	const icon = dynamicIconIsUrl ? staticIcon : dynamicIcon;
+    // We do not allow external URLs anyway, so it is safe to use the static icon, even if it does not exist
+    const icon = dynamicIconIsUrl ? staticIcon : dynamicIcon;
 
-	return {
-		id: parseTokenId(symbol),
-		network: mapIcNetwork(ledgerCanisterId),
-		standard: icrcCustomTokens?.[ledgerCanisterId]?.standard ?? 'icrc',
-		symbol,
-		...(notEmptyString(icon) && { icon }),
-		...(nonNullish(icrcCustomTokens?.[ledgerCanisterId]?.explorerUrl) && {
-			explorerUrl: icrcCustomTokens[ledgerCanisterId].explorerUrl
-		}),
-		...(nonNullish(icrcCustomTokens?.[ledgerCanisterId]?.alternativeName) && {
-			alternativeName: icrcCustomTokens[ledgerCanisterId].alternativeName
-		}),
-		ledgerCanisterId,
-		...metadataToken,
-		...rest
-	};
+    return {
+        id: parseTokenId(symbol),
+        network: mapIcNetwork(ledgerCanisterId),
+        standard: icrcCustomTokens?.[ledgerCanisterId]?.standard ?? 'icrc',
+        symbol,
+        ...(notEmptyString(icon) && {icon}),
+        ...(nonNullish(icrcCustomTokens?.[ledgerCanisterId]?.explorerUrl) && {
+            explorerUrl: icrcCustomTokens[ledgerCanisterId].explorerUrl
+        }),
+        ...(nonNullish(icrcCustomTokens?.[ledgerCanisterId]?.alternativeName) && {
+            alternativeName: icrcCustomTokens[ledgerCanisterId].alternativeName
+        }),
+        ledgerCanisterId,
+        ...metadataToken,
+        ...rest
+    };
 };
 
 type IcrcTokenMetadata = TokenMetadata & IcFee;
 
 const mapOptionalToken = (response: IcrcTokenMetadataResponse): IcrcTokenMetadata | undefined =>
-	mapTokenMetadata(response);
+    mapTokenMetadata(response);
 
 // eslint-disable-next-line local-rules/prefer-object-params -- This is a sorting function, so the parameters will be provided not as an object but as separate arguments.
 export const sortIcTokens = (
-	{ name: nameA, position: positionA, exchangeCoinId: exchangeCoinIdA }: IcToken,
-	{ name: nameB, position: positionB, exchangeCoinId: exchangeCoinIdB }: IcToken
+    {name: nameA, position: positionA, exchangeCoinId: exchangeCoinIdA}: IcToken,
+    {name: nameB, position: positionB, exchangeCoinId: exchangeCoinIdB}: IcToken
 ) =>
-	positionA === positionB
-		? exchangeCoinIdA === exchangeCoinIdB ||
-			isNullish(exchangeCoinIdA) ||
-			isNullish(exchangeCoinIdB)
-			? nameA.localeCompare(nameB)
-			: exchangeCoinIdA.localeCompare(exchangeCoinIdB)
-		: positionA - positionB;
+    positionA === positionB
+        ? exchangeCoinIdA === exchangeCoinIdB ||
+        isNullish(exchangeCoinIdA) ||
+        isNullish(exchangeCoinIdB)
+            ? nameA.localeCompare(nameB)
+            : exchangeCoinIdA.localeCompare(exchangeCoinIdB)
+        : positionA - positionB;
 
 export const buildIcrcCustomTokenMetadataPseudoResponse = ({
-	icrcCustomTokens,
-	ledgerCanisterId
-}: {
-	ledgerCanisterId: CanisterIdText;
-	icrcCustomTokens: Record<LedgerCanisterIdText, IcTokenWithoutIdExtended>;
+                                                               icrcCustomTokens,
+                                                               ledgerCanisterId
+                                                           }: {
+    ledgerCanisterId: CanisterIdText;
+    icrcCustomTokens: Record<LedgerCanisterIdText, IcTokenWithoutIdExtended>;
 }): IcrcTokenMetadataResponse | undefined => {
-	const token = icrcCustomTokens[ledgerCanisterId];
+    const token = icrcCustomTokens[ledgerCanisterId];
 
-	if (isNullish(token)) {
-		return undefined;
-	}
+    if (isNullish(token)) {
+        return undefined;
+    }
 
-	const { symbol, icon: tokenIcon, name, fee, decimals } = token;
+    const {symbol, icon: tokenIcon, name, fee, decimals} = token;
 
-	const icon: [IcrcMetadataResponseEntries.LOGO, IcrcValue] | undefined = nonNullish(tokenIcon)
-		? [IcrcMetadataResponseEntries.LOGO, { Text: tokenIcon }]
-		: undefined;
+    const icon: [IcrcMetadataResponseEntries.LOGO, IcrcValue] | undefined = nonNullish(tokenIcon)
+        ? [IcrcMetadataResponseEntries.LOGO, {Text: tokenIcon}]
+        : undefined;
 
-	return [
-		[IcrcMetadataResponseEntries.SYMBOL, { Text: symbol }],
-		[IcrcMetadataResponseEntries.NAME, { Text: name }],
-		[IcrcMetadataResponseEntries.FEE, { Nat: fee }],
-		[IcrcMetadataResponseEntries.DECIMALS, { Nat: BigInt(decimals) }],
-		...(nonNullish(icon) ? [icon] : [])
-	];
+    return [
+        [IcrcMetadataResponseEntries.SYMBOL, {Text: symbol}],
+        [IcrcMetadataResponseEntries.NAME, {Text: name}],
+        [IcrcMetadataResponseEntries.FEE, {Nat: fee}],
+        [IcrcMetadataResponseEntries.DECIMALS, {Nat: BigInt(decimals)}],
+        ...(nonNullish(icon) ? [icon] : [])
+    ];
 };
 
 export const isTokenIcp = (token: Partial<IcToken>): token is IcToken => token.standard === 'icp';
@@ -156,53 +154,39 @@ export const isTokenIcp = (token: Partial<IcToken>): token is IcToken => token.s
 export const isTokenIcrc = (token: Partial<IcToken>): token is IcToken => token.standard === 'icrc';
 
 export const isTokenDip20 = (token: Partial<IcToken>): token is IcToken =>
-	token.standard === 'dip20';
+    token.standard === 'dip20';
 
 export const isTokenIc = (token: Partial<IcToken>): token is IcToken =>
-	isTokenIcp(token) || isTokenIcrc(token) || isTokenDip20(token);
+    isTokenIcp(token) || isTokenIcrc(token) || isTokenDip20(token);
 
 export const icTokenIcrcCustomToken = (token: Partial<IcrcCustomToken>): token is IcrcCustomToken =>
-	isTokenIc(token) && 'enabled' in token;
+    isTokenIc(token) && 'enabled' in token;
 
 const isIcCkInterface = (token: IcInterface): token is IcCkInterface =>
-	'minterCanisterId' in token && 'twinToken' in token;
+    'minterCanisterId' in token && 'twinToken' in token;
 
-export const isIcrcTokenSupportIcrc2 = async ({
-	identity,
-	ledgerCanisterId
-}: {
-	identity: OptionIdentity;
-	ledgerCanisterId: CanisterIdText;
-}) => {
-	const supportedStandards = await icrc1SupportedStandards({
-		identity,
-		ledgerCanisterId
-	});
-
-	return supportedStandards.some(({ name }) => name === IcTokenStandards.icrc2);
-};
 
 // TODO: create tests
 export const mapTokenOisyName = (token: IcInterface): IcInterface => ({
-	...token,
-	...(isIcCkInterface(token) && nonNullish(token.twinToken)
-		? {
-				oisyName: {
-					prefix: 'ck',
-					oisyName: token.twinToken.name
-				}
-			}
-		: {})
+    ...token,
+    ...(isIcCkInterface(token) && nonNullish(token.twinToken)
+        ? {
+            oisyName: {
+                prefix: 'ck',
+                oisyName: token.twinToken.name
+            }
+        }
+        : {})
 });
 
 // TODO: create tests
 export const mapTokenOisySymbol = (token: IcInterface): IcInterface => ({
-	...token,
-	...(nonNullish(CUSTOM_SYMBOLS_BY_LEDGER_CANISTER_ID[token.ledgerCanisterId])
-		? {
-				oisySymbol: {
-					oisySymbol: CUSTOM_SYMBOLS_BY_LEDGER_CANISTER_ID[token.ledgerCanisterId]
-				}
-			}
-		: {})
+    ...token,
+    ...(nonNullish(CUSTOM_SYMBOLS_BY_LEDGER_CANISTER_ID[token.ledgerCanisterId])
+        ? {
+            oisySymbol: {
+                oisySymbol: CUSTOM_SYMBOLS_BY_LEDGER_CANISTER_ID[token.ledgerCanisterId]
+            }
+        }
+        : {})
 });

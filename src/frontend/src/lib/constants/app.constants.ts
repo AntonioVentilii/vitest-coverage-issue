@@ -153,10 +153,5 @@ export const EIGHT_DECIMALS = 8;
 export const ZERO = 0n;
 
 
-// Wallets
-
-export const WALLET_PAGINATION = 10n;
-
-
 // Micro transaction
 export const MICRO_TRANSACTION_USD_THRESHOLD = 0.01;
