@@ -2,7 +2,6 @@ import { parseBoolEnvVar } from '$lib/utils/env.utils';
 import { Principal } from '@dfinity/principal';
 import { nonNullish } from '@dfinity/utils';
 
-export const APP_VERSION = VITE_APP_VERSION;
 
 export const MODE = VITE_DFX_NETWORK;
 export const LOCAL = MODE === 'local';
@@ -99,13 +98,7 @@ export const XTC_LEDGER_CANISTER_ID = LOCAL
 			? import.meta.env.VITE_BETA_XTC_LEDGER_CANISTER_ID
 			: import.meta.env.VITE_IC_XTC_LEDGER_CANISTER_ID;
 
-export const SOL_RPC_CANISTER_ID = LOCAL
-	? import.meta.env.VITE_LOCAL_SOL_RPC_CANISTER_ID
-	: STAGING
-		? import.meta.env.VITE_STAGING_SOL_RPC_CANISTER_ID
-		: BETA
-			? import.meta.env.VITE_BETA_SOL_RPC_CANISTER_ID
-			: import.meta.env.VITE_IC_SOL_RPC_CANISTER_ID;
+
 
 export const LLM_CANISTER_ID = LOCAL
 	? import.meta.env.VITE_LOCAL_LLM_CANISTER_ID
@@ -133,7 +126,6 @@ export const VC_POPUP_WIDTH = AUTH_POPUP_WIDTH;
 export const VC_POPUP_HEIGHT = 900;
 
 // Workers
-export const AUTH_TIMER_INTERVAL = 1000;
 // From FI team:
 // On mainnet, the index runs its indexing function every second. The time to see a new transaction in the index is <=1 second plus the time required by the indexing function
 // (however)
@@ -161,8 +153,7 @@ export const EIGHT_DECIMALS = 8;
 
 export const ZERO = 0n;
 
-// NFTs
-export const NFT_TIMER_INTERVAL_MILLIS = SECONDS_IN_MINUTE * 2 * 1000; // 2 minutes in milliseconds
+
 
 // Wallets
 export const WALLET_TIMER_INTERVAL_MILLIS = (SECONDS_IN_MINUTE / 2) * 1000; // 30 seconds in milliseconds
@@ -172,18 +163,6 @@ export const WALLET_PAGINATION = 10n;
 // TODO: Use the normal one when we have a better way to handle the Solana wallets, for example when we have the internal Solana RPC canister, or when we don't load again the transactions that are already loaded.
 export const SOL_WALLET_TIMER_INTERVAL_MILLIS = SECONDS_IN_MINUTE * 1000; // 1 minute in milliseconds
 
-// Code generation
-export const CODE_REGENERATE_INTERVAL_IN_SECONDS = 45;
-
-// User Snapshot
-export const USER_SNAPSHOT_TIMER_INTERVAL_MILLIS = SECONDS_IN_MINUTE * 5 * 1000; // 5 minutes in milliseconds
-
-// Fallback
-export const FALLBACK_TIMEOUT = 10000;
-
-// Git
-export const GIT_COMMIT_HASH = VITE_GIT_COMMIT_HASH;
-export const GIT_BRANCH_NAME = VITE_GIT_BRANCH_NAME;
 
 // Threshold
 export const FAILURE_THRESHOLD = 3;
@@ -191,17 +170,8 @@ export const FAILURE_THRESHOLD = 3;
 // Micro transaction
 export const MICRO_TRANSACTION_USD_THRESHOLD = 0.01;
 
-// Known destinations
-export const MAX_DISPLAYED_KNOWN_DESTINATION_AMOUNTS = 3;
 
-// Send destination
-export const MIN_DESTINATION_LENGTH_FOR_ERROR_STATE = 10;
 
 // Contact validation
 export const CONTACT_MAX_LABEL_LENGTH = 50;
 
-// Contact validation
-export const CONTACT_MAX_NAME_LENGTH = 100;
-
-// Network bonus multiplier
-export const NETWORK_BONUS_MULTIPLIER_DEFAULT = 1;

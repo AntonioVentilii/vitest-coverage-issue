@@ -25,20 +25,15 @@ import {
 	deleteIdbSolTransactions
 } from '$lib/api/idb-transactions.api';
 import {
-	TRACK_COUNT_SIGN_IN_SUCCESS,
-	TRACK_SIGN_IN_CANCELLED_COUNT,
-	TRACK_SIGN_IN_ERROR_COUNT,
-	TRACK_SIGN_IN_UNDEFINED_AUTH_CLIENT_ERROR,
 	TRACK_SIGN_OUT_ERROR,
 	TRACK_SIGN_OUT_SUCCESS,
 	TRACK_SIGN_OUT_WITH_WARNING
 } from '$lib/constants/analytics.contants';
 import { trackEvent } from '$lib/services/analytics.services';
-import { type AuthSignInParams, authStore } from '$lib/stores/auth.store';
+import { authStore } from '$lib/stores/auth.store';
 import { busy } from '$lib/stores/busy.store';
 import { i18n } from '$lib/stores/i18n.store';
-import { toastsClean, toastsError, toastsShow } from '$lib/stores/toasts.store';
-import { AuthClientNotInitializedError } from '$lib/types/errors';
+import { toastsShow } from '$lib/stores/toasts.store';
 import type { ToastMsg } from '$lib/types/toast';
 import { emit } from '$lib/utils/events.utils';
 import { gotoReplaceRoot } from '$lib/utils/nav.utils';
@@ -49,58 +44,6 @@ import type { Principal } from '@dfinity/principal';
 import { isNullish } from '@dfinity/utils';
 import { get } from 'svelte/store';
 
-export const signIn = async (
-	params: AuthSignInParams
-): Promise<{ success: 'ok' | 'cancelled' | 'error'; err?: unknown }> => {
-	busy.show();
-
-	try {
-		await authStore.signIn(params);
-
-		trackEvent({
-			name: TRACK_COUNT_SIGN_IN_SUCCESS
-		});
-
-		// We clean previous messages in case the user was signed out automatically before signing-in again.
-		toastsClean();
-
-		return { success: 'ok' };
-	} catch (err: unknown) {
-		if (err === 'UserInterrupt') {
-			trackEvent({
-				name: TRACK_SIGN_IN_CANCELLED_COUNT
-			});
-
-			// We do not display an error if the user explicitly cancelled the process of sign-in
-			return { success: 'cancelled' };
-		}
-
-		if (err instanceof AuthClientNotInitializedError) {
-			trackEvent({
-				name: TRACK_SIGN_IN_UNDEFINED_AUTH_CLIENT_ERROR
-			});
-
-			toastsError({
-				msg: { text: get(i18n).auth.warning.reload_and_retry }
-			});
-
-			return { success: 'error', err };
-		}
-
-		trackEvent({
-			name: TRACK_SIGN_IN_ERROR_COUNT
-		});
-
-		toastsError({
-			msg: { text: get(i18n).auth.error.error_while_signing_in },
-			err
-		});
-
-		return { success: 'error', err };
-	} finally {
-		busy.stop();
-	}
-};
 
 export const signOut = ({
 	resetUrl = false,
@@ -146,27 +89,6 @@ export const warnSignOut = (text: string): Promise<void> => {
 
 export const nullishSignOut = (): Promise<void> =>
 	warnSignOut(get(i18n).auth.warning.not_signed_in);
-
-export const idleSignOut = (): Promise<void> => {
-	const text = get(i18n).auth.warning.session_expired;
-	trackEvent({
-		name: TRACK_SIGN_OUT_WITH_WARNING,
-		metadata: { level: 'warn', text, reason: 'session_expired', clearStorages: 'false' }
-	});
-	return logout({
-		msg: {
-			text: get(i18n).auth.warning.session_expired,
-			level: 'warn'
-		},
-		clearCurrentPrincipalStorages: false
-	});
-};
-
-export const lockSession = ({ resetUrl = false }: { resetUrl?: boolean }): Promise<void> =>
-	logout({
-		resetUrl,
-		clearCurrentPrincipalStorages: false
-	});
 
 const emptyPrincipalIdbStore = async (deleteIdbStore: (principal: Principal) => Promise<void>) => {
 	const { identity } = get(authStore);

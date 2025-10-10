@@ -74,15 +74,8 @@ export const ethAddress: Readable<OptionEthAddress> = derived(
 	([$ethAddressStore]) => mapAddress<EthAddress>($ethAddressStore)
 );
 
-export const ethAddressCertified: Readable<boolean> = derived(
-	[ethAddressStore],
-	([$ethAddressStore]) => $ethAddressStore?.certified === true
-);
 
-export const ethAddressNotCertified: Readable<boolean> = derived(
-	[ethAddressCertified],
-	([$ethAddressCertified]) => !$ethAddressCertified
-);
+
 
 export const solAddressMainnet: Readable<OptionSolAddress> = derived(
 	[solAddressMainnetStore],
@@ -94,7 +87,3 @@ export const solAddressDevnet: Readable<OptionSolAddress> = derived(
 	([$solAddressDevnetStore]) => mapAddress<SolAddress>($solAddressDevnetStore)
 );
 
-export const solAddressLocal: Readable<OptionSolAddress> = derived(
-	[solAddressLocalnetStore],
-	([$solAddressLocalnetStore]) => mapAddress<SolAddress>($solAddressLocalnetStore)
-);

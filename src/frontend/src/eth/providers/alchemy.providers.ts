@@ -1,7 +1,7 @@
 import { SUPPORTED_EVM_NETWORKS } from '$env/networks/networks-evm/networks.evm.env';
 import { SUPPORTED_ETHEREUM_NETWORKS } from '$env/networks/networks.eth.env';
 import { ALCHEMY_API_KEY } from '$env/rest/alchemy.env';
-import type { AlchemyProviderContract, AlchemyProviderContracts } from '$eth/types/alchemy-contract';
+import type { AlchemyProviderContract } from '$eth/types/alchemy-contract';
 import type { AlchemyProviderOwnedNfts } from '$eth/types/alchemy-nfts';
 import type { Erc1155Metadata } from '$eth/types/erc1155';
 import type { Erc721Metadata } from '$eth/types/erc721';
@@ -9,8 +9,7 @@ import { i18n } from '$lib/stores/i18n.store';
 import type { EthAddress } from '$lib/types/address';
 import type { WebSocketListener } from '$lib/types/listener';
 import type { NetworkId } from '$lib/types/network';
-import type { Nft, NonFungibleToken, OwnedContract } from '$lib/types/nft';
-import type { TokenStandard } from '$lib/types/token';
+import type { Nft, NonFungibleToken } from '$lib/types/nft';
 import type { TransactionResponseWithBigInt } from '$lib/types/transaction';
 import { areAddressesEqual } from '$lib/utils/address.utils';
 import { replacePlaceholders } from '$lib/utils/i18n.utils';
@@ -57,35 +56,6 @@ const alchemyConfig = (networkId: NetworkId): AlchemyConfig => {
 	return provider;
 };
 
-export const initMinedTransactionsListener = ({
-	listener,
-	networkId,
-	toAddress
-}: {
-	listener: Listener;
-	networkId: NetworkId;
-	toAddress?: EthAddress;
-}): WebSocketListener => {
-	let provider: Alchemy | null = new Alchemy(alchemyConfig(networkId));
-
-	const event: AlchemyEventType = {
-		method: AlchemySubscription.MINED_TRANSACTIONS,
-		hashesOnly: true,
-		addresses: nonNullish(toAddress) ? [{ to: toAddress }] : undefined
-	};
-
-	provider.ws.on(event, listener);
-
-	return {
-		// eslint-disable-next-line require-await
-		disconnect: async () => {
-			// Alchemy is buggy. Despite successfully removing all listeners, attaching new similar events would have the effect of doubling the triggers. That's why we reset it to null.
-			provider?.ws.off(event);
-			provider?.ws.removeAllListeners();
-			provider = null;
-		}
-	};
-};
 
 export const initPendingTransactionsListener = ({
 	toAddress,
@@ -218,32 +188,7 @@ export class AlchemyProvider {
 		}, []);
 	};
 
-	// https://www.alchemy.com/docs/reference/nft-api-endpoints/nft-api-endpoints/nft-ownership-endpoints/get-contracts-for-owner-v-3
-	getTokensForOwner = async (address: EthAddress): Promise<OwnedContract[]> => {
-		const result: AlchemyProviderContracts =
-			await this.deprecatedProvider.nft.getContractsForOwner(address);
 
-		return result.contracts.reduce<OwnedContract[]>((acc, ownedContract) => {
-			const tokenStandard =
-				ownedContract.tokenType === 'ERC721'
-					? 'erc721'
-					: ownedContract.tokenType === 'ERC1155'
-						? 'erc1155'
-						: undefined;
-			if (isNullish(tokenStandard)) {
-				return acc;
-			}
-
-			const newContract = {
-				address: ownedContract.address,
-				isSpam: ownedContract.isSpam,
-				standard: tokenStandard as TokenStandard
-			};
-			acc.push(newContract);
-
-			return acc;
-		}, []);
-	};
 
 	// https://www.alchemy.com/docs/reference/nft-api-endpoints/nft-api-endpoints/nft-metadata-endpoints/get-contract-metadata-v-3
 	getContractMetadata = async (address: EthAddress): Promise<Erc1155Metadata | Erc721Metadata> => {

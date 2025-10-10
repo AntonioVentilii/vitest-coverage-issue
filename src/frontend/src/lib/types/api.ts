@@ -149,10 +149,7 @@ export interface BtcGetFeePercentilesParams {
 	network: BitcoinNetwork;
 }
 
-export interface GetContactParams {
-	identity: Identity;
-	contactId: bigint;
-}
+
 
 export interface CreateContactParams {
 	identity: Identity;

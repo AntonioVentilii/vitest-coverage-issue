@@ -9,10 +9,6 @@ export enum WizardStepsSend {
 	QR_CODE_SCAN = 'QR Code Scan'
 }
 
-export enum WizardStepsSign {
-	REVIEW = 'Review',
-	SIGNING = 'Signing'
-}
 
 export enum WizardStepsConvert {
 	CONVERT = 'Convert',
@@ -54,24 +50,3 @@ export enum TokenModalSteps {
 	EDIT_PROGRESS = 'edit_progress'
 }
 
-export enum WizardStepsWalletConnect {
-	CONNECT = 'Connect',
-	REVIEW = 'Review'
-}
-
-export enum WizardStepsHideToken {
-	HIDE = 'Hide',
-	HIDING = 'Hiding'
-}
-
-export enum WizardStepsReceiveAddress {
-	RECEIVE = 'Receive',
-	QR_CODE = 'QR code'
-}
-
-export enum WizardStepsManageTokens {
-	MANAGE = 'Manage',
-	IMPORT = 'Import',
-	REVIEW = 'Review',
-	SAVING = 'Saving'
-}

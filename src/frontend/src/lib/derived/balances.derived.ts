@@ -1,4 +1,3 @@
-import { ZERO } from '$lib/constants/app.constants';
 import { enabledFungibleNetworkTokens } from '$lib/derived/network-tokens.derived';
 import { balancesStore } from '$lib/stores/balances.store';
 import { token } from '$lib/stores/token.store';
@@ -13,15 +12,6 @@ export const balance: Readable<OptionBalance> = derived(
 	([$balanceStore, $token]) => (nonNullish($token) ? $balanceStore?.[$token.id]?.data : undefined)
 );
 
-// TODO: Create tests for this store
-export const balanceZero: Readable<boolean> = derived(
-	[balancesStore, token],
-	([$balanceStore, $token]) =>
-		nonNullish($balanceStore) &&
-		nonNullish($token) &&
-		nonNullish($balanceStore?.[$token.id]) &&
-		$balanceStore[$token.id]?.data === ZERO
-);
 
 export const anyBalanceNonZero: Readable<boolean> = derived([balancesStore], ([$balanceStore]) =>
 	checkAnyNonZeroBalance($balanceStore)

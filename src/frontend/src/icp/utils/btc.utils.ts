@@ -1,28 +1,9 @@
-import { btcPendingSentTransactionsStore } from '$btc/stores/btc-pending-sent-transactions.store';
 import type { BtcTransactionUi, BtcWalletBalance } from '$btc/types/btc';
 import type { PendingTransaction } from '$declarations/backend/backend.did';
-import { BTC_MAINNET_NETWORK_ID, BTC_REGTEST_NETWORK_ID, BTC_TESTNET_NETWORK_ID } from '$env/networks/networks.btc.env';
-import { BTC_MAINNET_TOKEN_ID, BTC_REGTEST_TOKEN_ID, BTC_TESTNET_TOKEN_ID } from '$env/tokens/tokens.btc.env';
 import { ZERO } from '$lib/constants/app.constants';
-import type { NetworkId } from '$lib/types/network';
 import type { CertifiedData } from '$lib/types/store';
-import type { TokenId } from '$lib/types/token';
-import { hexStringToUint8Array, isNullish, nonNullish, notEmptyString, uint8ArrayToHexString } from '@dfinity/utils';
-import { get } from 'svelte/store';
+import { nonNullish, uint8ArrayToHexString } from '@dfinity/utils';
 
-/**
- * Get the NetworkId from a BTC TokenId
- * @param tokenId - The BTC token ID
- * @returns The corresponding NetworkId
- */
-export const mapTokenIdToNetworkId = (tokenId: TokenId): NetworkId | undefined =>
-	tokenId === BTC_MAINNET_TOKEN_ID
-		? BTC_MAINNET_NETWORK_ID
-		: tokenId === BTC_TESTNET_TOKEN_ID
-			? BTC_TESTNET_NETWORK_ID
-			: tokenId === BTC_REGTEST_TOKEN_ID
-				? BTC_REGTEST_NETWORK_ID
-				: undefined;
 
 /**
  * Bitcoin txid to text representation requires inverting the array.
@@ -33,108 +14,9 @@ export const mapTokenIdToNetworkId = (tokenId: TokenId): NetworkId | undefined =
 export const utxoTxIdToString = (txid: Uint8Array | number[]): string =>
 	uint8ArrayToHexString(Uint8Array.from(txid).toReversed());
 
-/**
- * Convert a Bitcoin transaction ID hex string to Uint8Array with proper byte reversal.
- * Bitcoin transaction IDs are displayed in reverse byte order compared to their binary representation.
- *
- * @param txidHex - Bitcoin transaction ID as hex string (human-readable format)
- * @returns Uint8Array - Transaction ID in binary format (bytes reversed)
- */
-export const txidStringToUint8Array = (txidHex: string): Uint8Array =>
-	Uint8Array.from(hexStringToUint8Array(txidHex)).reverse();
 
-/**
- * Convert a pending transaction's txid to human-readable hex string format.
- * Uses the same byte reversal logic as utxoTxIdToString for consistency.
- *
- * @param tx - PendingTransaction containing the txid
- * @returns string | null - Human-readable transaction ID or null if empty
- */
-export const pendingTransactionTxidToString = (tx: PendingTransaction): string | null => {
-	const txidString = utxoTxIdToString(tx.txid);
 
-	// Return the txid string only if it's not empty
-	return notEmptyString(txidString) ? txidString : null;
-};
 
-/**
- * Safely retrieves pending transactions for a given Bitcoin address from the store.
- *
- * @param address - The Bitcoin address to get pending transactions for
- * @returns Array of pending transactions, or null when:
- *   - Store hasn't been initialized yet
- *   - Address doesn't exist in store (hasn't been loaded)
- *   - Backend retrieval failed (setPendingTransactionsError was called)
- */
-export const getPendingTransactions = (address: string): Array<PendingTransaction> | null => {
-	const storeData = get(btcPendingSentTransactionsStore);
-
-	// Case 1: Store not initialized, return null
-	if (isNullish(storeData) || Object.keys(storeData).length === 0) {
-		return null;
-	}
-
-	// Case 2: Address exists in store, return actual data (may be null if backend failed)
-	if (address in storeData) {
-		return storeData[address].data;
-	}
-
-	// Case 3: Address not in store yet, return empty array for transactions
-	return [];
-};
-
-/**
- * Get pending transaction IDs from the store to exclude locked UTXOs
- * @param address - Bitcoin address to get pending transaction IDs for
- * @returns Array of pending transaction ID strings, or null if no pending data available
- * @throws Error when the store has not been initialized
- */
-export const getPendingTransactionIds = (address: string): string[] | null => {
-	const pendingTransactions = getPendingTransactions(address);
-
-	if (isNullish(pendingTransactions)) {
-		return null;
-	}
-
-	// Use the utility function to convert transaction IDs and filter out nulls
-	return pendingTransactions
-		.map(pendingTransactionTxidToString)
-		.filter((txid): txid is string => nonNullish(txid));
-};
-
-/**
- * Get all UTXO transaction IDs from all pending transactions for a given address.
- * These are the transaction IDs that UTXOs reference (inputs being spent), not the pending transaction IDs themselves.
- *
- * @param address - Bitcoin address to get pending UTXO transaction IDs for
- * @returns Array of UTXO transaction ID strings, or null if no pending data available
- */
-export const getPendingTransactionUtxoTxIds = (address: string): string[] | null => {
-	const pendingTransactions = getPendingTransactions(address);
-
-	if (isNullish(pendingTransactions)) {
-		return null;
-	}
-
-	// Extract all UTXO transaction IDs from all pending transactions
-	const utxoTxIds: string[] = [];
-
-	for (const tx of pendingTransactions) {
-		if (nonNullish(tx.utxos)) {
-			for (const utxo of tx.utxos) {
-				if (nonNullish(utxo?.outpoint?.txid)) {
-					const utxoTxId = utxoTxIdToString(utxo.outpoint.txid);
-					if (notEmptyString(utxoTxId)) {
-						utxoTxIds.push(utxoTxId);
-					}
-				}
-			}
-		}
-	}
-
-	// Remove duplicates and return
-	return Array.from(new Set(utxoTxIds));
-};
 
 /**
  * Calculates Bitcoin wallet balance breakdown following standard Bitcoin accounting principles.
