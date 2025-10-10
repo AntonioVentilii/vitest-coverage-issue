@@ -11,7 +11,6 @@ import {isDefaultEthereumToken} from '$eth/utils/eth.utils';
 import {enabledEvmTokens} from '$evm/derived/tokens.derived';
 import {icrcChainFusionDefaultTokens, sortedIcrcTokens} from '$icp/derived/icrc.derived';
 import {defaultIcpTokens} from '$icp/derived/tokens.derived';
-import type {NonFungibleToken} from '$lib/types/nft';
 import type {Token, TokenToPin} from '$lib/types/token';
 import {isTokenFungible} from '$lib/utils/nft.utils';
 import {filterEnabledTokens} from '$lib/utils/tokens.utils';
@@ -61,10 +60,6 @@ export const fungibleTokens: Readable<Token[]> = derived([tokens], ([$tokens]) =
     $tokens.filter(isTokenFungible)
 );
 
-export const nonFungibleTokens: Readable<NonFungibleToken[]> = derived(
-    [erc721Tokens, erc1155Tokens],
-    ([$erc721Tokens, $erc1155Tokens]) => [...$erc721Tokens, ...$erc1155Tokens]
-);
 
 export const defaultEthereumTokens: Readable<Token[]> = derived([tokens], ([$tokens]) =>
     $tokens.filter((token) => isDefaultEthereumToken(token))

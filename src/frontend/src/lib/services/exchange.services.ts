@@ -2,10 +2,7 @@ import type {LedgerCanisterIdText} from '$icp/types/canister';
 import {Currency} from '$lib/enums/currency';
 import {simplePrice, simpleTokenPrice} from '$lib/rest/coingecko.rest';
 import {fetchBatchKongSwapPrices} from '$lib/rest/kongswap.rest';
-import {currencyExchangeStore} from '$lib/stores/currency-exchange.store';
-import {exchangeStore} from '$lib/stores/exchange.store';
 import type {CoingeckoSimpleTokenPriceResponse} from '$lib/types/coingecko';
-import type {PostMessageDataResponseExchange} from '$lib/types/post-message';
 import {findMissingLedgerCanisterIds, formatKongSwapToCoingeckoPrices} from '$lib/utils/exchange.utils';
 import {nonNullish} from '@dfinity/utils';
 
@@ -70,26 +67,4 @@ export const exchangeRateICRCToUsd = async (
         ...(coingeckoPrices ?? {}),
         ...(kongSwapPrices ?? {})
     };
-};
-
-export const syncExchange = (data: PostMessageDataResponseExchange | undefined) => {
-    if (nonNullish(data)) {
-        exchangeStore.set([
-            data.currentEthPrice,
-            data.currentBtcPrice,
-            data.currentIcpPrice,
-            data.currentSolPrice,
-            data.currentBnbPrice,
-            data.currentPolPrice,
-            data.currentErc20Prices,
-            data.currentIcrcPrices,
-            data.currentSplPrices
-        ]);
-
-        if (nonNullish(data.currentExchangeRate)) {
-            // We set the reference currency for the exchange rate to avoid possible race condition where the user changes the current currency while the value is being uploaded, leading to inconsistent data in the UI.
-            currencyExchangeStore.setExchangeRateCurrency(data.currentExchangeRate.currency);
-            currencyExchangeStore.setExchangeRate(data.currentExchangeRate.exchangeRateToUsd);
-        }
-    }
 };

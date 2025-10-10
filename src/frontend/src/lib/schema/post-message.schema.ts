@@ -6,51 +6,6 @@ import * as z from 'zod';
 export const PostMessageDataResponseSchema = z.strictObject({});
 
 
-export const PostMessageResponseStatusSchema = z.enum([
-    'syncIcWalletStatus',
-    'syncBtcWalletStatus',
-    'syncSolWalletStatus',
-    'syncBtcStatusesStatus',
-    'syncCkMinterInfoStatus',
-    'syncCkBTCUpdateBalanceStatus',
-    'syncPowProtectionStatus'
-]);
-
-export const PostMessageErrorResponseSchema = z.enum([
-    'syncExchangeError',
-    'syncIcpWalletError',
-    'syncIcrcWalletError',
-    'syncDip20WalletError',
-    'syncBtcWalletError',
-    'syncSolWalletError',
-    'syncBtcStatusesError',
-    'syncCkMinterInfoError',
-    'syncPowProtectionError'
-]);
-
-export const PostMessageResponseSchema = z.enum([
-    'signOutIdleTimer',
-    'delegationRemainingTime',
-    'syncExchange',
-    'syncIcpWallet',
-    'syncIcrcWallet',
-    'syncDip20Wallet',
-    'syncBtcWallet',
-    'syncSolWallet',
-    'syncIcpWalletCleanUp',
-    'syncIcrcWalletCleanUp',
-    'syncDip20WalletCleanUp',
-    'syncBtcStatuses',
-    'syncCkMinterInfo',
-    'syncBtcPendingUtxos',
-    'syncCkBTCUpdateOk',
-    'syncBtcAddress',
-    'syncPowProgress',
-    'syncPowNextAllowance',
-    ...PostMessageResponseStatusSchema.options
-]);
-
-
 // TODO: generate zod schema for Coingecko
 export const PostMessageDataResponseExchangeSchema = PostMessageDataResponseSchema.extend({
     currentExchangeRate: CurrencyExchangeDataSchema.optional(),
@@ -63,16 +18,6 @@ export const PostMessageDataResponseExchangeSchema = PostMessageDataResponseSche
     currentSplPrices: z.custom<CoingeckoSimpleTokenPriceResponse>(),
     currentBnbPrice: z.custom<CoingeckoSimplePriceResponse>(),
     currentPolPrice: z.custom<CoingeckoSimplePriceResponse>()
-});
-
-
-export const PostMessageDataResponseErrorSchema = PostMessageDataResponseSchema.extend({
-    error: z.unknown()
-});
-
-export const PostMessageDataErrorSchema = z.object({
-    msg: PostMessageErrorResponseSchema,
-    data: PostMessageDataResponseErrorSchema
 });
 
 
