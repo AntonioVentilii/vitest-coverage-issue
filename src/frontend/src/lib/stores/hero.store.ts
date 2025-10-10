@@ -1,22 +1,20 @@
-import { derived, type Readable, writable, type Writable } from 'svelte/store';
+import {derived, type Readable, writable, type Writable} from 'svelte/store';
 
 export interface HeroContext {
-	loading: Writable<boolean>;
-	loaded: Readable<boolean>;
-	outflowActionsDisabled: Writable<boolean>;
+    loading: Writable<boolean>;
+    loaded: Readable<boolean>;
+    outflowActionsDisabled: Writable<boolean>;
 }
 
 export const initHeroContext = (): HeroContext => {
-	const loading = writable<boolean>(true);
-	const loaded = derived(loading, ($loading) => !$loading);
+    const loading = writable<boolean>(true);
+    const loaded = derived(loading, ($loading) => !$loading);
 
-	const outflowActionsDisabled = writable<boolean>(true);
+    const outflowActionsDisabled = writable<boolean>(true);
 
-	return {
-		loading,
-		loaded,
-		outflowActionsDisabled
-	};
+    return {
+        loading,
+        loaded,
+        outflowActionsDisabled
+    };
 };
-
-export const HERO_CONTEXT_KEY = Symbol('hero');
