@@ -1,6 +1,5 @@
 import type {
     AllowSigningRequest,
-    BitcoinNetwork,
     Contact,
     CredentialSpec,
     GetUserProfileError,
@@ -9,7 +8,7 @@ import type {
 import type {TxId} from '$declarations/kong_backend/kong_backend.did';
 import type {SchnorrKeyId} from '$declarations/signer/signer.did';
 import type {IcToken} from '$icp/types/ic-token';
-import type {Address, BtcAddress} from '$lib/types/address';
+import type {Address} from '$lib/types/address';
 import type {Token} from '$lib/types/token';
 import type {UserAgreements} from '$lib/types/user-agreements';
 import type {Identity} from '@dfinity/agent';
@@ -26,12 +25,6 @@ export type GetUserProfileResponse = { Ok: UserProfile } | { Err: GetUserProfile
 
 export interface AllowSigningParams {
     request?: AllowSigningRequest;
-}
-
-
-export interface BtcGetPendingTransactionParams {
-    network: BitcoinNetwork;
-    address: BtcAddress;
 }
 
 

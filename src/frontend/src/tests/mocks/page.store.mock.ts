@@ -1,5 +1,4 @@
 import {page} from '$app/state';
-import type {Token} from '$lib/types/token';
 import {resetRouteParams, type RouteParams} from '$lib/utils/nav.utils';
 import type {Page} from '@sveltejs/kit';
 import {writable} from 'svelte/store';
@@ -29,15 +28,7 @@ const initPageStoreMock = () => {
             set({...page, data});
             page.data = data;
         },
-        mockToken: ({name, network: {id: networkId}}: Token) => {
-            const data = {token: name, network: networkId.description};
-            set({data});
-            page.data = data;
-        },
-        mockDynamicRoutes: (params: { [key: string]: string }) => {
-            set({...page, params});
-            page.params = params;
-        },
+
 
         reset: () => {
             set(initialStoreValue);

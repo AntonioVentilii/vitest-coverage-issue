@@ -27,9 +27,6 @@ export const networks: Readable<Network[]> = derived(
     ]
 );
 
-export const enabledNetworksSymbols: Readable<string[]> = derived([networks], ([$networks]) =>
-    $networks.map(({id}) => `${id.description}`)
-);
 
 interface NetworksEnvs {
     mainnets: Network[];

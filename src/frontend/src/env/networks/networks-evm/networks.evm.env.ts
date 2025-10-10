@@ -22,9 +22,6 @@ export const SUPPORTED_EVM_MAINNET_NETWORKS: EthereumNetwork[] = SUPPORTED_EVM_N
     ({env}) => env === 'mainnet'
 );
 
-export const SUPPORTED_EVM_TESTNET_NETWORKS: EthereumNetwork[] = SUPPORTED_EVM_NETWORKS.filter(
-    ({env}) => env === 'testnet'
-);
 
 export const SUPPORTED_EVM_MAINNET_NETWORK_IDS: NetworkId[] = SUPPORTED_EVM_MAINNET_NETWORKS.map(
     ({id}) => id
