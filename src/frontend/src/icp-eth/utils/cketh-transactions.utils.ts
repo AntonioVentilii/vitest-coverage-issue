@@ -2,10 +2,7 @@ import type { EthereumNetwork } from '$eth/types/network';
 import { decodeErc20AbiDataValue } from '$eth/utils/transactions.utils';
 import type { IcCkLinkedAssets, IcToken } from '$icp/types/ic-token';
 import type { IcTransactionUi } from '$icp/types/ic-transaction';
-import { isNetworkIdETH, isTokenCkErc20Ledger, isTokenCkEthLedger } from '$icp/utils/ic-send.utils';
 import { i18n } from '$lib/stores/i18n.store';
-import type { NetworkId } from '$lib/types/network';
-import type { OptionToken } from '$lib/types/token';
 import type { EthersTransaction } from '$lib/types/transaction';
 import { replacePlaceholders } from '$lib/utils/i18n.utils';
 import { nonNullish } from '@dfinity/utils';
@@ -78,18 +75,3 @@ const mapPendingTransaction = ({
 const decodeCkErc20DepositAbiDataValue = (data: string): bigint =>
 	decodeErc20AbiDataValue({ data, bytesParam: true });
 
-export const isConvertCkEthToEth = ({
-	token,
-	networkId
-}: {
-	token: OptionToken;
-	networkId: NetworkId | undefined;
-}) => nonNullish(token) && isNetworkIdETH(networkId) && isTokenCkEthLedger(token);
-
-export const isConvertCkErc20ToErc20 = ({
-	token,
-	networkId
-}: {
-	token: OptionToken;
-	networkId: NetworkId | undefined;
-}) => nonNullish(token) && isNetworkIdETH(networkId) && isTokenCkErc20Ledger(token);

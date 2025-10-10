@@ -72,9 +72,7 @@ export default defineConfig(
 			silent: false,
 			setupFiles: ['./vitest.setup.ts'],
 			include: ['src/frontend/src/**/*.{test,spec}.?(c|m)[jt]s?(x)'],
-			reporters: ['dot'],
 			coverage: {
-				reporter: ["text", "html", "clover", "json"],
 				include: ['src/frontend/src'],
 				exclude: [
 					'src/frontend/src/routes/**/+page.ts',

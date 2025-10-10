@@ -64,10 +64,7 @@ export const btcAddressTestnet: Readable<OptionBtcAddress> = derived(
 	([$btcAddressTestnetStore]) => mapAddress<BtcAddress>($btcAddressTestnetStore)
 );
 
-export const btcAddressRegtest: Readable<OptionBtcAddress> = derived(
-	[btcAddressRegtestStore],
-	([$btcAddressRegtestStore]) => mapAddress<BtcAddress>($btcAddressRegtestStore)
-);
+
 
 export const ethAddress: Readable<OptionEthAddress> = derived(
 	[ethAddressStore],
