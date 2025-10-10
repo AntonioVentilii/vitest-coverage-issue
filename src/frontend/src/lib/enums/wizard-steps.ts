@@ -1,6 +1,6 @@
 export enum WizardStepsSend {
     TOKENS_LIST = 'Tokens List',
-
+    NFTS_LIST = 'NFTs List',
     DESTINATION = 'Destination',
     FILTER_NETWORKS = 'Filter Networks',
     SEND = 'Send',
@@ -34,16 +34,18 @@ export enum WizardStepsAuthHelp {
 }
 
 export enum WizardStepsHowToConvert {
-
-
+    INFO = 'Info',
+    ETH_QR_CODE = 'ETH QR Code'
 }
 
 export enum WizardStepsReceive {
-
-
+    RECEIVE = 'Receive',
+    QR_CODE = 'QR Code'
 }
 
 export enum TokenModalSteps {
-
-
+    CONTENT = 'content',
+    DELETE_CONFIRMATION = 'delete_confirmation',
+    EDIT = 'edit',
+    EDIT_PROGRESS = 'edit_progress'
 }
