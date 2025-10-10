@@ -37,10 +37,5 @@ export type CoingeckoSimpleTokenPrice = Omit<CoingeckoSimplePrice, 'usd_market_c
 
 export type CoingeckoResponse<T> = Record<CoingeckoCoinsId | LedgerCanisterIdText | EthAddress, T>;
 
-export type CoingeckoSimplePriceResponse = CoingeckoResponse<CoingeckoSimplePrice>;
 
 export type CoingeckoSimpleTokenPriceResponse = CoingeckoResponse<CoingeckoSimpleTokenPrice>;
-
-export type CoingeckoPriceResponse =
-    | CoingeckoSimplePriceResponse
-    | CoingeckoSimpleTokenPriceResponse;

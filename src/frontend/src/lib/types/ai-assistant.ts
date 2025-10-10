@@ -9,15 +9,6 @@ export interface ToolCallArgument {
     value: string;
 }
 
-interface ToolFunction {
-    name: string;
-    arguments: ToolCallArgument[];
-}
-
-export interface ToolCall {
-    id: string;
-    function: ToolFunction;
-}
 
 export interface ShowContactsToolResult {
     contacts: ExtendedAddressContactUi[];
@@ -42,17 +33,6 @@ export interface ShowBalanceToolResult {
     secondaryCards?: TokenUi[];
 }
 
-export enum ToolResultType {
-    SHOW_ALL_CONTACTS = 'show_all_contacts',
-    SHOW_FILTERED_CONTACTS = 'show_filtered_contacts',
-    REVIEW_SEND_TOKENS = 'review_send_tokens',
-    SHOW_BALANCE = 'show_balance'
-}
-
-export interface ToolResult {
-    type: ToolResultType;
-    result?: ShowContactsToolResult | ReviewSendTokensToolResult | ShowBalanceToolResult;
-}
 
 export interface AiAssistantContactUi
     extends Omit<ExtendedAddressContactUi, 'addresses' | 'image' | 'updateTimestampNs' | 'id'> {
