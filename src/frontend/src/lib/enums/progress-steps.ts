@@ -32,16 +32,6 @@ export enum ProgressStepsAddToken {
 }
 
 
-export enum ProgressStepsSendIc {
-    INITIALIZATION = 'initialization',
-    APPROVE_FEES = 'approve_fees',
-    APPROVE_TRANSFER = 'approve_transfer',
-    SEND = 'send',
-    RELOAD = 'reload',
-    DONE = 'done'
-}
-
-
 export enum AddressBookSteps {
     ADDRESS_BOOK = 'address_book',
     ADD_CONTACT = 'add_contact',

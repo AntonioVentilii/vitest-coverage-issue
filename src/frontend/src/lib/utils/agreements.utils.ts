@@ -1,11 +1,8 @@
-import type {
-    UserAgreement as BackendUserAgreement,
-    UserAgreements as BackendUserAgreements
-} from '$declarations/backend/backend.did';
+import type {UserAgreement as BackendUserAgreement} from '$declarations/backend/backend.did';
 import {agreementsData} from '$env/agreements.env';
 import type {EnvAgreements} from '$env/types/env-agreements';
 import {MILLISECONDS_IN_SECOND} from '$lib/constants/app.constants';
-import type {AgreementData, UserAgreements} from '$lib/types/user-agreements';
+import type {AgreementData} from '$lib/types/user-agreements';
 import {formatSecondsToDate} from '$lib/utils/format.utils';
 import {nonNullish, toNullable} from '@dfinity/utils';
 
@@ -38,11 +35,3 @@ const mapBackendUserAgreement = (userAgreement: AgreementData | undefined): Back
             last_accepted_at_ns: toNullable(),
             last_updated_at_ms: toNullable()
         };
-
-export const mapBackendUserAgreements = (
-    agreements: Partial<UserAgreements>
-): BackendUserAgreements => ({
-    license_agreement: mapBackendUserAgreement(agreements.licenseAgreement),
-    privacy_policy: mapBackendUserAgreement(agreements.privacyPolicy),
-    terms_of_use: mapBackendUserAgreement(agreements.termsOfUse)
-});

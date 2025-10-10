@@ -1,4 +1,3 @@
-import type {BitcoinNetwork as SignerBitcoinNetwork} from '$declarations/signer/signer.did';
 import {SUPPORTED_ARBITRUM_NETWORK_IDS} from '$env/networks/networks-evm/networks.evm.arbitrum.env';
 import {SUPPORTED_BASE_NETWORK_IDS} from '$env/networks/networks-evm/networks.evm.base.env';
 import {SUPPORTED_BSC_NETWORK_IDS} from '$env/networks/networks-evm/networks.evm.bsc.env';
@@ -136,10 +135,3 @@ export const filterTokensForSelectedNetworks = <T extends Token>([
     $tokens.filter((token) =>
         showTokenFilteredBySelectedNetworks({token, $selectedNetworks, $pseudoNetworkChainFusion})
     );
-
-export const mapToSignerBitcoinNetwork = ({
-                                              network
-                                          }: {
-    network: BitcoinNetwork;
-}): SignerBitcoinNetwork =>
-    ({mainnet: {mainnet: null}, testnet: {testnet: null}, regtest: {regtest: null}})[network];

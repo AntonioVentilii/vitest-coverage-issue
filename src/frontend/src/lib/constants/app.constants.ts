@@ -1,6 +1,5 @@
 import {parseBoolEnvVar} from '$lib/utils/env.utils';
 import {Principal} from '@dfinity/principal';
-import {nonNullish} from '@dfinity/utils';
 
 
 export const MODE = VITE_DFX_NETWORK;
@@ -14,7 +13,6 @@ export const PROD = MODE === 'ic';
 
 export const TEST = parseBoolEnvVar(import.meta.env.TEST);
 
-const MAINNET_DOMAIN = 'icp0.io';
 
 export const REPLICA_HOST = LOCAL ? 'http://localhost:4943/' : 'https://icp-api.io';
 
@@ -22,28 +20,6 @@ export const INTERNET_IDENTITY_CANISTER_ID = LOCAL
     ? import.meta.env.VITE_LOCAL_INTERNET_IDENTITY_CANISTER_ID
     : undefined;
 
-export const INTERNET_IDENTITY_ORIGIN = LOCAL
-    ? `http://${INTERNET_IDENTITY_CANISTER_ID}.localhost:4943`
-    : 'https://identity.internetcomputer.org';
-
-export const POUH_ISSUER_CANISTER_ID = LOCAL
-    ? import.meta.env.VITE_LOCAL_POUH_ISSUER_CANISTER_ID
-    : STAGING
-        ? import.meta.env.VITE_STAGING_POUH_ISSUER_CANISTER_ID
-        : BETA
-            ? import.meta.env.VITE_BETA_POUH_ISSUER_CANISTER_ID
-            : PROD
-                ? import.meta.env.VITE_IC_POUH_ISSUER_CANISTER_ID
-                : undefined;
-
-export const POUH_ISSUER_ORIGIN = nonNullish(POUH_ISSUER_CANISTER_ID)
-    ? LOCAL
-        ? `http://${POUH_ISSUER_CANISTER_ID}.localhost:4943`
-        : STAGING
-            ? `https://${POUH_ISSUER_CANISTER_ID}.${MAINNET_DOMAIN}`
-            : // BETA and PROD
-            'https://id.decideai.xyz'
-    : undefined;
 
 export const BACKEND_CANISTER_ID = LOCAL
     ? import.meta.env.VITE_LOCAL_BACKEND_CANISTER_ID
@@ -82,13 +58,6 @@ export const KONG_BACKEND_CANISTER_ID = LOCAL
             ? import.meta.env.VITE_BETA_KONG_BACKEND_CANISTER_ID
             : import.meta.env.VITE_IC_KONG_BACKEND_CANISTER_ID;
 
-export const ICP_SWAP_FACTORY_CANISTER_ID = LOCAL
-    ? import.meta.env.VITE_LOCAL_ICP_SWAP_FACTORY_CANISTER_ID
-    : STAGING
-        ? import.meta.env.VITE_STAGING_ICP_SWAP_FACTORY_CANISTER_ID
-        : BETA
-            ? import.meta.env.VITE_BETA_ICP_SWAP_FACTORY_CANISTER_ID
-            : import.meta.env.VITE_IC_ICP_SWAP_FACTORY_CANISTER_ID;
 
 export const XTC_LEDGER_CANISTER_ID = LOCAL
     ? import.meta.env.VITE_LOCAL_XTC_LEDGER_CANISTER_ID
@@ -98,14 +67,6 @@ export const XTC_LEDGER_CANISTER_ID = LOCAL
             ? import.meta.env.VITE_BETA_XTC_LEDGER_CANISTER_ID
             : import.meta.env.VITE_IC_XTC_LEDGER_CANISTER_ID;
 
-
-export const LLM_CANISTER_ID = LOCAL
-    ? import.meta.env.VITE_LOCAL_LLM_CANISTER_ID
-    : STAGING
-        ? import.meta.env.VITE_STAGING_LLM_CANISTER_ID
-        : BETA
-            ? import.meta.env.VITE_BETA_LLM_CANISTER_ID
-            : import.meta.env.VITE_IC_LLM_CANISTER_ID;
 
 // How long the delegation identity should remain valid?
 // e.g. BigInt(60 * 60 * 1000 * 1000 * 1000) = 1 hour in nanoseconds
@@ -120,9 +81,7 @@ export const AUTH_DERIVATION_ORIGIN = BETA
 
 export const AUTH_POPUP_WIDTH = 576;
 export const AUTH_POPUP_HEIGHT = 625;
-export const VC_POPUP_WIDTH = AUTH_POPUP_WIDTH;
-// Screen to allow credential presentation is longer than the authentication screen.
-export const VC_POPUP_HEIGHT = 900;
+
 
 // Workers
 // From FI team:
@@ -144,7 +103,7 @@ export const MILLISECONDS_IN_DAY = SECONDS_IN_DAY * MILLISECONDS_IN_SECOND;
 
 export const NANO_SECONDS_IN_MILLISECOND = 1_000_000n;
 export const NANO_SECONDS_IN_SECOND = NANO_SECONDS_IN_MILLISECOND * 1_000n;
-export const NANO_SECONDS_IN_MINUTE = NANO_SECONDS_IN_SECOND * 60n;
+
 
 // For some use case we want to display some amount to a maximal number of decimals which is not related to the number of decimals of the selected token.
 // Just a value that looks good visually.

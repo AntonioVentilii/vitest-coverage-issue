@@ -2,8 +2,7 @@
 export const TRACK_SYNC_AUTH_AUTHENTICATED_COUNT = 'sync_auth_authenticated';
 export const TRACK_SYNC_AUTH_NOT_AUTHENTICATED_COUNT = 'sync_auth_not_authenticated';
 export const TRACK_SYNC_AUTH_ERROR_COUNT = 'sync_auth_error';
-export const TRACK_SIGN_OUT_SUCCESS = 'sign_out_success';
-export const TRACK_SIGN_OUT_ERROR = 'sign_out_error';
+
 export const TRACK_SIGN_OUT_WITH_WARNING = 'sign_out_with_warning';
 
 
@@ -45,8 +44,3 @@ export const TRACK_LOCK_MODE_DEACTIVATED = 'lock_mode_deactivated';
 // This event is used to track the number of calls to Infura's getLogs endpoint.
 // TODO: Remove these events once the issue is resolved.
 export const TRACK_INFURA_GET_LOGS_CALL = 'infura_get_logs_call';
-
-// AI Assistant
-
-export const AI_ASSISTANT_TOOL_EXECUTION_TRIGGERED = 'ai_assistant_tool_execution_triggered';
-export const AI_ASSISTANT_TEXTUAL_RESPONSE_RECEIVED = 'ai_assistant_textual_response_received';

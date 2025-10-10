@@ -1,7 +1,4 @@
-import {
-    ICRC_CHAIN_FUSION_DEFAULT_LEDGER_CANISTER_IDS,
-    ICRC_CK_TOKENS_LEDGER_CANISTER_IDS
-} from '$env/networks/networks.icrc.env';
+import {ICRC_CK_TOKENS_LEDGER_CANISTER_IDS} from '$env/networks/networks.icrc.env';
 import {SUPPORTED_ICP_LEDGER_CANISTER_IDS} from '$env/tokens/tokens.icp.env';
 import {icrcCustomTokensStore} from '$icp/stores/icrc-custom-tokens.store';
 import {icrcDefaultTokensStore} from '$icp/stores/icrc-default-tokens.store';
@@ -13,7 +10,6 @@ import {sortIcTokens} from '$icp/utils/icrc.utils';
 import {testnetsEnabled} from '$lib/derived/testnets.derived';
 import type {CanisterIdText} from '$lib/types/canister';
 import {mapDefaultTokenToToggleable} from '$lib/utils/token.utils';
-import {nonNullish} from '@dfinity/utils';
 import {derived, type Readable} from 'svelte/store';
 
 /**
@@ -27,18 +23,6 @@ const icrcDefaultTokens: Readable<IcToken[]> = derived(
         )
 );
 
-/**
- * The list of ICRC tokens that are default for Chain Fusion, in the order provided by the static list.
- */
-export const icrcChainFusionDefaultTokens: Readable<IcToken[]> = derived(
-    [icrcDefaultTokens],
-    ([$icrcDefaultTokens]) =>
-        ICRC_CHAIN_FUSION_DEFAULT_LEDGER_CANISTER_IDS.map((canisterId) =>
-            $icrcDefaultTokens.find(
-                ({ledgerCanisterId: tokenCanisterId}) => tokenCanisterId === canisterId
-            )
-        ).filter(nonNullish)
-);
 
 /**
  * A flatten list of the default ICRC Ledger canister ID.

@@ -19,5 +19,3 @@ export const isIcrcAddress = (address: string | undefined): boolean => {
 
     return false;
 };
-
-export const invalidIcrcAddress = (address: string | undefined): boolean => !isIcrcAddress(address);

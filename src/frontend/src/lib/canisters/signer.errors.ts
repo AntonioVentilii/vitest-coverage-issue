@@ -1,8 +1,4 @@
-import type {
-    EthAddressError,
-    GetAddressError as SignerCanisterBtcError,
-    PaymentError
-} from '$declarations/signer/signer.did';
+import type {EthAddressError, PaymentError} from '$declarations/signer/signer.did';
 import {CanisterInternalError} from '$lib/canisters/errors';
 import {jsonReplacer} from '@dfinity/utils';
 
@@ -25,16 +21,6 @@ export class SignerCanisterPaymentError extends CanisterInternalError {
         }
     }
 }
-
-export const mapSignerCanisterBtcError = (err: SignerCanisterBtcError): CanisterInternalError => {
-    if ('InternalError' in err) {
-        return new CanisterInternalError(err.InternalError.msg);
-    }
-    if ('PaymentError' in err) {
-        return new SignerCanisterPaymentError(err.PaymentError);
-    }
-    return new CanisterInternalError('Unknown SignerCanisterBtcError');
-};
 
 
 export const mapSignerCanisterGetEthAddressError = (

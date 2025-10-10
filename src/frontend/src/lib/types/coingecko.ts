@@ -21,41 +21,6 @@ export type CoingeckoPlatformId =
     | 'polygon-pos'
     | 'arbitrum-one';
 
-// Please, cross-reference the OISY supported currencies with the Coingecko API for supported currencies.
-// *refers to curl -l https://api.coingecko.com/api/v3/simple/supported_vs_currencies
-export type CoingeckoCurrency = Currency;
-
-export interface CoingeckoSimpleParams {
-    // vs_currency of coins, comma-separated if querying more than 1 vs_currency
-    vs_currencies: CoingeckoCurrency | `${CoingeckoCurrency},${CoingeckoCurrency}`;
-
-    // true/false to include market_cap, default: false
-    include_market_cap?: boolean;
-
-    // true/false to include 24hr_vol, default: false
-    include_24hr_vol?: boolean;
-
-    // true/false to include 24hr_change, default: false
-    include_24hr_change?: boolean;
-
-    // true/false to include last_updated_at of price, default: false
-    include_last_updated_at?: boolean;
-
-    // full or any value between 0 - 18 to specify decimal place for currency price value
-    precision?: number;
-}
-
-export interface CoingeckoSimplePriceParams extends CoingeckoSimpleParams {
-    // id of coins, comma-separated if querying more than 1 coin (therefore an array join(","))
-    ids: CoingeckoCoinsId | CoingeckoCoinsId[];
-}
-
-export interface CoingeckoSimpleTokenPriceParams extends CoingeckoSimpleParams {
-    // The id of the platform issuing tokens (See asset_platforms endpoint for list of options)
-    id: CoingeckoPlatformId;
-    // The contract address of tokens, comma separated
-    contract_addresses: string | string[];
-}
 
 export type CoingeckoSimplePrice = {
     usd: number;

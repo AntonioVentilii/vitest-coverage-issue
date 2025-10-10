@@ -1,21 +1,6 @@
-import type {
-    AddUserCredentialResult,
-    AllowSigningResponse,
-    Contact,
-    CustomToken,
-    UserProfile,
-    UserToken
-} from '$declarations/backend/backend.did';
+import type {CustomToken, UserToken} from '$declarations/backend/backend.did';
 import {BackendCanister} from '$lib/canisters/backend.canister';
 import {BACKEND_CANISTER_ID} from '$lib/constants/app.constants';
-import type {
-    AddUserCredentialParams,
-    AllowSigningParams,
-    CreateContactParams,
-    GetUserProfileResponse,
-    SaveUserAgreements,
-    UpdateContactParams
-} from '$lib/types/api';
 import type {CanisterApiFunctionParams} from '$lib/types/canister';
 import {Principal} from '@dfinity/principal';
 import {assertNonNullish, isNullish, type QueryParams} from '@dfinity/utils';
@@ -51,17 +36,6 @@ export const setManyCustomTokens = async ({
     return setManyCustomTokens({tokens});
 };
 
-export const setCustomToken = async ({
-                                         token,
-                                         identity
-                                     }: CanisterApiFunctionParams<{
-    token: CustomToken;
-}>): Promise<void> => {
-    const {setCustomToken} = await backendCanister({identity});
-
-    return setCustomToken({token});
-};
-
 
 export const setManyUserTokens = async ({
                                             identity,
@@ -70,76 +44,6 @@ export const setManyUserTokens = async ({
     const {setManyUserTokens} = await backendCanister({identity});
 
     return setManyUserTokens({tokens});
-};
-
-
-export const createUserProfile = async ({
-                                            identity
-                                        }: CanisterApiFunctionParams): Promise<UserProfile> => {
-    const {createUserProfile} = await backendCanister({identity});
-
-    return createUserProfile();
-};
-
-export const getUserProfile = async ({
-                                         identity,
-                                         certified
-                                     }: CanisterApiFunctionParams<QueryParams>): Promise<GetUserProfileResponse> => {
-    const {getUserProfile} = await backendCanister({identity});
-
-    return getUserProfile({certified});
-};
-
-export const addUserCredential = async ({
-                                            identity,
-                                            ...params
-                                        }: CanisterApiFunctionParams<AddUserCredentialParams>): Promise<AddUserCredentialResult> => {
-    const {addUserCredential} = await backendCanister({identity});
-
-    return addUserCredential(params);
-};
-
-
-export const allowSigning = async ({
-                                       identity,
-                                       ...params
-                                   }: CanisterApiFunctionParams<AllowSigningParams>): Promise<AllowSigningResponse> => {
-    const {allowSigning} = await backendCanister({identity});
-
-    return allowSigning(params);
-};
-
-
-export const updateUserAgreements = async ({
-                                               identity,
-                                               ...params
-                                           }: CanisterApiFunctionParams<SaveUserAgreements>): Promise<void> => {
-    const {updateUserAgreements} = await backendCanister({identity});
-
-    return updateUserAgreements(params);
-};
-
-export const getContacts = async ({
-                                      identity
-                                  }: CanisterApiFunctionParams<QueryParams>): Promise<Contact[]> => {
-    const {getContacts} = await backendCanister({identity});
-    return getContacts();
-};
-
-export const createContact = async ({
-                                        name,
-                                        identity
-                                    }: CanisterApiFunctionParams<CreateContactParams>): Promise<Contact> => {
-    const {createContact} = await backendCanister({identity});
-    return createContact(name);
-};
-
-export const updateContact = async ({
-                                        contact,
-                                        identity
-                                    }: CanisterApiFunctionParams<UpdateContactParams>): Promise<Contact> => {
-    const {updateContact} = await backendCanister({identity});
-    return updateContact(contact);
 };
 
 

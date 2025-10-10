@@ -1,17 +1,10 @@
-import type {
-    _SERVICE as SignerService,
-    BitcoinNetwork,
-    EthAddressRequest,
-    EthSignPrehashRequest,
-    EthSignTransactionRequest
-} from '$declarations/signer/signer.did';
+import type {_SERVICE as SignerService, EthSignTransactionRequest} from '$declarations/signer/signer.did';
 import {idlFactory as idlCertifiedFactorySigner} from '$declarations/signer/signer.factory.certified.did';
 import {idlFactory as idlFactorySigner} from '$declarations/signer/signer.factory.did';
 import {getAgent} from '$lib/actors/agents.ic';
-import {P2WPKH, SIGNER_PAYMENT_TYPE} from '$lib/canisters/signer.constants';
-import {mapSignerCanisterBtcError, mapSignerCanisterGetEthAddressError} from '$lib/canisters/signer.errors';
-import type {BtcAddress, EthAddress} from '$lib/types/address';
-import type {GetSchnorrPublicKeyParams, SignWithSchnorrParams} from '$lib/types/api';
+import {SIGNER_PAYMENT_TYPE} from '$lib/canisters/signer.constants';
+import {mapSignerCanisterGetEthAddressError} from '$lib/canisters/signer.errors';
+import type {SignWithSchnorrParams} from '$lib/types/api';
 import type {CreateCanisterOptions} from '$lib/types/canister';
 import {mapDerivationPath} from '$lib/utils/signer.utils';
 import {Canister, createServices, fromDefinedNullable} from '@dfinity/utils';
@@ -35,45 +28,6 @@ export class SignerCanister extends Canister<SignerService> {
         return new SignerCanister(canisterId, service, certifiedService);
     }
 
-    getBtcAddress = async ({network}: { network: BitcoinNetwork }): Promise<BtcAddress> => {
-        const {btc_caller_address} = this.caller({
-            certified: true
-        });
-
-        const response = await btc_caller_address({network, address_type: P2WPKH}, [
-            SIGNER_PAYMENT_TYPE
-        ]);
-
-        if ('Ok' in response) {
-            const {
-                Ok: {address}
-            } = response;
-            return address;
-        }
-
-        throw mapSignerCanisterBtcError(response.Err);
-    };
-
-
-    getEthAddress = async (): Promise<EthAddress> => {
-        const {eth_address} = this.caller({
-            certified: true
-        });
-
-        /* Note: `eth_address` gets the Ethereum address of a given principal, defaulting to the caller if not provided. */
-        /*       In OISY, we derive the ETH address from the caller. Therefore, we are not providing a principal as an argument. */
-        const request: EthAddressRequest = {principal: []};
-        const response = await eth_address(request, [SIGNER_PAYMENT_TYPE]);
-
-        if ('Ok' in response) {
-            const {
-                Ok: {address}
-            } = response;
-            return address;
-        }
-
-        throw mapSignerCanisterGetEthAddressError(response.Err);
-    };
 
     signTransaction = async ({
                                  transaction
@@ -100,51 +54,6 @@ export class SignerCanister extends Canister<SignerService> {
         throw mapSignerCanisterGetEthAddressError(response.Err);
     };
 
-
-    signPrehash = async ({hash}: { hash: string }): Promise<string> => {
-        const {eth_sign_prehash} = this.caller({
-            certified: true
-        });
-
-        const request: EthSignPrehashRequest = {hash};
-        const response = await eth_sign_prehash(request, [SIGNER_PAYMENT_TYPE]);
-
-        if ('Ok' in response) {
-            const {
-                Ok: {signature}
-            } = response;
-            return signature;
-        }
-
-        throw mapSignerCanisterGetEthAddressError(response.Err);
-    };
-
-
-    getSchnorrPublicKey = async ({
-                                     derivationPath,
-                                     keyId
-                                 }: GetSchnorrPublicKeyParams): Promise<Uint8Array | number[]> => {
-        const {schnorr_public_key} = this.caller({
-            certified: true
-        });
-
-        const response = await schnorr_public_key(
-            {
-                key_id: keyId,
-                canister_id: [],
-                derivation_path: mapDerivationPath(derivationPath)
-            },
-            [SIGNER_PAYMENT_TYPE]
-        );
-
-        if ('Ok' in response) {
-            const {public_key} = fromDefinedNullable(response.Ok);
-            return public_key;
-        }
-
-        // TODO: map error like the other methods when SchnorrPublicKeyError is exposed in the Signer repo
-        throw response.Err;
-    };
 
     signWithSchnorr = async ({
                                  message,
