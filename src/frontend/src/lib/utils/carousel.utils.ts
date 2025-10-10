@@ -67,34 +67,3 @@ export const extendCarouselSliderFrame = ({
 		)
 	);
 };
-
-/**
- * Update visible part of the provided slider frame.
- */
-export const moveSlider = ({
-	animateTo,
-	sliderFrame,
-	withTransition,
-	duration,
-	easing
-}: {
-	animateTo: number;
-	duration: number;
-	easing: string;
-	withTransition: boolean;
-} & CommonParams): void => {
-	if (isNullish(sliderFrame)) {
-		return;
-	}
-
-	const transitionDisabled =
-		sliderFrame.style.transition === '' || sliderFrame.style.transition === 'none';
-
-	if (transitionDisabled && withTransition) {
-		sliderFrame.style.transition = `all ${duration}ms ${easing}`;
-	} else if (!transitionDisabled && !withTransition) {
-		sliderFrame.style.transition = 'none';
-	}
-
-	sliderFrame.style.transform = `translate3d(${animateTo}px, 0, 0)`;
-};

@@ -13,4 +13,3 @@ export interface IcCkWorkerInitResult {
 	destroy: () => void;
 }
 
-export type IcCkWorker = (params: IcCkWorkerParams) => Promise<IcCkWorkerInitResult>;

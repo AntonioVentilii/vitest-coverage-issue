@@ -1,5 +1,4 @@
 import type { ActorMethod } from '@dfinity/agent';
-import type { IDL } from '@dfinity/candid';
 import type { Principal } from '@dfinity/principal';
 
 export type AddDappSettingsError =
@@ -54,7 +53,6 @@ export type ApproveError =
 	| { TooOld: null }
 	| { Expired: { ledger_time: bigint } }
 	| { InsufficientFunds: { balance: bigint } };
-export type Arg = { Upgrade: null } | { Init: InitArg };
 export type ArgumentValue = { Int: number } | { String: string };
 export type BitcoinNetwork = { mainnet: null } | { regtest: null } | { testnet: null };
 export type BtcAddPendingTransactionError = {
@@ -254,14 +252,6 @@ export type ImageMimeType =
 	| { 'image/png': null }
 	| { 'image/jpeg': null }
 	| { 'image/webp': null };
-export interface InitArg {
-	derivation_origin: [] | [string];
-	ecdsa_key_name: string;
-	cfs_canister_id: [] | [Principal];
-	allowed_callers: Array<Principal>;
-	supported_credentials: [] | [Array<SupportedCredential>];
-	ic_root_key_der: [] | [Uint8Array | number[]];
-}
 export interface NetworkSettings {
 	enabled: boolean;
 	is_testnet: boolean;
@@ -316,7 +306,6 @@ export interface SetShowTestnetsRequest {
 	current_user_version: [] | [bigint];
 	show_testnets: boolean;
 }
-export type SetTestnetsSettingsError = { VersionMismatch: null } | { UserNotFound: null };
 export type SetUserShowTestnetsResult = { Ok: null } | { Err: UpdateAgreementsError };
 export interface Settings {
 	networks: NetworksSettings;
@@ -485,5 +474,3 @@ export interface _SERVICE {
 		SetUserShowTestnetsResult
 	>;
 }
-export declare const idlFactory: IDL.InterfaceFactory;
-export declare const init: (args: { IDL: typeof IDL }) => IDL.Type[];

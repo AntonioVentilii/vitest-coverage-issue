@@ -214,4 +214,3 @@ const initAuthStore = (): AuthStore => {
 
 export const authStore = initAuthStore();
 
-export const authRemainingTimeStore = writable<number | undefined>(undefined);

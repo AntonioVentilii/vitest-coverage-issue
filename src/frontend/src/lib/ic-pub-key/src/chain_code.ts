@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 /* v8 ignore start */
 
-import { blobDecode, blobEncode } from './encoding.js';
+import { blobDecode } from './encoding.js';
 
 /**
  * A chain code is a 32 byte array
@@ -33,9 +33,7 @@ export class ChainCode {
 		return new ChainCode(new Uint8Array(bytes));
 	}
 
-	static fromArray(array: number[]): ChainCode {
-		return new ChainCode(new Uint8Array(array));
-	}
+
 
 	/**
 	 * @returns The chain code as a 64 character hex string.
@@ -53,12 +51,7 @@ export class ChainCode {
 		return new ChainCode(blobDecode(blob));
 	}
 
-	/**
-	 * @returns The chain code as a Candid blob.
-	 */
-	toBlob(): string {
-		return blobEncode(this.bytes);
-	}
+
 
 	/**
 	 * Creates a new ChainCode from a string.
