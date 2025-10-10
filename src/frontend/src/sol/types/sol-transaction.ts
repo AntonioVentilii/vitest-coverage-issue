@@ -1,7 +1,7 @@
 import type {solTransactionTypes} from '$lib/schema/transaction.schema';
 import type {SolAddress} from '$lib/types/address';
 import type {TransactionId, TransactionType, TransactionUiCommon} from '$lib/types/transaction';
-import type {Commitment, GetSignaturesForAddressApi, Signature} from '@solana/kit';
+import type {Commitment, Signature} from '@solana/kit';
 
 export type SolTransactionType = Extract<
     TransactionType,
