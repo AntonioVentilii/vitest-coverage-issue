@@ -221,5 +221,3 @@ export const initSignerContext = (): SignerContext => {
 		}
 	};
 };
-
-export const SIGNER_CONTEXT_KEY = Symbol('signer');

@@ -1,9 +1,5 @@
-import type { AccountInfo, ParsedAccount } from '$declarations/sol_rpc/sol_rpc.did';
 import type { Address, GetAccountInfoApi } from '@solana/kit';
 
-export type ParsedAccountInfo = Omit<AccountInfo, 'data'> & {
-	data: { json: Omit<ParsedAccount, 'parsed'> & { parsed: { info: object } } };
-};
 
 type ReturnTypeWithArgs<TFunc, TArgs extends unknown[]> = TFunc extends {
 	(...args: infer A1): infer R1;

@@ -106,22 +106,3 @@ export const enabledSplTokens: Readable<SplTokenToggleable[]> = derived(
 		...$enabledSplCustomTokens
 	]
 );
-
-export const enabledSplTokenAddresses: Readable<SplTokenAddress[]> = derived(
-	[enabledSplTokens],
-	([$enabledSplTokens]) => [
-		...new Map(
-			$enabledSplTokens.map(({ address, owner }) => [`${address}|${owner}`, address])
-		).values()
-	]
-);
-
-export const splCustomTokensInitialized: Readable<boolean> = derived(
-	[splCustomTokensStore],
-	([$splCustomTokensStore]) => $splCustomTokensStore !== undefined
-);
-
-export const splCustomTokensNotInitialized: Readable<boolean> = derived(
-	[splCustomTokensInitialized],
-	([$splCustomTokensInitialized]) => !$splCustomTokensInitialized
-);

@@ -12,12 +12,7 @@ export type SolParsedTokenInstruction = ParsedTokenInstruction<SolAddress>;
 export type SolParsedToken2022Instruction = ParsedToken2022Instruction<SolAddress>;
 export type SolParsedAtaInstruction = ParsedAssociatedTokenInstruction<SolAddress>;
 
-export type SolParsedInstruction =
-	| SolParsedComputeBudgetInstruction
-	| SolParsedSystemInstruction
-	| SolParsedTokenInstruction
-	| SolParsedToken2022Instruction
-	| SolParsedAtaInstruction;
+
 
 export type SolInstruction = Instruction;
 

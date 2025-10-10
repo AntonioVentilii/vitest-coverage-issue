@@ -6,7 +6,6 @@ import type {
 	TransactionVersion
 } from '@solana/kit';
 
-export class SolAmountAssertionError extends Error {}
 
 export type SolTransactionMessage = TransactionMessageWithBlockhashLifetime &
 	TransactionMessageWithFeePayer<SolAddress> &

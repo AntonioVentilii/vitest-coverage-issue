@@ -8,10 +8,6 @@ import { hmac } from '@noble/hashes/hmac';
 import { sha512 } from '@noble/hashes/sha2';
 import { blobDecode, blobEncode } from '../encoding.js';
 
-/**
- * The response type for the ICP management canister's `ecdsa_public_key` method.
- */
-export type EcdsaPublicKeyResponse = PublicKeyWithChainCode;
 
 /**
  * A public key with its chain code.

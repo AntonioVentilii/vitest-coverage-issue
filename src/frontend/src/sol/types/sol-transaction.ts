@@ -47,12 +47,7 @@ export type SolSignedTransaction = Transaction &
 	FullySignedTransaction &
 	TransactionWithBlockhashLifetime;
 
-export interface MappedSolTransaction {
-	amount: bigint | undefined;
-	payer?: SolAddress;
-	source?: SolAddress;
-	destination?: SolAddress;
-}
+
 
 export interface SolMappedTransaction {
 	value: bigint;

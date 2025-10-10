@@ -1,5 +1,4 @@
 import type { OptionSolAddress, SolAddress } from '$lib/types/address';
-import { ATA_SIZE } from '$sol/constants/ata.constants';
 import { solanaHttpRpc } from '$sol/providers/sol-rpc.providers';
 import type { SolanaNetworkType } from '$sol/types/network';
 import type { SolanaGetAccountInfoReturn } from '$sol/types/sol-rpc';
@@ -160,39 +159,7 @@ export const loadTokenAccount = async ({
 	return accountAddress;
 };
 
-/**
- * Fetches the cost in lamports of creating a new Associated Token Account (ATA).
- *
- * The cost is equivalent to the rent-exempt cost for the size of an ATA.
- * https://solana.com/docs/core/fees#rent-exempt
- */
-export const getSolCreateAccountFee = async (network: SolanaNetworkType): Promise<Lamports> => {
-	const { getMinimumBalanceForRentExemption } = solanaHttpRpc(network);
-	return await getMinimumBalanceForRentExemption(ATA_SIZE).send();
-};
 
-/**
- * Calculates the maximum among the most recent prioritization fees in microlamports.
- *
- * It is useful to have an estimate of how much a transaction could cost to be processed without expiring.
- */
-export const estimatePriorityFee = async ({
-	network,
-	addresses
-}: {
-	network: SolanaNetworkType;
-	addresses?: SolAddress[];
-}): Promise<bigint> => {
-	const { getRecentPrioritizationFees } = solanaHttpRpc(network);
-	const fees = await getRecentPrioritizationFees(
-		nonNullish(addresses) ? addresses.map(solAddress) : undefined
-	).send();
-
-	return fees.reduce<bigint>(
-		(max, { prioritizationFee: current }) => (BigInt(current) > max ? BigInt(current) : max),
-		0n
-	);
-};
 
 const addressToAccountInfo = new Map<
 	SolanaNetworkType,
