@@ -7,7 +7,6 @@ import {
     isNetworkIdBitcoin,
     isNetworkIdBsc,
     isNetworkIdEthereum,
-    isNetworkIdICP,
     isNetworkIdPolygon,
     isNetworkIdSolana
 } from '$lib/utils/network.utils';
@@ -27,10 +26,6 @@ export const selectedNetwork: Readable<Network | undefined> = derived(
     ([$networks, $networkId]) => $networks.find(({id}) => id === $networkId)
 );
 
-
-export const networkICP: Readable<boolean> = derived([networkId], ([$networkId]) =>
-    isNetworkIdICP($networkId)
-);
 
 export const networkBitcoin: Readable<boolean> = derived([networkId], ([$networkId]) =>
     isNetworkIdBitcoin($networkId)

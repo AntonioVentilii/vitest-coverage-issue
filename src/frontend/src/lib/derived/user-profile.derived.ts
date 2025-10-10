@@ -1,10 +1,4 @@
-import type {
-    Agreements,
-    ExperimentalFeaturesSettings,
-    NetworksSettings,
-    Settings,
-    UserProfile
-} from '$declarations/backend/backend.did';
+import type {NetworksSettings, Settings, UserProfile} from '$declarations/backend/backend.did';
 import {userProfileStore} from '$lib/stores/user-profile.store';
 import {fromNullishNullable} from '@dfinity/utils';
 import {derived, type Readable} from 'svelte/store';
@@ -24,12 +18,4 @@ export const userSettings: Readable<Settings | undefined> = derived(
 export const userSettingsNetworks: Readable<NetworksSettings | undefined> = derived(
     [userSettings],
     ([$userSettings]) => $userSettings?.networks
-);
-
-export const userExperimentalFeaturesSettings: Readable<ExperimentalFeaturesSettings | undefined> =
-    derived([userSettings], ([$userSettings]) => $userSettings?.experimental_features);
-
-export const userAgreementsData: Readable<Agreements | undefined> = derived(
-    [userProfile],
-    ([$userProfile]) => fromNullishNullable($userProfile?.agreements)
 );
