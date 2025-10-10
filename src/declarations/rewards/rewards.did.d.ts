@@ -167,18 +167,8 @@ export type NewVipRewardResponse =
 	| { NotImportantPerson: null }
 	| { UnknownCampaign: null }
 	| { VipReward: VipReward };
-export type PublicAirdropStatus =
-	| {
-			Ongoing: { remaining_airdrops: bigint; total_airdrops: bigint };
-	  }
-	| { Completed: { total_airdrops: bigint } }
-	| { Upcoming: null };
-export interface PublicSprinkleInfo {
-	timestamp_ns: bigint;
-	total_amount: bigint;
-	n_sprinkled_users: bigint;
-	ledger: Principal;
-}
+
+
 export interface RefereeConfig {
 	referees_per_referrer: number;
 	awards: Array<TokenConfig>;
@@ -219,13 +209,8 @@ export type SetReferrerError =
 	| { NotNewUser: null }
 	| { AnonymousCaller: null };
 export type SetReferrerResponse = { Ok: null } | { Err: SetReferrerError };
-export interface SetSprinkleTimestampArg {
-	total_sprinkle_amount: bigint;
-	min_account_amount: bigint;
-	user_sprinkle_amount: bigint;
-	timestamp: bigint;
-	ledger_config: LedgerConfig;
-}
+
+
 export interface SprinkleEvent {
 	n_sprinkled_users: bigint;
 	timestamp_scheduled: bigint;
@@ -248,13 +233,8 @@ export interface StatsValue {
 	user_count: bigint;
 	assets_usd: number;
 }
-export interface StatusResponse {
-	latest_oisy_user_timestamp: [] | [bigint];
-	last_block_fetch_timestamp: Array<[Principal, bigint]>;
-	num_buffered_blocks: bigint;
-	processed_block_height: Array<[Principal, bigint]>;
-	sprinkle_status: SprinkleStatus;
-}
+
+
 export interface TokenConfig {
 	amount_per_user: bigint;
 	account: Account;

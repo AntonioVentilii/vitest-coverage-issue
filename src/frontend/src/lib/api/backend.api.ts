@@ -153,12 +153,7 @@ export const getPendingBtcTransactions = async ({
 
 
 
-export const createPowChallenge = async ({
-	identity
-}: CanisterApiFunctionParams): Promise<CreateChallengeResponse> => {
-	const { createPowChallenge } = await backendCanister({ identity });
-	return createPowChallenge();
-};
+
 
 
 export const allowSigning = async ({
@@ -204,13 +199,7 @@ export const updateContact = async ({
 	return updateContact(contact);
 };
 
-export const deleteContact = async ({
-	contactId,
-	identity
-}: CanisterApiFunctionParams<DeleteContactParams>): Promise<bigint> => {
-	const { deleteContact } = await backendCanister({ identity });
-	return deleteContact(contactId);
-};
+
 
 export const updateUserExperimentalFeatureSettings = async ({
 	identity,

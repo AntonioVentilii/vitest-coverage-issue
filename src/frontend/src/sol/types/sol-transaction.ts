@@ -19,8 +19,3 @@ export interface SolTransactionUi extends TransactionUiCommon {
     fromOwner?: SolAddress;
     toOwner?: SolAddress;
 }
-
-
-export type SolSignature = ReturnType<
-    GetSignaturesForAddressApi['getSignaturesForAddress']
->[number];

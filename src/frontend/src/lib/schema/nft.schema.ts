@@ -38,9 +38,3 @@ export const NftSchema = z.object({
 	...NftMetadataSchema.shape,
 	collection: NftCollectionSchema
 });
-
-export const OwnedContractSchema = z.object({
-	...TokenSchema.pick({ standard: true }).shape,
-	address: z.string(),
-	isSpam: z.boolean()
-});

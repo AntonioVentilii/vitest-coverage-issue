@@ -181,12 +181,7 @@ export class Sec1EncodedPublicKey {
         return Buffer.from(this.bytes).toString('hex');
     }
 
-    /**
-     * @returns The public key as a Candid blob.
-     */
-    toBlob(): string {
-        return blobEncode(this.bytes);
-    }
+
 }
 
 /**
@@ -243,19 +238,7 @@ export class ChainCode {
         return ChainCode.fromBlob(str);
     }
 
-    /**
-     * @returns The chain code as a 64 character hex string.
-     */
-    toHex(): string {
-        return Buffer.from(this.bytes).toString('hex');
-    }
 
-    /**
-     * @returns The chain code as a Candid blob.
-     */
-    toBlob(): string {
-        return blobEncode(this.bytes);
-    }
 
 
 }

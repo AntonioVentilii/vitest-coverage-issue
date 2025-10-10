@@ -6,7 +6,7 @@ export interface Account {
 	owner: Principal;
 	subaccount: [] | [Uint8Array | number[]];
 }
-export type Arg = { Upgrade: null } | { Init: InitArg };
+
 export type BitcoinAddressType = { P2WPKH: null };
 export type BitcoinNetwork = { mainnet: null } | { regtest: null } | { testnet: null };
 export interface BtcTxOutput {
@@ -156,14 +156,8 @@ export type PaymentType =
 	| { CallerPaysIcrc2Cycles: null }
 	| { CallerPaysIcrc2Tokens: CallerPaysIcrc2Tokens }
 	| { PatronPaysIcrc2Cycles: Account };
-export type RejectionCode =
-	| { NoError: null }
-	| { CanisterError: null }
-	| { SysTransient: null }
-	| { DestinationInvalid: null }
-	| { Unknown: null }
-	| { SysFatal: null }
-	| { CanisterReject: null };
+
+
 export type RejectionCode_1 =
 	| { NoError: null }
 	| { CanisterError: null }

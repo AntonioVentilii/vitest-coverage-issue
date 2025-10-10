@@ -56,7 +56,7 @@ export const PostMessageRequestSchema = z.enum(POST_MESSAGE_REQUESTS);
 
 export const PostMessageDataRequestSchema = z.never();
 export const PostMessageDataResponseSchema = z.strictObject({});
-export const PostMessageDataResponseLooseSchema = z.looseObject({});
+
 
 export const PostMessageDataRequestExchangeTimerSchema = z.object({
 	currentCurrency: CurrencySchema,
@@ -80,9 +80,8 @@ export const PostMessageDataRequestDip20Schema = z.object({
 	canisterId: CanisterIdTextSchema
 });
 
-export const PostMessageDataRequestIcpSchema = z.object({
-	indexCanisterId: CanisterIdTextSchema
-});
+
+
 
 export const PostMessageDataRequestIcCkSchema = IcCkMetadataSchema.pick({
 	minterCanisterId: true
@@ -104,13 +103,8 @@ export const PostMessageDataRequestBtcSchema = z.object({
 	minterCanisterId: z.custom<OptionCanisterIdText>().optional()
 });
 
-export const PostMessageDataRequestSolSchema = z.object({
-	// TODO: generate zod schema for CertifiedData
-	address: z.custom<CertifiedData<SolAddress>>(),
-	solanaNetwork: z.custom<SolanaNetworkType>(),
-	tokenAddress: z.custom<SplTokenAddress>().optional(),
-	tokenOwnerAddress: z.custom<SolAddress>().optional()
-});
+
+
 
 export const PostMessageResponseStatusSchema = z.enum([
 	'syncIcWalletStatus',

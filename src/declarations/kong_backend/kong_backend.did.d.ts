@@ -185,7 +185,7 @@ export interface MessagesReply {
 	message: string;
 	message_id: bigint;
 }
-export type MessagesResult = { Ok: Array<MessagesReply> } | { Err: string };
+
 export interface PoolExpectedBalance {
 	balance: bigint;
 	kong_fee: bigint;
@@ -376,14 +376,14 @@ export interface TransferIdReply {
 	transfer: TransferReply;
 }
 export type TransferReply = { IC: ICTransferReply };
-export type TransfersResult = { Ok: Array<TransferIdReply> } | { Err: string };
+
 export type TxId = { TransactionId: string } | { BlockIndex: bigint };
 export type TxsReply =
 	| { AddLiquidity: AddLiquidityReply }
 	| { Swap: SwapReply }
 	| { AddPool: AddPoolReply }
 	| { RemoveLiquidity: RemoveLiquidityReply };
-export type TxsResult = { Ok: Array<TxsReply> } | { Err: string };
+
 export interface UpdateTokenArgs {
 	token: string;
 }
