@@ -24,9 +24,6 @@ export const TRACK_COUNT_MANAGE_TOKENS_SAVE_ERROR = 'manage_tokens_save_error';
 // I18n
 export const TRACK_CHANGE_LANGUAGE = 'change_language';
 
-// Currency
-export const TRACK_CHANGE_CURRENCY = 'change_currency';
-
 
 // Analytics event source routes
 export const MANAGE_TOKENS_MODAL_ROUTE = 'manage-tokens-modal';
