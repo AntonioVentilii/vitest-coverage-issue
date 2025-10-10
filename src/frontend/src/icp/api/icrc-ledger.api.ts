@@ -5,11 +5,9 @@ import type {CanisterApiFunctionParams, CanisterIdText} from '$lib/types/caniste
 import type {OptionIdentity} from '$lib/types/identity';
 import type {Identity} from '@dfinity/agent';
 import {
-    type GetBlocksParams,
     type IcrcAccount,
     type IcrcAllowance,
     type IcrcBlockIndex,
-    type IcrcGetBlocksResult,
     IcrcLedgerCanister,
     type IcrcSubaccount,
     type IcrcTokenMetadataResponse,
@@ -187,22 +185,6 @@ const toAccount = ({
     owner,
     subaccount: toNullable(subaccount)
 });
-
-export const getBlocks = async ({
-                                    certified = true,
-                                    identity,
-                                    ledgerCanisterId,
-                                    ...rest
-                                }: {
-    identity: OptionIdentity;
-    ledgerCanisterId: CanisterIdText;
-} & GetBlocksParams): Promise<IcrcGetBlocksResult> => {
-    assertNonNullish(identity);
-
-    const {getBlocks} = await ledgerCanister({identity, ledgerCanisterId});
-
-    return getBlocks({certified, ...rest});
-};
 
 
 const ledgerCanister = async ({

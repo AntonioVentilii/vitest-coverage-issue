@@ -11,7 +11,6 @@ export const TRACK_SIGN_OUT_WITH_WARNING = 'sign_out_with_warning';
 export const TRACK_COUNT_ETH_LOADING_BALANCE_ERROR = 'eth_loading_balance_error';
 export const TRACK_COUNT_ETH_LOADING_TRANSACTIONS_ERROR = 'eth_loading_transactions_error';
 export const TRACK_COUNT_ETH_PENDING_TRANSACTIONS_ERROR = 'eth_pending_transactions_error';
-export const TRACK_ETH_ESTIMATE_GAS_ERROR = 'eth_estimate_gas_error';
 
 
 export const TRACK_COUNT_IC_LOADING_ICRC_CANISTER_ERROR = 'ic_loading_icrc_canister_error';

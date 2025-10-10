@@ -42,11 +42,6 @@ export class NftError extends Error {
     }
 }
 
-export class InvalidTokenUri extends NftError {
-}
-
-export class InvalidMetadataImageUrl extends NftError {
-}
 
 export class AuthClientNotInitializedError extends Error {
 }

@@ -1,10 +1,6 @@
 import type {icpTransactionTypes} from '$lib/schema/transaction.schema';
 import type {TransactionId, TransactionType} from '$lib/types/transaction';
 
-export interface IcTransactionAddOnsInfo {
-    transferToSelf?: 'send' | 'receive';
-}
-
 
 export type IcTransactionType = Extract<
     TransactionType,
