@@ -3,16 +3,6 @@ import type {ContactAddressUiWithId, ExtendedAddressContactUi} from '$lib/types/
 import type {Network} from '$lib/types/network';
 import type {Token, TokenStandard, TokenUi} from '$lib/types/token';
 
-export interface ChatMessageContent {
-    text?: string;
-    context?: string;
-    retryable?: boolean;
-    tool?: {
-        calls: ToolCall[];
-        results: ToolResult[];
-    };
-}
-
 
 export interface ToolCallArgument {
     name: string;
