@@ -1,6 +1,6 @@
-import { parseBoolEnvVar } from '$lib/utils/env.utils';
-import { Principal } from '@dfinity/principal';
-import { nonNullish } from '@dfinity/utils';
+import {parseBoolEnvVar} from '$lib/utils/env.utils';
+import {Principal} from '@dfinity/principal';
+import {nonNullish} from '@dfinity/utils';
 
 
 export const MODE = VITE_DFX_NETWORK;
@@ -19,94 +19,93 @@ const MAINNET_DOMAIN = 'icp0.io';
 export const REPLICA_HOST = LOCAL ? 'http://localhost:4943/' : 'https://icp-api.io';
 
 export const INTERNET_IDENTITY_CANISTER_ID = LOCAL
-	? import.meta.env.VITE_LOCAL_INTERNET_IDENTITY_CANISTER_ID
-	: undefined;
+    ? import.meta.env.VITE_LOCAL_INTERNET_IDENTITY_CANISTER_ID
+    : undefined;
 
 export const INTERNET_IDENTITY_ORIGIN = LOCAL
-	? `http://${INTERNET_IDENTITY_CANISTER_ID}.localhost:4943`
-	: 'https://identity.internetcomputer.org';
+    ? `http://${INTERNET_IDENTITY_CANISTER_ID}.localhost:4943`
+    : 'https://identity.internetcomputer.org';
 
 export const POUH_ISSUER_CANISTER_ID = LOCAL
-	? import.meta.env.VITE_LOCAL_POUH_ISSUER_CANISTER_ID
-	: STAGING
-		? import.meta.env.VITE_STAGING_POUH_ISSUER_CANISTER_ID
-		: BETA
-			? import.meta.env.VITE_BETA_POUH_ISSUER_CANISTER_ID
-			: PROD
-				? import.meta.env.VITE_IC_POUH_ISSUER_CANISTER_ID
-				: undefined;
+    ? import.meta.env.VITE_LOCAL_POUH_ISSUER_CANISTER_ID
+    : STAGING
+        ? import.meta.env.VITE_STAGING_POUH_ISSUER_CANISTER_ID
+        : BETA
+            ? import.meta.env.VITE_BETA_POUH_ISSUER_CANISTER_ID
+            : PROD
+                ? import.meta.env.VITE_IC_POUH_ISSUER_CANISTER_ID
+                : undefined;
 
 export const POUH_ISSUER_ORIGIN = nonNullish(POUH_ISSUER_CANISTER_ID)
-	? LOCAL
-		? `http://${POUH_ISSUER_CANISTER_ID}.localhost:4943`
-		: STAGING
-			? `https://${POUH_ISSUER_CANISTER_ID}.${MAINNET_DOMAIN}`
-			: // BETA and PROD
-				'https://id.decideai.xyz'
-	: undefined;
+    ? LOCAL
+        ? `http://${POUH_ISSUER_CANISTER_ID}.localhost:4943`
+        : STAGING
+            ? `https://${POUH_ISSUER_CANISTER_ID}.${MAINNET_DOMAIN}`
+            : // BETA and PROD
+            'https://id.decideai.xyz'
+    : undefined;
 
 export const BACKEND_CANISTER_ID = LOCAL
-	? import.meta.env.VITE_LOCAL_BACKEND_CANISTER_ID
-	: TEST_FE || AUDIT || E2E
-		? (import.meta.env[`VITE_${MODE.toUpperCase()}_BACKEND_CANISTER_ID`] ??
-			import.meta.env.VITE_STAGING_BACKEND_CANISTER_ID)
-		: STAGING
-			? import.meta.env.VITE_STAGING_BACKEND_CANISTER_ID
-			: BETA
-				? import.meta.env.VITE_BETA_BACKEND_CANISTER_ID
-				: import.meta.env.VITE_IC_BACKEND_CANISTER_ID;
+    ? import.meta.env.VITE_LOCAL_BACKEND_CANISTER_ID
+    : TEST_FE || AUDIT || E2E
+        ? (import.meta.env[`VITE_${MODE.toUpperCase()}_BACKEND_CANISTER_ID`] ??
+            import.meta.env.VITE_STAGING_BACKEND_CANISTER_ID)
+        : STAGING
+            ? import.meta.env.VITE_STAGING_BACKEND_CANISTER_ID
+            : BETA
+                ? import.meta.env.VITE_BETA_BACKEND_CANISTER_ID
+                : import.meta.env.VITE_IC_BACKEND_CANISTER_ID;
 
 export const BACKEND_CANISTER_PRINCIPAL = Principal.fromText(BACKEND_CANISTER_ID);
 
 export const REWARDS_CANISTER_ID = LOCAL
-	? import.meta.env.VITE_LOCAL_REWARDS_CANISTER_ID
-	: STAGING
-		? import.meta.env.VITE_STAGING_REWARDS_CANISTER_ID
-		: BETA
-			? import.meta.env.VITE_BETA_REWARDS_CANISTER_ID
-			: import.meta.env.VITE_IC_REWARDS_CANISTER_ID;
+    ? import.meta.env.VITE_LOCAL_REWARDS_CANISTER_ID
+    : STAGING
+        ? import.meta.env.VITE_STAGING_REWARDS_CANISTER_ID
+        : BETA
+            ? import.meta.env.VITE_BETA_REWARDS_CANISTER_ID
+            : import.meta.env.VITE_IC_REWARDS_CANISTER_ID;
 
 export const SIGNER_CANISTER_ID = LOCAL
-	? import.meta.env.VITE_LOCAL_SIGNER_CANISTER_ID
-	: STAGING
-		? import.meta.env.VITE_STAGING_SIGNER_CANISTER_ID
-		: BETA
-			? import.meta.env.VITE_BETA_SIGNER_CANISTER_ID
-			: import.meta.env.VITE_IC_SIGNER_CANISTER_ID;
+    ? import.meta.env.VITE_LOCAL_SIGNER_CANISTER_ID
+    : STAGING
+        ? import.meta.env.VITE_STAGING_SIGNER_CANISTER_ID
+        : BETA
+            ? import.meta.env.VITE_BETA_SIGNER_CANISTER_ID
+            : import.meta.env.VITE_IC_SIGNER_CANISTER_ID;
 
 export const KONG_BACKEND_CANISTER_ID = LOCAL
-	? import.meta.env.VITE_LOCAL_KONG_BACKEND_CANISTER_ID
-	: STAGING
-		? import.meta.env.VITE_STAGING_KONG_BACKEND_CANISTER_ID
-		: BETA
-			? import.meta.env.VITE_BETA_KONG_BACKEND_CANISTER_ID
-			: import.meta.env.VITE_IC_KONG_BACKEND_CANISTER_ID;
+    ? import.meta.env.VITE_LOCAL_KONG_BACKEND_CANISTER_ID
+    : STAGING
+        ? import.meta.env.VITE_STAGING_KONG_BACKEND_CANISTER_ID
+        : BETA
+            ? import.meta.env.VITE_BETA_KONG_BACKEND_CANISTER_ID
+            : import.meta.env.VITE_IC_KONG_BACKEND_CANISTER_ID;
 
 export const ICP_SWAP_FACTORY_CANISTER_ID = LOCAL
-	? import.meta.env.VITE_LOCAL_ICP_SWAP_FACTORY_CANISTER_ID
-	: STAGING
-		? import.meta.env.VITE_STAGING_ICP_SWAP_FACTORY_CANISTER_ID
-		: BETA
-			? import.meta.env.VITE_BETA_ICP_SWAP_FACTORY_CANISTER_ID
-			: import.meta.env.VITE_IC_ICP_SWAP_FACTORY_CANISTER_ID;
+    ? import.meta.env.VITE_LOCAL_ICP_SWAP_FACTORY_CANISTER_ID
+    : STAGING
+        ? import.meta.env.VITE_STAGING_ICP_SWAP_FACTORY_CANISTER_ID
+        : BETA
+            ? import.meta.env.VITE_BETA_ICP_SWAP_FACTORY_CANISTER_ID
+            : import.meta.env.VITE_IC_ICP_SWAP_FACTORY_CANISTER_ID;
 
 export const XTC_LEDGER_CANISTER_ID = LOCAL
-	? import.meta.env.VITE_LOCAL_XTC_LEDGER_CANISTER_ID
-	: STAGING
-		? import.meta.env.VITE_STAGING_XTC_LEDGER_CANISTER_ID
-		: BETA
-			? import.meta.env.VITE_BETA_XTC_LEDGER_CANISTER_ID
-			: import.meta.env.VITE_IC_XTC_LEDGER_CANISTER_ID;
-
+    ? import.meta.env.VITE_LOCAL_XTC_LEDGER_CANISTER_ID
+    : STAGING
+        ? import.meta.env.VITE_STAGING_XTC_LEDGER_CANISTER_ID
+        : BETA
+            ? import.meta.env.VITE_BETA_XTC_LEDGER_CANISTER_ID
+            : import.meta.env.VITE_IC_XTC_LEDGER_CANISTER_ID;
 
 
 export const LLM_CANISTER_ID = LOCAL
-	? import.meta.env.VITE_LOCAL_LLM_CANISTER_ID
-	: STAGING
-		? import.meta.env.VITE_STAGING_LLM_CANISTER_ID
-		: BETA
-			? import.meta.env.VITE_BETA_LLM_CANISTER_ID
-			: import.meta.env.VITE_IC_LLM_CANISTER_ID;
+    ? import.meta.env.VITE_LOCAL_LLM_CANISTER_ID
+    : STAGING
+        ? import.meta.env.VITE_STAGING_LLM_CANISTER_ID
+        : BETA
+            ? import.meta.env.VITE_BETA_LLM_CANISTER_ID
+            : import.meta.env.VITE_IC_LLM_CANISTER_ID;
 
 // How long the delegation identity should remain valid?
 // e.g. BigInt(60 * 60 * 1000 * 1000 * 1000) = 1 hour in nanoseconds
@@ -114,10 +113,10 @@ export const AUTH_MAX_TIME_TO_LIVE = BigInt(60 * 60 * 1000 * 1000 * 1000);
 
 export const AUTH_ALTERNATIVE_ORIGINS = import.meta.env.VITE_AUTH_ALTERNATIVE_ORIGINS;
 export const AUTH_DERIVATION_ORIGIN = BETA
-	? 'https://oisy.com'
-	: STAGING
-		? 'https://tewsx-xaaaa-aaaad-aadia-cai.icp0.io'
-		: undefined;
+    ? 'https://oisy.com'
+    : STAGING
+        ? 'https://tewsx-xaaaa-aaaad-aadia-cai.icp0.io'
+        : undefined;
 
 export const AUTH_POPUP_WIDTH = 576;
 export const AUTH_POPUP_HEIGHT = 625;
@@ -154,7 +153,6 @@ export const EIGHT_DECIMALS = 8;
 export const ZERO = 0n;
 
 
-
 // Wallets
 export const WALLET_TIMER_INTERVAL_MILLIS = (SECONDS_IN_MINUTE / 2) * 1000; // 30 seconds in milliseconds
 export const WALLET_PAGINATION = 10n;
@@ -162,8 +160,3 @@ export const WALLET_PAGINATION = 10n;
 
 // Micro transaction
 export const MICRO_TRANSACTION_USD_THRESHOLD = 0.01;
-
-
-
-// Contact validation
-export const CONTACT_MAX_LABEL_LENGTH = 50;

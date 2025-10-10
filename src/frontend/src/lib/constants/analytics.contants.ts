@@ -7,7 +7,6 @@ export const TRACK_SIGN_OUT_ERROR = 'sign_out_error';
 export const TRACK_SIGN_OUT_WITH_WARNING = 'sign_out_with_warning';
 
 
-
 // Ethereum
 export const TRACK_COUNT_ETH_LOADING_BALANCE_ERROR = 'eth_loading_balance_error';
 export const TRACK_COUNT_ETH_LOADING_TRANSACTIONS_ERROR = 'eth_loading_transactions_error';
@@ -16,16 +15,14 @@ export const TRACK_ETH_ESTIMATE_GAS_ERROR = 'eth_estimate_gas_error';
 
 // Internet Computer
 export const TRACK_COUNT_IC_LOADING_TRANSACTIONS_ERROR = 'ic_loading_transactions_error';
-export const TRACK_COUNT_CKETH_LOADING_MINTER_INFO_ERROR = 'ic_cketh_load_minter_info_error';
-export const TRACK_COUNT_IC_LOADING_ICRC_CANISTER_ERROR = 'ic_loading_icrc_canister_error';
 
+export const TRACK_COUNT_IC_LOADING_ICRC_CANISTER_ERROR = 'ic_loading_icrc_canister_error';
 
 
 // Manage Tokens
 export const TRACK_COUNT_MANAGE_TOKENS_ENABLE_SUCCESS = 'manage_tokens_enable_success';
 export const TRACK_COUNT_MANAGE_TOKENS_DISABLE_SUCCESS = 'manage_tokens_disable_success';
 export const TRACK_COUNT_MANAGE_TOKENS_SAVE_ERROR = 'manage_tokens_save_error';
-
 
 
 // I18n
@@ -56,4 +53,3 @@ export const TRACK_INFURA_GET_LOGS_CALL = 'infura_get_logs_call';
 
 export const AI_ASSISTANT_TOOL_EXECUTION_TRIGGERED = 'ai_assistant_tool_execution_triggered';
 export const AI_ASSISTANT_TEXTUAL_RESPONSE_RECEIVED = 'ai_assistant_textual_response_received';
-
