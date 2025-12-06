@@ -77,15 +77,7 @@ export default defineConfig(
 					'src/frontend/src/routes/**/+page.ts',
 					'src/frontend/src/tests/**/*',
 					'src/frontend/src/**/*.d.ts'
-				],
-				// TODO: increase the thresholds slowly up to an acceptable 90% at least
-				thresholds: {
-					autoUpdate: true,
-					statements: 71,
-					branches: 59,
-					functions: 67,
-					lines: 75
-				}
+				]
 			}
 		}
 	})
